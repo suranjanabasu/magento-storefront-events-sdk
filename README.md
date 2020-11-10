@@ -45,5 +45,5 @@ npm install
 
 # Run tests
 npm test
-npm test:watch # Run tests in watch mode for development
+npm run test:watch # Run tests in watch mode for development
 ```
