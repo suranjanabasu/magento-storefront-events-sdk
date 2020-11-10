@@ -12,7 +12,7 @@ test("data layer should exist", () => {
 });
 
 test("set shopper context", () => {
-  const shopperContext = { flopperId: "test" };
+  const shopperContext = { shopperId: "test" };
 
   expect(window.adobeDataLayer.length).toBe(0);
   MagentoDataLayer.setShopperContext(shopperContext);
