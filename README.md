@@ -36,3 +36,14 @@ MagentoDataLayer.publishAddToCart();
  **/
 MagentoDataLayer.subscribeToAddToCart((event) => {});
 ```
+
+## Usage
+
+```sh
+# Install dependencies
+npm install
+
+# Run tests
+npm test
+npm test:watch # Run tests in watch mode for development
+```
