@@ -1,5 +1,16 @@
 import { MagentoDataLayer } from ".";
-import { ADD_TO_CART } from "./eventNames";
+import {
+  ADD_TO_CART,
+  CUSTOM_URL,
+  INITIATE_CHECKOUT,
+  PAGE_ACTIVITY_SUMMARY,
+  PAGE_VIEW,
+  PRODUCT_PAGE_VIEW,
+  REFERRER_URL,
+  REMOVE_FROM_CART,
+  SIGN_IN,
+  SIGN_OUT,
+} from "./eventNames";
 import { MagentoDataLayerBase } from "./MagentoDataLayerBase";
 
 export default class MagentoDataLayerPublishManager extends MagentoDataLayerBase {
@@ -9,9 +20,72 @@ export default class MagentoDataLayerPublishManager extends MagentoDataLayerBase
   }
 
   /**
-   *  Publish Add to Cart event
+   * Publish Add to Cart event
    */
   addToCart(): void {
     this.pushEvent(ADD_TO_CART);
+  }
+
+  /**
+   * Publish Custom Url event
+   */
+  customUrl(): void {
+    this.pushEvent(CUSTOM_URL);
+  }
+
+  /**
+   * Publish Initiate Checkout event
+   */
+  initiateCheckout(): void {
+    this.pushEvent(INITIATE_CHECKOUT);
+  }
+
+  /**
+   * Publish Page Activity Summary event
+   */
+  pageActivitySummary(): void {
+    this.pushEvent(PAGE_ACTIVITY_SUMMARY);
+  }
+
+  /**
+   * Publish Page View event
+   */
+  pageView(): void {
+    this.pushEvent(PAGE_VIEW);
+  }
+
+  /**
+   * Publish Product Page View event
+   */
+  productPageView(): void {
+    this.pushEvent(PRODUCT_PAGE_VIEW);
+  }
+
+  /**
+   * Publish Referrer Url event
+   */
+  referrerUrl(): void {
+    this.pushEvent(REFERRER_URL);
+  }
+
+  /**
+   * Publish Remove from Cart event
+   */
+  removeFromCart(): void {
+    this.pushEvent(REMOVE_FROM_CART);
+  }
+
+  /**
+   * Publish Sign In event
+   */
+  signIn(): void {
+    this.pushEvent(SIGN_IN);
+  }
+
+  /**
+   * Publish Sign Out event
+   */
+  signOut(): void {
+    this.pushEvent(SIGN_OUT);
   }
 }

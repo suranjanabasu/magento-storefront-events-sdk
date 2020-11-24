@@ -36,11 +36,12 @@ export abstract class MagentoDataLayerBase {
       if (
         process.env.NODE_ENV === "development" ||
         process.env.NODE_ENV === "test"
-      )
+      ) {
         // eslint-disable-next-line no-console
         console.warn(
           "You tried to remove a handler that has not been subscribed. This call to removeEventListener did not have any effect."
         );
+      }
       return;
     }
     window.adobeDataLayer.push((mdl: AdobeClientDataLayer) => {
