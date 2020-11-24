@@ -49,3 +49,11 @@ npm run test:watch # Run tests in watch mode for development
 ```
 
 This repo also contains a .vscode file that includes a launch definition to enable debugging tests. To run the tests in debug mode, go to the Run tab (Cmd+Shift+D) and select Debug Jest Tests from the dropdown. Click the play button and your tests will launch in watch mode with the VS Code debugger attached. Now you may set breakpoints in your tests as well as the source files run in the tests.
+
+### Contributing
+
+Contributions are welcomed! Read the [Contributing Guide](./.github/CONTRIBUTING.md) for more information.
+
+### Licensing
+
+This project is licensed under the OSL v3.0 License. See [LICENSE](LICENSE) for more information.
