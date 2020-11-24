@@ -4,7 +4,7 @@
   "description": "SDK for working with events on a Magento storefront",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/@types/index.d.ts",
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "prepublish": "npm run build",
@@ -44,7 +44,9 @@
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12"
   },
-  "dependencies": {},
+  "dependencies": {
+    "ds-omega-tracker": "0.0.2"
+  },
   "peerDependencies": {},
   "husky": {
     "hooks": {
