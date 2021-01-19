@@ -28,12 +28,12 @@ export class MagentoDataLayer {
   /**
    * Methods for subscribing to events
    */
-  subscribe = new MagentoDataLayerSubscribeManager(this);
+  public subscribe = new MagentoDataLayerSubscribeManager(this);
 
   /**
    * Methods for unsubscribing from events
    */
-  unsubscribe = new MagentoDataLayerUnsubscribeManager(this);
+  public unsubscribe = new MagentoDataLayerUnsubscribeManager(this);
 }
 
 export default new MagentoDataLayer();
