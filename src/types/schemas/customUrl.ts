@@ -1,3 +1,3 @@
 export interface CustomUrl {
-    customUrl?: string;
+  customUrl: string;
 }
