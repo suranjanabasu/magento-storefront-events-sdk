@@ -1,3 +1,3 @@
 export interface ReferrerUrl {
-    referrerUrl?: string;
+  referrerUrl: string;
 }
