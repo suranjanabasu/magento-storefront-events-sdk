@@ -2,10 +2,6 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-<<<<<<< HEAD
-
-=======
->>>>>>> bcbb59b... style: adding license header to all source files
 export const CUSTOM_URL_CONTEXT = "custom-url-context";
 export const MAGENTO_EXTENSION_CONTEXT = "magento-extension-context";
 export const PAGE_OFFSET_CONTEXT = "page-offset-context";
