@@ -1,4 +1,4 @@
-# Magento Data Layer SDK
+# Magento Data Layer SDK Test Standard Version
 
 ## Purpose
 
