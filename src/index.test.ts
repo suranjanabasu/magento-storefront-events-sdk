@@ -251,4 +251,10 @@ describe("events", () => {
     mdl.publish.signOut();
     expect(eventHandler).toHaveBeenCalledTimes(1);
   });
+
+  test("getting state before data layer initializes", () => {
+    window.adobeDataLayer = [];
+    expect(mdl.context.getCustomUrl()).toEqual({});
+    expect(mdl.context.getReferrerUrl()).toEqual({});
+  });
 });

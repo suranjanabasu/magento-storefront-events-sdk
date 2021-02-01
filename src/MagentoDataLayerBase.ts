@@ -20,7 +20,9 @@ export abstract class MagentoDataLayerBase {
   }
   // Get a context from ACDL
   protected getContext<T>(name?: ContextName): T {
-    return window.adobeDataLayer.getState(name);
+    return window.adobeDataLayer.getState
+      ? window.adobeDataLayer.getState(name)
+      : ({} as T);
   }
   // Add event listener to ACDL
   protected addEventListener(
