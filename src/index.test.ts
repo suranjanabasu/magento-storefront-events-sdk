@@ -10,7 +10,7 @@ import {
   generatePageOffsetsContext,
   generateProductContext,
   generateReferrerUrlContext,
-  generateSearchResultsContext,
+  generateSearchContext,
   generateShopperContext,
   generateShoppingCartContext,
   generateStorefrontInstanceContext,
@@ -82,10 +82,10 @@ describe("contexts", () => {
   });
 
   test("search results context", () => {
-    const context = generateSearchResultsContext();
-    expect(mdl.context.getSearchResults()).toBeUndefined();
-    mdl.context.setSearchResults(context);
-    expect(mdl.context.getSearchResults()).toEqual(context);
+    const context = generateSearchContext();
+    expect(mdl.context.getSearch()).toBeUndefined();
+    mdl.context.setSearch(context);
+    expect(mdl.context.getSearch()).toEqual(context);
   });
 
   test("shopper context", () => {

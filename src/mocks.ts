@@ -8,7 +8,7 @@ import { MagentoExtension } from "./types/schemas/magentoExtension";
 import { PageOffset } from "./types/schemas/pageOffset";
 import { Product } from "./types/schemas/product";
 import { ReferrerUrl } from "./types/schemas/referrerUrl";
-import { SearchResults } from "./types/schemas/searchResults";
+import { Search } from "./types/schemas/search";
 import { Shopper } from "./types/schemas/shopper";
 import { ShoppingCart } from "./types/schemas/shoppingCart";
 import { StorefrontInstance } from "./types/schemas/storefrontInstance";
@@ -58,15 +58,13 @@ export const generateReferrerUrlContext = (
   ...overrides,
 });
 
-export const generateSearchResultsContext = (
-  overrides?: Partial<SearchResults>
-): SearchResults => ({
+export const generateSearchContext = (overrides?: Partial<Search>): Search => ({
   query: "pants",
-  productResults: 5,
-  suggestionResults: 3,
-  categoryResults: 3,
-  resultsPage: 1,
-  resultsPerPage: 100,
+  products: [],
+  suggestions: [],
+  categories: [],
+  page: 1,
+  perPage: 100,
   ...overrides,
 });
 

@@ -8,7 +8,7 @@ import {
   MAGENTO_EXTENSION_CONTEXT,
   PAGE_OFFSET_CONTEXT,
   PRODUCT_CONTEXT,
-  SEARCH_RESULTS_CONTEXT,
+  SEARCH_CONTEXT,
   SHOPPER_CONTEXT,
   SHOPPING_CART_CONTEXT,
   STOREFRONT_INSTANCE_CONTEXT,
@@ -24,7 +24,7 @@ import { StorefrontInstance } from "./types/schemas/storefrontInstance";
 import { ShoppingCart } from "./types/schemas/shoppingCart";
 import { CustomUrl } from "./types/schemas/customUrl";
 import { ReferrerUrl } from "./types/schemas/referrerUrl";
-import { SearchResults } from "./types/schemas/searchResults";
+import { Search } from "./types/schemas/search";
 
 export default class MagentoDataLayerContextManager extends MagentoDataLayerBase {
   constructor(mdl: MagentoDataLayer) {
@@ -119,15 +119,15 @@ export default class MagentoDataLayerContextManager extends MagentoDataLayerBase
   /**
    * Get search results context
    */
-  getSearchResults(): SearchResults {
-    return this.getContext<SearchResults>(SEARCH_RESULTS_CONTEXT);
+  getSearch(): Search {
+    return this.getContext<Search>(SEARCH_CONTEXT);
   }
 
   /**
    * Set search results context
    */
-  setSearchResults(context: SearchResults): void {
-    this.setContext<SearchResults>(SEARCH_RESULTS_CONTEXT, context);
+  setSearch(context: Search): void {
+    this.setContext<Search>(SEARCH_CONTEXT, context);
   }
 
   /**
