@@ -10,6 +10,7 @@ import {
   generatePageOffsetsContext,
   generateProductContext,
   generateReferrerUrlContext,
+  generateSearchResultsContext,
   generateShopperContext,
   generateShoppingCartContext,
   generateStorefrontInstanceContext,
@@ -25,7 +26,7 @@ import {
   REMOVE_FROM_CART,
   SIGN_IN,
   SIGN_OUT,
-  UPDATE_CART
+  UPDATE_CART,
 } from "./types/events";
 
 beforeAll(() => {
@@ -52,34 +53,6 @@ describe("contexts", () => {
     expect(mdl.context.getCustomUrl()).toEqual(context);
   });
 
-  test("referrer url context", () => {
-    const context = generateReferrerUrlContext();
-    expect(mdl.context.getReferrerUrl()).toBeUndefined();
-    mdl.context.setReferrerUrl(context);
-    expect(mdl.context.getReferrerUrl()).toEqual(context);
-  });
-
-  test("shopping cart context", () => {
-    const context = generateShoppingCartContext();
-    expect(mdl.context.getShoppingCart()).toBeUndefined();
-    mdl.context.setShoppingCart(context);
-    expect(mdl.context.getShoppingCart()).toEqual(context);
-  });
-
-  test("storefront instance context", () => {
-    const context = generateStorefrontInstanceContext();
-    expect(mdl.context.getStorefrontInstance()).toBeUndefined();
-    mdl.context.setStorefrontInstance(context);
-    expect(mdl.context.getStorefrontInstance()).toEqual(context);
-  });
-
-  test("shopper context", () => {
-    const context = generateShopperContext();
-    expect(mdl.context.getShopper()).toBeUndefined();
-    mdl.context.setShopper(context);
-    expect(mdl.context.getShopper()).toEqual(context);
-  });
-
   test("magento extension context", () => {
     const context = generateMagentoExtensionContext();
     expect(mdl.context.getMagentoExtension()).toBeUndefined();
@@ -99,6 +72,41 @@ describe("contexts", () => {
     expect(mdl.context.getProduct()).toBeUndefined();
     mdl.context.setProduct(context);
     expect(mdl.context.getProduct()).toEqual(context);
+  });
+
+  test("referrer url context", () => {
+    const context = generateReferrerUrlContext();
+    expect(mdl.context.getReferrerUrl()).toBeUndefined();
+    mdl.context.setReferrerUrl(context);
+    expect(mdl.context.getReferrerUrl()).toEqual(context);
+  });
+
+  test("search results context", () => {
+    const context = generateSearchResultsContext();
+    expect(mdl.context.getSearchResults()).toBeUndefined();
+    mdl.context.setSearchResults(context);
+    expect(mdl.context.getSearchResults()).toEqual(context);
+  });
+
+  test("shopper context", () => {
+    const context = generateShopperContext();
+    expect(mdl.context.getShopper()).toBeUndefined();
+    mdl.context.setShopper(context);
+    expect(mdl.context.getShopper()).toEqual(context);
+  });
+
+  test("shopping cart context", () => {
+    const context = generateShoppingCartContext();
+    expect(mdl.context.getShoppingCart()).toBeUndefined();
+    mdl.context.setShoppingCart(context);
+    expect(mdl.context.getShoppingCart()).toEqual(context);
+  });
+
+  test("storefront instance context", () => {
+    const context = generateStorefrontInstanceContext();
+    expect(mdl.context.getStorefrontInstance()).toBeUndefined();
+    mdl.context.setStorefrontInstance(context);
+    expect(mdl.context.getStorefrontInstance()).toEqual(context);
   });
 });
 
@@ -252,7 +260,6 @@ describe("events", () => {
     mdl.publish.signOut();
     expect(eventHandler).toHaveBeenCalledTimes(1);
   });
-
 
   test("update cart", async () => {
     const eventHandler = jest.fn((eventObj, mdl) => {

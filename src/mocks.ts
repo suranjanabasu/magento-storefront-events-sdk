@@ -8,19 +8,25 @@ import { MagentoExtension } from "./types/schemas/magentoExtension";
 import { PageOffset } from "./types/schemas/pageOffset";
 import { Product } from "./types/schemas/product";
 import { ReferrerUrl } from "./types/schemas/referrerUrl";
+import { SearchResults } from "./types/schemas/searchResults";
 import { Shopper } from "./types/schemas/shopper";
 import { ShoppingCart } from "./types/schemas/shoppingCart";
 import { StorefrontInstance } from "./types/schemas/storefrontInstance";
 
-export const generateShopperContext = (
-  overrides?: Partial<Shopper>
-): Shopper => ({ shopperId: "test", ...overrides });
+export const generateCustomUrlContext = (
+  overrides?: Partial<CustomUrl>
+): CustomUrl => ({
+  customUrl: "https://www.test.org",
+  ...overrides,
+});
+
 export const generateMagentoExtensionContext = (
   overrides?: Partial<MagentoExtension>
 ): MagentoExtension => ({
   magentoExtensionVersion: "1.0.0",
   ...overrides,
 });
+
 export const generatePageOffsetsContext = (
   overrides?: Partial<PageOffset>
 ): PageOffset => ({
@@ -33,6 +39,7 @@ export const generatePageOffsetsContext = (
   pings: 20419,
   ...overrides,
 });
+
 export const generateProductContext = (
   overrides?: Partial<Product>
 ): Product => ({
@@ -44,19 +51,28 @@ export const generateProductContext = (
   ...overrides,
 });
 
-export const generateCustomUrlContext = (
-  overrides?: Partial<CustomUrl>
-): CustomUrl => ({
-  customUrl: "https://www.test.org",
-  ...overrides,
-});
-
 export const generateReferrerUrlContext = (
   overrides?: Partial<ReferrerUrl>
 ): ReferrerUrl => ({
   referrerUrl: "https://www.test.org",
   ...overrides,
 });
+
+export const generateSearchResultsContext = (
+  overrides?: Partial<SearchResults>
+): SearchResults => ({
+  query: "pants",
+  productResults: 5,
+  suggestionResults: 3,
+  categoryResults: 3,
+  resultsPage: 1,
+  resultsPerPage: 100,
+  ...overrides,
+});
+
+export const generateShopperContext = (
+  overrides?: Partial<Shopper>
+): Shopper => ({ shopperId: "test", ...overrides });
 
 export const generateShoppingCartContext = (
   overrides?: Partial<ShoppingCart>
