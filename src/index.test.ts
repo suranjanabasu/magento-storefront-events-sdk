@@ -10,7 +10,8 @@ import {
   generatePageOffsetsContext,
   generateProductContext,
   generateReferrerUrlContext,
-  generateSearchContext,
+  generateSearchInputContext,
+  generateSearchResultsContext,
   generateShopperContext,
   generateShoppingCartContext,
   generateStorefrontInstanceContext,
@@ -81,11 +82,18 @@ describe("contexts", () => {
     expect(mdl.context.getReferrerUrl()).toEqual(context);
   });
 
-  test("search context", () => {
-    const context = generateSearchContext();
-    expect(mdl.context.getSearch()).toBeUndefined();
-    mdl.context.setSearch(context);
-    expect(mdl.context.getSearch()).toEqual(context);
+  test("search input context", () => {
+    const context = generateSearchInputContext();
+    expect(mdl.context.getSearchInput()).toBeUndefined();
+    mdl.context.setSearchInput(context);
+    expect(mdl.context.getSearchInput()).toEqual(context);
+  });
+
+  test("search results context", () => {
+    const context = generateSearchResultsContext();
+    expect(mdl.context.getSearchResults()).toBeUndefined();
+    mdl.context.setSearchResults(context);
+    expect(mdl.context.getSearchResults()).toEqual(context);
   });
 
   test("shopper context", () => {
