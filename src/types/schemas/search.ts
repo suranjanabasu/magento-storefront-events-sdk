@@ -14,7 +14,10 @@ interface SearchResultItem {
 }
 
 export interface Search {
+  searchType?: "popover" | "plp" | null;
   query: string;
+  refinementAttribute: string | null;
+  refinementSelection: string | null;
   results: {
     products: Array<SearchResultItem>;
     suggestions?: Array<SearchResultItem>;

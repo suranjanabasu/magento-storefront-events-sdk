@@ -81,7 +81,7 @@ describe("contexts", () => {
     expect(mdl.context.getReferrerUrl()).toEqual(context);
   });
 
-  test("search results context", () => {
+  test("search context", () => {
     const context = generateSearchContext();
     expect(mdl.context.getSearch()).toBeUndefined();
     mdl.context.setSearch(context);

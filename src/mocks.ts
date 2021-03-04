@@ -59,7 +59,10 @@ export const generateReferrerUrlContext = (
 });
 
 export const generateSearchContext = (overrides?: Partial<Search>): Search => ({
+  searchType: "popover",
   query: "pants",
+  refinementAttribute: "size",
+  refinementSelection: "large",
   results: {
     products: [],
     suggestions: [],
