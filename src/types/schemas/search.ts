@@ -3,7 +3,7 @@
  * See COPYING.txt for license details.
  */
 
-interface SearchItem {
+interface SearchResultItem {
   title: string;
   url: string;
   rank: number;
@@ -15,9 +15,11 @@ interface SearchItem {
 
 export interface Search {
   query: string;
-  products: Array<SearchItem>;
-  suggestions?: Array<SearchItem>;
-  categories?: Array<SearchItem>;
-  page: number;
-  perPage: number;
+  results: {
+    products: Array<SearchResultItem>;
+    suggestions?: Array<SearchResultItem>;
+    categories?: Array<SearchResultItem>;
+    page: number;
+    perPage: number;
+  };
 }

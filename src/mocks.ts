@@ -60,11 +60,13 @@ export const generateReferrerUrlContext = (
 
 export const generateSearchContext = (overrides?: Partial<Search>): Search => ({
   query: "pants",
-  products: [],
-  suggestions: [],
-  categories: [],
-  page: 1,
-  perPage: 100,
+  results: {
+    products: [],
+    suggestions: [],
+    categories: [],
+    page: 1,
+    perPage: 100,
+  },
   ...overrides,
 });
 
