@@ -8,6 +8,7 @@ import {
   MAGENTO_EXTENSION_CONTEXT,
   PAGE_OFFSET_CONTEXT,
   PRODUCT_CONTEXT,
+  SEARCH_INPUT_CONTEXT,
   SEARCH_RESULTS_CONTEXT,
   SHOPPER_CONTEXT,
   SHOPPING_CART_CONTEXT,
@@ -24,6 +25,7 @@ import { StorefrontInstance } from "./types/schemas/storefrontInstance";
 import { ShoppingCart } from "./types/schemas/shoppingCart";
 import { CustomUrl } from "./types/schemas/customUrl";
 import { ReferrerUrl } from "./types/schemas/referrerUrl";
+import { SearchInput } from "./types/schemas/searchInput";
 import { SearchResults } from "./types/schemas/searchResults";
 
 export default class MagentoDataLayerContextManager extends MagentoDataLayerBase {
@@ -114,6 +116,20 @@ export default class MagentoDataLayerContextManager extends MagentoDataLayerBase
    */
   setReferrerUrl(context: ReferrerUrl): void {
     this.setContext<ReferrerUrl>(REFERRER_URL_CONTEXT, context);
+  }
+
+  /**
+   * Get search input context
+   */
+  getSearchInput(): SearchInput {
+    return this.getContext<SearchInput>(SEARCH_INPUT_CONTEXT);
+  }
+
+  /**
+   * Set search input context
+   */
+  setSearchInput(context: SearchInput): void {
+    this.setContext<SearchInput>(SEARCH_INPUT_CONTEXT, context);
   }
 
   /**
