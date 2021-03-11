@@ -17,8 +17,8 @@
     "test": "jest --coverage",
     "test:ci": "jest --ci",
     "test:watch": "jest --watch",
-    "release:prod": "standard-version --dry-run",
-    "release:stage": "standard-version --dry-run --prerelease stage"
+    "release:prod": "standard-version",
+    "release:stage": "standard-version --prerelease stage"
   },
   "repository": {
     "type": "git",
