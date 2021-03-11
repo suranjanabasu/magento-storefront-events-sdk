@@ -3,16 +3,16 @@
  * See COPYING.txt for license details.
  */
 
-import { CustomUrl } from "./types/schemas/customUrl";
-import { MagentoExtension } from "./types/schemas/magentoExtension";
-import { PageOffset } from "./types/schemas/pageOffset";
-import { Product } from "./types/schemas/product";
-import { ReferrerUrl } from "./types/schemas/referrerUrl";
-import { SearchInput } from "./types/schemas/searchInput";
-import { SearchResults } from "./types/schemas/searchResults";
-import { Shopper } from "./types/schemas/shopper";
-import { ShoppingCart } from "./types/schemas/shoppingCart";
-import { StorefrontInstance } from "./types/schemas/storefrontInstance";
+import { CustomUrl } from "../src/types/schemas/customUrl";
+import { MagentoExtension } from "../src/types/schemas/magentoExtension";
+import { PageOffset } from "../src/types/schemas/pageOffset";
+import { Product } from "../src/types/schemas/product";
+import { ReferrerUrl } from "../src/types/schemas/referrerUrl";
+import { SearchInput } from "../src/types/schemas/searchInput";
+import { SearchResults } from "../src/types/schemas/searchResults";
+import { Shopper } from "../src/types/schemas/shopper";
+import { ShoppingCart } from "../src/types/schemas/shoppingCart";
+import { StorefrontInstance } from "../src/types/schemas/storefrontInstance";
 
 export const generateCustomUrlContext = (
   overrides?: Partial<CustomUrl>
