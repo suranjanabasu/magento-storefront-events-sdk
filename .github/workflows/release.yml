@@ -1,9 +1,10 @@
-name: npm-publish
-on: 
+name: release
+
+on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Environment'     
+        description: 'Environment'
         required: true
         default: 'production'
       branch:
@@ -12,22 +13,22 @@ on:
         default: 'master'
 jobs:
   release:
-    name: Release
+    name: release
     runs-on: ubuntu-18.04
     steps:
-      - name: Checkout
+      - name: checkout
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
           branch: ${{ github.event.inputs.branch }}
-      - name: Setup Node.js
+      - name: node
         uses: actions/setup-node@v1
         with:
           node-version: 12
-      - name: Install dependencies
+      - name: install
         run: npm ci
-      - name: Release
+      - name: release
+        run: npm run release:prod
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
-        run: npx semantic-release 
