@@ -17,8 +17,8 @@
     "test": "jest --coverage",
     "test:ci": "jest --ci",
     "test:watch": "jest --watch",
-    "release:prod": "standard-version --no-verify",
-    "release:stage": "standard-version --no-verify --prerelease stage"
+    "release:prod": "HUSKY_SKIP_HOOKS=1 standard-version",
+    "release:stage": "HUSKY_SKIP_HOOKS=1 standard-version --prerelease stage"
   },
   "repository": {
     "type": "git",
