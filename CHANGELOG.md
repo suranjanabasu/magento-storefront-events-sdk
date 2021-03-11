@@ -1,0 +1,10 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.0.11](https://github.com/adobe/magento-data-layer-sdk/compare/v0.0.8...v0.0.11) (2021-03-11)
+
+
+### Features
+
+* add missing unsubscribe support for generic event listeners ([f8ee42e](https://github.com/adobe/magento-data-layer-sdk/commit/f8ee42e079e9c861be0295e47135eb3d80077a2a))
