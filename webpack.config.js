@@ -1,6 +1,6 @@
 const path = require("path");
 
-module.exports = {
+const config = {
   mode: "production",
   entry: "./src/index.ts",
   output: {
@@ -27,3 +27,5 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js", ".jsx", ".svg", ".css", ".json"],
   },
 };
+
+module.exports = config
