@@ -21,8 +21,10 @@ jobs:
           node-version: 12
       - name: install
         run: npm ci
+      - name: build
+        run: npm run build
       - name: release
-        run: npm run release
+        run: npm publish --access public
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
