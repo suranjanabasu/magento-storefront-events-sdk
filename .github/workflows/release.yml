@@ -28,7 +28,7 @@ jobs:
       - name: install
         run: npm ci
       - name: release
-        run: npm run release:prod
+        run: npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}

@@ -1,6 +1,9 @@
 const config = {
     "skip": {
-        "tag": true
+        "bump": false,
+        "changelog": false,
+        "commit": false,
+        "tag": false
     }
 }
 
