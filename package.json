@@ -1,6 +1,6 @@
 {
   "name": "@adobe/magento-data-layer-sdk",
-  "version": "0.0.102",
+  "version": "0.0.103",
   "description": "SDK for working with events on a Magento storefront",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
