@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/adobe/magento-data-layer-sdk/compare/v0.1.0...v0.1.1) (2021-03-16)
+
+
+### Bug Fixes
+
+* **events:** event context was in data layer. Change to "eventInfo" object that won't be persisted ([e1de784](https://github.com/adobe/magento-data-layer-sdk/commit/e1de784ef6920c629ab3b738d2a1e9eb1acbdcce))
+
 ## [0.1.0](https://github.com/adobe/magento-data-layer-sdk/compare/v0.0.9...v0.1.0) (2021-03-16)
 
 
