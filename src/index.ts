@@ -3,12 +3,12 @@
  * See COPYING.txt for license details.
  */
 
-import MagentoDataLayerContextManager from "./MagentoDataLayerContextManager";
-import MagentoDataLayerPublishManager from "./MagentoDataLayerPublishManager";
-import MagentoDataLayerSubscribeManager from "./MagentoDataLayerSubscribeManager";
-import MagentoDataLayerUnsubscribeManager from "./MagentoDataLayerUnsubscribeManager";
+import ContextManager from "./ContextManager";
+import PublishManager from "./PublishManager";
+import SubscribeManager from "./SubscribeManager";
+import UnsubscribeManager from "./UnsubscribeManager";
 
-export class MagentoDataLayer {
+export class MagentoStorefrontEvents {
   constructor() {
     // ensure event array is available
     window.adobeDataLayer = window.adobeDataLayer || [];
@@ -17,22 +17,22 @@ export class MagentoDataLayer {
   /**
    * Methods for interacting with context data
    */
-  public context = new MagentoDataLayerContextManager();
+  public context = new ContextManager();
 
   /**
    * Methods for publishing events
    */
-  public publish = new MagentoDataLayerPublishManager();
+  public publish = new PublishManager();
 
   /**
    * Methods for subscribing to events
    */
-  public subscribe = new MagentoDataLayerSubscribeManager();
+  public subscribe = new SubscribeManager();
 
   /**
    * Methods for unsubscribing from events
    */
-  public unsubscribe = new MagentoDataLayerUnsubscribeManager();
+  public unsubscribe = new UnsubscribeManager();
 }
 
-export default new MagentoDataLayer();
+export default new MagentoStorefrontEvents();

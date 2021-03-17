@@ -2,6 +2,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 import {
   ADD_TO_CART,
   CUSTOM_URL,
@@ -19,10 +20,10 @@ import {
   SIGN_OUT,
   UPDATE_CART,
 } from "./types/events";
-import { MagentoDataLayerBase } from "./MagentoDataLayerBase";
+import { Base } from "./Base";
 import { CustomContext } from "./types/contexts";
 
-export default class MagentoDataLayerPublishManager extends MagentoDataLayerBase {
+export default class PublishManager extends Base {
   /**
    * Publish Add to Cart event
    */

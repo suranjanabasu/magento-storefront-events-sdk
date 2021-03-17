@@ -28,7 +28,7 @@ export type ContextName =
   | typeof SHOPPING_CART_CONTEXT
   | typeof STOREFRONT_INSTANCE_CONTEXT;
 
-export type MagentoDataLayerContext = {
+export type Context = {
   [K in ContextName]: unknown;
 };
 

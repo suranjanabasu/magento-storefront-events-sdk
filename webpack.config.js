@@ -8,7 +8,7 @@ const config = {
     filename: "index.js",
     path: path.resolve(__dirname, "dist"),
     library: {
-      name: "MagentoDataLayer",
+      name: "magentoStorefrontEvents",
       type: "umd",
       export: "default",
     },

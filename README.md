@@ -1,4 +1,4 @@
-# Magento Data Layer SDK
+# Magento Storefront Events SDK
 
 ## Purpose
 
@@ -11,7 +11,7 @@ The SDK takes the shape of a Typescript class that includes getters and setters 
 Our tests provide numerous examples of usage. But by what of illustration, here is what the syntax looks like.
 
 ```ts
-import mdl from "magento-data-layer-sdk";
+import mdl from "@adobe/magento-storefront-events-sdk";
 
 /**
  *  Set a context
