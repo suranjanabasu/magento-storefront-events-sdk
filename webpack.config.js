@@ -1,4 +1,5 @@
 const path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
   mode: "production",
@@ -6,16 +7,15 @@ const config = {
   output: {
     filename: "index.js",
     path: path.resolve(__dirname, "dist"),
-    libraryTarget: "umd",
-    globalObject: "this",
+    library: {
+      name: "MagentoDataLayer",
+      type: "umd",
+      export: "default",
+    },
+    clean: true,
   },
   module: {
     rules: [
-      {
-        test: /\.(sa|sc|c)ss$/,
-        use: ["style-loader", "css-loader"],
-        sideEffects: true,
-      },
       {
         test: /\.tsx?$/,
         loader: "ts-loader",
@@ -23,8 +23,13 @@ const config = {
       },
     ],
   },
+  plugins: [new HtmlWebpackPlugin()],
   resolve: {
-    extensions: [".tsx", ".ts", ".js", ".jsx", ".svg", ".css", ".json"],
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
+  },
+  devServer: {
+    static: path.join(__dirname, "dist"),
+    hot: true,
   },
 };
 
