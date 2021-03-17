@@ -15,6 +15,12 @@ import {
   PAGE_VIEW,
   PLACE_ORDER,
   PRODUCT_PAGE_VIEW,
+  RECS_ITEM_ADD_TO_CART_CLICK,
+  RECS_ITEM_CLICK,
+  RECS_REQUEST_SENT,
+  RECS_RESPONSE_RECEIVED,
+  RECS_UNIT_RENDER,
+  RECS_UNIT_VIEW,
   REFERRER_URL,
   REMOVE_FROM_CART,
   SEARCH_REQUEST_SENT,
@@ -87,6 +93,61 @@ export default class UnsubscribeManager extends Base {
    */
   productPageView(handler: EventHandler): void {
     this.removeEventListener(PRODUCT_PAGE_VIEW, handler);
+  }
+
+  /**
+   * Unsubscribe to Recommended Item Add to Cart Click event
+   */
+  recItemAddToCartClick(
+    handler: EventHandler,
+  ): void {
+    this.removeEventListener(RECS_ITEM_ADD_TO_CART_CLICK, handler);
+  }
+
+
+  /**
+     * Unsubscribe to Recommended Item Click event
+     */
+  recItemClick(
+    handler: EventHandler,
+  ): void {
+    this.removeEventListener(RECS_ITEM_CLICK, handler);
+  }
+
+  /**
+     * Unsubscribe to Recommendations API Request event
+     */
+   recsRequestSent(
+    handler: EventHandler,
+  ): void {
+    this.removeEventListener(RECS_REQUEST_SENT, handler);
+  }
+  
+  /**
+     * Unsubscribe to Recommendations Response Received event
+     */
+   recsResponseReceived(
+    handler: EventHandler,
+  ): void {
+    this.removeEventListener(RECS_RESPONSE_RECEIVED, handler);
+  }
+  
+  /**
+     * Unsubscribe to Recommended Unit Render Event
+     */
+   recsUnitRender(
+    handler: EventHandler,
+  ): void {
+    this.removeEventListener(RECS_UNIT_RENDER, handler);
+  }
+  
+  /**
+     * Unsubscribe to Recommended Unit View event
+     */
+   recsUnitView(
+    handler: EventHandler,
+  ): void {
+    this.removeEventListener(RECS_UNIT_VIEW, handler);
   }
 
   /**

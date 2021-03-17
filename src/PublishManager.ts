@@ -11,6 +11,12 @@ import {
   PAGE_VIEW,
   PLACE_ORDER,
   PRODUCT_PAGE_VIEW,
+  RECS_ITEM_ADD_TO_CART_CLICK,
+  RECS_ITEM_CLICK,
+  RECS_REQUEST_SENT,
+  RECS_RESPONSE_RECEIVED,
+  RECS_UNIT_RENDER,
+  RECS_UNIT_VIEW,
   REFERRER_URL,
   REMOVE_FROM_CART,
   SEARCH_REQUEST_SENT,
@@ -71,6 +77,49 @@ export default class PublishManager extends Base {
    */
   productPageView(context?: CustomContext): void {
     this.pushEvent(PRODUCT_PAGE_VIEW, context);
+  }
+
+  /**
+   * Publish Recommended Item Add to Cart Click event
+   */
+   recItemAddToCartClick(context?: CustomContext): void {
+    this.pushEvent(RECS_ITEM_ADD_TO_CART_CLICK, context)
+  }
+
+  /**
+   * Publish Recommended Item Click event
+   */
+   recItemClick(context?: CustomContext): void {
+    this.pushEvent(RECS_ITEM_CLICK, context)
+  }
+
+  /**
+   * Publish Recommendations API Request event
+   */
+   recsRequestSent(context?: CustomContext): void {
+    this.pushEvent(RECS_REQUEST_SENT, context)
+  }
+
+  /**
+   * Publish Recommendations Response Received event
+   */
+   recsResponseReceived(context?: CustomContext): void {
+    this.pushEvent(RECS_RESPONSE_RECEIVED, context)
+  }
+
+ /**
+   * Publish Recommended Unit Render Event
+   */
+  recsUnitRender(context?: CustomContext): void {
+    this.pushEvent(RECS_UNIT_RENDER, context)
+  }
+
+
+ /**
+   * Publish Recommended Unit View event
+   */
+  recsUnitView(context?: CustomContext): void{
+    this.pushEvent(RECS_UNIT_VIEW, context)
   }
 
   /**
