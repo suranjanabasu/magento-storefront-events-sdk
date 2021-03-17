@@ -1,4 +1,4 @@
-# Magento Data Layer SDK
+# Magento Storefront Events SDK
 
 ## Purpose
 
@@ -11,18 +11,21 @@ The SDK takes the shape of a Typescript class that includes getters and setters 
 Our tests provide numerous examples of usage. But by what of illustration, here is what the syntax looks like.
 
 ```ts
-import mdl from "magento-data-layer-sdk";
+import mdl from "@adobe/magento-storefront-events-sdk";
+
 /**
  *  Set a context
  *  These setters abstract the string key for the context away from the
  *  user and enforces the correct shape and type of the context object
  **/
 mdl.contexts.setShopper({ shopperId: "loggedIn" });
+
 /**
  *  Get a context
  *  Getters are used frequently in event consumers as a way to gather the context data needed by the event consumer. Each event handler receives a reference to the mdl instance as its second argument.
  **/
 mdl.context.getShopper();
+
 /**
  *  Publish an event
  *  The current design is to avoid accepting arguments when an event is published.
@@ -30,11 +33,12 @@ mdl.context.getShopper();
  *  packaged with the event prior to notifying the subscribers
  **/
 mdl.publish.addToCart();
+
 /**
  *  Subscribe to an event
  *  Currently the event only contains the name of the event that was fired
  **/
-mdl.subscribe.addToCart((event, mdl) => {});
+mdl.subscribe.addToCart(event => {});
 ```
 
 ## Usage
@@ -48,7 +52,7 @@ npm test
 npm run test:watch # Run tests in watch mode for development
 ```
 
-This repo also contains a .vscode file that includes a launch definition to enable debugging tests. To run the tests in debug mode, go to the Run tab (Cmd+Shift+D) and select Debug Jest Tests from the dropdown. Click the play button and your tests will launch in watch mode with the VS Code debugger attached. Now you may set breakpoints in your tests as well as the source files run in the tests.
+This repo also contains a `.vscode` file that includes a launch definition to enable debugging tests. To run the tests in debug mode, go to the Run tab (`Cmd` + `Shift` + `D`) and select Debug Jest Tests from the dropdown. Click the play button and your tests will launch in watch mode with the VS Code debugger attached. Now you may set breakpoints in your tests as well as the source files run in the tests.
 
 ### Contributing
 

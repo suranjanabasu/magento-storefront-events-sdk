@@ -3,7 +3,7 @@
  * See COPYING.txt for license details.
  */
 
-import { CustomContext, MagentoDataLayerContext } from "./contexts";
+import { CustomContext, Context } from "./contexts";
 
 export const ADD_TO_CART = "add-to-cart";
 export const CUSTOM_URL = "custom-url";
@@ -42,13 +42,13 @@ export type EventName =
   | typeof SIGN_OUT
   | typeof UPDATE_CART;
 
-export type MagentoDataLayerEvent = {
+export type Event = {
   event: EventName;
-  eventInfo: MagentoDataLayerContext & CustomContext;
+  eventInfo: Context & CustomContext;
 };
 
-export type MagentoDataLayerEventHandler = (
-  event: MagentoDataLayerEvent
+export type EventHandler = (
+  event: Event
 ) => void;
 
 export type ListenerOptions = {

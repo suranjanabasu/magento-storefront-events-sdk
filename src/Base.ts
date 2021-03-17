@@ -2,18 +2,19 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 import {
   ContextName,
   CustomContext,
-  MagentoDataLayerContext,
+  Context,
 } from "./types/contexts";
 import {
   EventName,
   ListenerOptions,
-  MagentoDataLayerEventHandler,
+  EventHandler,
 } from "./types/events";
 
-export abstract class MagentoDataLayerBase {
+export abstract class Base {
   // Set a context on ACDL
   protected setContext<T>(name: ContextName, context: T): void {
     window.adobeDataLayer.push({
@@ -32,7 +33,7 @@ export abstract class MagentoDataLayerBase {
   // Add event listener to ACDL
   protected addEventListener(
     name: EventName,
-    handler: MagentoDataLayerEventHandler,
+    handler: EventHandler,
     options?: ListenerOptions
   ): void {
     window.adobeDataLayer.push((dl: AdobeClientDataLayer) => {
@@ -42,7 +43,7 @@ export abstract class MagentoDataLayerBase {
   // Remove event listener from ACDL
   protected removeEventListener(
     name: EventName,
-    handler: MagentoDataLayerEventHandler
+    handler: EventHandler
   ): void {
     window.adobeDataLayer.push((dl: AdobeClientDataLayer) => {
       dl.removeEventListener(name, handler);
@@ -54,7 +55,7 @@ export abstract class MagentoDataLayerBase {
       dl.push({
         event,
         eventInfo: {
-          ...this.getContext<MagentoDataLayerContext>(),
+          ...this.getContext<Context>(),
           ...context,
         },
       });

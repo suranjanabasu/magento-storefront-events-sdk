@@ -2,6 +2,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 import {
   MAGENTO_EXTENSION_CONTEXT,
   PAGE_OFFSET_CONTEXT,
@@ -15,7 +16,7 @@ import {
   CUSTOM_URL_CONTEXT,
   REFERRER_URL_CONTEXT,
 } from "./types/contexts";
-import { MagentoDataLayerBase } from "./MagentoDataLayerBase";
+import { Base } from "./Base";
 import {
   MagentoExtension,
   PageOffset,
@@ -28,9 +29,9 @@ import {
   SearchInput,
   SearchResults,
   Order,
-} from "./types/schemas/";
+} from "./types/schemas";
 
-export default class MagentoDataLayerContextManager extends MagentoDataLayerBase {
+export default class ContextManager extends Base {
   /**
    * Get url context
    */

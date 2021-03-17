@@ -3,14 +3,14 @@
  * See COPYING.txt for license details.
  */
 
-import { MagentoDataLayerBase } from "./MagentoDataLayerBase";
+import { Base } from "./Base";
 import {
   ADD_TO_CART,
   CUSTOM_URL,
   DATA_LAYER_CHANGE,
   DATA_LAYER_EVENT,
   INITIATE_CHECKOUT,
-  MagentoDataLayerEventHandler,
+  EventHandler,
   PAGE_ACTIVITY_SUMMARY,
   PAGE_VIEW,
   PLACE_ORDER,
@@ -24,125 +24,124 @@ import {
   SIGN_OUT,
   UPDATE_CART,
 } from "./types/events";
-import { MagentoDataLayer } from ".";
 
-export default class MagentoDataLayerUnsubscribeManager extends MagentoDataLayerBase {
+export default class UnsubscribeManager extends Base {
   /**
    *  Unsubscribe from Add to Cart event
    */
-  addToCart(handler: MagentoDataLayerEventHandler): void {
+  addToCart(handler: EventHandler): void {
     this.removeEventListener(ADD_TO_CART, handler);
   }
 
   /**
    * Unsubscribe from Custom Url event
    */
-  customUrl(handler: MagentoDataLayerEventHandler): void {
+  customUrl(handler: EventHandler): void {
     this.removeEventListener(CUSTOM_URL, handler);
   }
 
   /**
    * Unsubscribe from Data Layer Change event
    */
-  dataLayerChange(handler: MagentoDataLayerEventHandler): void {
+  dataLayerChange(handler: EventHandler): void {
     this.removeEventListener(DATA_LAYER_CHANGE, handler);
   }
 
   /**
    * Unsubscribe from Data Layer Event event
    */
-  dataLayerEvent(handler: MagentoDataLayerEventHandler): void {
+  dataLayerEvent(handler: EventHandler): void {
     this.removeEventListener(DATA_LAYER_EVENT, handler);
   }
 
   /**
    * Unsubscribe from Initiate Checkout event
    */
-  initiateCheckout(handler: MagentoDataLayerEventHandler): void {
+  initiateCheckout(handler: EventHandler): void {
     this.removeEventListener(INITIATE_CHECKOUT, handler);
   }
 
   /**
    * Unsubscribe from Page Activity Summary event
    */
-  pageActivitySummary(handler: MagentoDataLayerEventHandler): void {
+  pageActivitySummary(handler: EventHandler): void {
     this.removeEventListener(PAGE_ACTIVITY_SUMMARY, handler);
   }
 
   /**
    * Unsubscribe from Page View event
    */
-  pageView(handler: MagentoDataLayerEventHandler): void {
+  pageView(handler: EventHandler): void {
     this.removeEventListener(PAGE_VIEW, handler);
   }
 
   /**
    * Unsubscribe from Place Order event
    */
-  placeOrder(handler: MagentoDataLayerEventHandler): void {
+  placeOrder(handler: EventHandler): void {
     this.removeEventListener(PLACE_ORDER, handler);
   }
 
   /**
    * Unsubscribe from Product Page View event
    */
-  productPageView(handler: MagentoDataLayerEventHandler): void {
+  productPageView(handler: EventHandler): void {
     this.removeEventListener(PRODUCT_PAGE_VIEW, handler);
   }
 
   /**
    * Unsubscribe from Referrer Url event
    */
-  referrerUrl(handler: MagentoDataLayerEventHandler): void {
+  referrerUrl(handler: EventHandler): void {
     this.removeEventListener(REFERRER_URL, handler);
   }
 
   /**
    * Unsubscribe from Remove from Cart event
    */
-  removeFromCart(handler: MagentoDataLayerEventHandler): void {
+  removeFromCart(handler: EventHandler): void {
     this.removeEventListener(REMOVE_FROM_CART, handler);
   }
 
   /**
    * Unsubscribe from Search Request Sent event
    */
-  searchRequestSent(handler: MagentoDataLayerEventHandler): void {
+  searchRequestSent(handler: EventHandler): void {
     this.removeEventListener(SEARCH_REQUEST_SENT, handler);
   }
 
   /**
    * Unsubscribe from Search Response Received event
    */
-  searchResponseReceived(handler: MagentoDataLayerEventHandler): void {
+  searchResponseReceived(handler: EventHandler): void {
     this.removeEventListener(SEARCH_RESPONSE_RECEIVED, handler);
   }
 
   /**
    * Unsubscribe from Search Result Click event
    */
-  searchResultClick(handler: MagentoDataLayerEventHandler): void {
+  searchResultClick(handler: EventHandler): void {
     this.removeEventListener(SEARCH_RESULT_CLICK, handler);
   }
 
   /**
    * Unsubscribe from Sign In event
    */
-  signIn(handler: MagentoDataLayerEventHandler): void {
+  signIn(handler: EventHandler): void {
     this.removeEventListener(SIGN_IN, handler);
   }
 
   /**
    * Unsubscribe from Sign Out event
    */
-  signOut(handler: MagentoDataLayerEventHandler): void {
+  signOut(handler: EventHandler): void {
     this.removeEventListener(SIGN_OUT, handler);
   }
 
   /**
    * Unsubscribe from Update Cart event
    */
-  updateCart(handler: MagentoDataLayerEventHandler): void {
+  updateCart(handler: EventHandler): void {
     this.removeEventListener(UPDATE_CART, handler);
   }
 }

@@ -3,7 +3,7 @@
  * See COPYING.txt for license details.
  */
 
-import { MagentoDataLayerBase } from "./MagentoDataLayerBase";
+import { Base } from "./Base";
 
 import {
   ADD_TO_CART,
@@ -12,7 +12,7 @@ import {
   DATA_LAYER_EVENT,
   INITIATE_CHECKOUT,
   ListenerOptions,
-  MagentoDataLayerEventHandler,
+  EventHandler,
   PAGE_ACTIVITY_SUMMARY,
   PAGE_VIEW,
   PLACE_ORDER,
@@ -27,12 +27,12 @@ import {
   UPDATE_CART,
 } from "./types/events";
 
-export default class MagentoDataLayerSubscribeManager extends MagentoDataLayerBase {
+export default class SubscribeManager extends Base {
   /**
    * Subscribe to Add to Cart event
    */
   addToCart(
-    handler: MagentoDataLayerEventHandler,
+    handler: EventHandler,
     options?: ListenerOptions
   ): void {
     this.addEventListener(ADD_TO_CART, handler, options);
@@ -42,7 +42,7 @@ export default class MagentoDataLayerSubscribeManager extends MagentoDataLayerBa
    * Subscribe to Custom Url event
    */
   customUrl(
-    handler: MagentoDataLayerEventHandler,
+    handler: EventHandler,
     options?: ListenerOptions
   ): void {
     this.addEventListener(CUSTOM_URL, handler, options);
@@ -52,7 +52,7 @@ export default class MagentoDataLayerSubscribeManager extends MagentoDataLayerBa
    * Subscribe to changes on the data layer
    */
   dataLayerChange(
-    handler: MagentoDataLayerEventHandler,
+    handler: EventHandler,
     options?: ListenerOptions
   ): void {
     this.addEventListener(DATA_LAYER_CHANGE, handler, options);
@@ -62,7 +62,7 @@ export default class MagentoDataLayerSubscribeManager extends MagentoDataLayerBa
    * Subscribe to all events on the data layer
    */
   dataLayerEvent(
-    handler: MagentoDataLayerEventHandler,
+    handler: EventHandler,
     options?: ListenerOptions
   ): void {
     this.addEventListener(DATA_LAYER_EVENT, handler, options);
@@ -72,7 +72,7 @@ export default class MagentoDataLayerSubscribeManager extends MagentoDataLayerBa
    * Subscribe to Initiate Checkout event
    */
   initiateCheckout(
-    handler: MagentoDataLayerEventHandler,
+    handler: EventHandler,
     options?: ListenerOptions
   ): void {
     this.addEventListener(INITIATE_CHECKOUT, handler, options);
@@ -82,7 +82,7 @@ export default class MagentoDataLayerSubscribeManager extends MagentoDataLayerBa
    * Subscribe to Page Activity Summary event
    */
   pageActivitySummary(
-    handler: MagentoDataLayerEventHandler,
+    handler: EventHandler,
     options?: ListenerOptions
   ): void {
     this.addEventListener(PAGE_ACTIVITY_SUMMARY, handler, options);
@@ -92,7 +92,7 @@ export default class MagentoDataLayerSubscribeManager extends MagentoDataLayerBa
    * Subscribe to Page View event
    */
   pageView(
-    handler: MagentoDataLayerEventHandler,
+    handler: EventHandler,
     options?: ListenerOptions
   ): void {
     this.addEventListener(PAGE_VIEW, handler, options);
@@ -102,7 +102,7 @@ export default class MagentoDataLayerSubscribeManager extends MagentoDataLayerBa
    * Subscribe to Place Order event
    */
   placeOrder(
-    handler: MagentoDataLayerEventHandler,
+    handler: EventHandler,
     options?: ListenerOptions
   ): void {
     this.addEventListener(PLACE_ORDER, handler, options);
@@ -112,7 +112,7 @@ export default class MagentoDataLayerSubscribeManager extends MagentoDataLayerBa
    * Subscribe to Product Page View event
    */
   productPageView(
-    handler: MagentoDataLayerEventHandler,
+    handler: EventHandler,
     options?: ListenerOptions
   ): void {
     this.addEventListener(PRODUCT_PAGE_VIEW, handler, options);
@@ -122,7 +122,7 @@ export default class MagentoDataLayerSubscribeManager extends MagentoDataLayerBa
    * Subscribe to Referrer Url event
    */
   referrerUrl(
-    handler: MagentoDataLayerEventHandler,
+    handler: EventHandler,
     options?: ListenerOptions
   ): void {
     this.addEventListener(REFERRER_URL, handler, options);
@@ -132,7 +132,7 @@ export default class MagentoDataLayerSubscribeManager extends MagentoDataLayerBa
    * Subscribe to Remove from Cart event
    */
   removeFromCart(
-    handler: MagentoDataLayerEventHandler,
+    handler: EventHandler,
     options?: ListenerOptions
   ): void {
     this.addEventListener(REMOVE_FROM_CART, handler, options);
@@ -141,21 +141,21 @@ export default class MagentoDataLayerSubscribeManager extends MagentoDataLayerBa
   /**
    * Subscribe to Search Request Sent event
    */
-  searchRequestSent(handler: MagentoDataLayerEventHandler): void {
+  searchRequestSent(handler: EventHandler): void {
     this.addEventListener(SEARCH_REQUEST_SENT, handler);
   }
 
   /**
    * Subscribe to Search Response Received event
    */
-  searchResponseReceived(handler: MagentoDataLayerEventHandler): void {
+  searchResponseReceived(handler: EventHandler): void {
     this.addEventListener(SEARCH_RESPONSE_RECEIVED, handler);
   }
 
   /**
    * Subscribe to Search Result Click event
    */
-  searchResultClick(handler: MagentoDataLayerEventHandler): void {
+  searchResultClick(handler: EventHandler): void {
     this.addEventListener(SEARCH_RESULT_CLICK, handler);
   }
 
@@ -163,7 +163,7 @@ export default class MagentoDataLayerSubscribeManager extends MagentoDataLayerBa
    * Subscribe to Sign In event
    */
   signIn(
-    handler: MagentoDataLayerEventHandler,
+    handler: EventHandler,
     options?: ListenerOptions
   ): void {
     this.addEventListener(SIGN_IN, handler, options);
@@ -173,7 +173,7 @@ export default class MagentoDataLayerSubscribeManager extends MagentoDataLayerBa
    * Subscribe to Sign Out event
    */
   signOut(
-    handler: MagentoDataLayerEventHandler,
+    handler: EventHandler,
     options?: ListenerOptions
   ): void {
     this.addEventListener(SIGN_OUT, handler, options);
@@ -182,7 +182,7 @@ export default class MagentoDataLayerSubscribeManager extends MagentoDataLayerBa
   /**
    * Subscribe to Update Cart event
    */
-  updateCart(handler: MagentoDataLayerEventHandler): void {
+  updateCart(handler: EventHandler): void {
     this.addEventListener(UPDATE_CART, handler);
   }
 }

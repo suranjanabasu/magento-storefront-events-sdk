@@ -3,7 +3,7 @@
  * See COPYING.txt for license details.
  */
 
-import mdl, { MagentoDataLayer } from "../src/index";
+import mdl, { MagentoStorefrontEvents } from "../src/index";
 import {
   CUSTOM_URL_CONTEXT,
   REFERRER_URL_CONTEXT,
@@ -12,7 +12,7 @@ import {
   ADD_TO_CART,
   CUSTOM_URL,
   INITIATE_CHECKOUT,
-  MagentoDataLayerEvent,
+  Event,
   PAGE_ACTIVITY_SUMMARY,
   PAGE_VIEW,
   PRODUCT_PAGE_VIEW,
@@ -27,7 +27,7 @@ import { Shopper } from "../src/types/schemas/shopper";
 beforeAll(() => {
   // Forces magento data layer code to be bundled so that
   // 'data layer should exist' test passes
-  expect(mdl).toBeInstanceOf(MagentoDataLayer);
+  expect(mdl).toBeInstanceOf(MagentoStorefrontEvents);
 });
 
 beforeEach(async () => {
@@ -238,11 +238,11 @@ describe("events", () => {
     const firstContext = { shopperId: "guest" } as Shopper;
     const secondContext = { shopperId: "logged-in" } as Shopper;
 
-    const handler = (event: MagentoDataLayerEvent) => {
+    const handler = (event: Event) => {
       expect(event.eventInfo.shopperContext).toEqual(firstContext);
       expect(mdl.context.getShopper()).toEqual(firstContext);
     };
-    const deferredHandler = (event: MagentoDataLayerEvent) => {
+    const deferredHandler = (event: Event) => {
       // values don't match because the event context was created from
       // the context when the event was fired thus ensuring deferred
       // handlers receive "timely" data
@@ -264,7 +264,7 @@ describe("events", () => {
 
   test("event publisher passes user-defined context through to subscribers", () => {
     const myContext = { foo: "bar" };
-    const handler = (event: MagentoDataLayerEvent) => {
+    const handler = (event: Event) => {
       expect(event.eventInfo).toEqual(myContext);
     };
 
@@ -277,7 +277,7 @@ describe("events", () => {
     mdl.context.setReferrerUrl({ referrerUrl: "test.com" });
     const myContext = mdl.context.getReferrerUrl(); // using get/set to make sure our context matches exactly what referrer context would look like in the data layer
 
-    const handler = (event: MagentoDataLayerEvent) => {
+    const handler = (event: Event) => {
       expect(event.eventInfo).toEqual({
         [CUSTOM_URL_CONTEXT]: expect.anything(),
         [REFERRER_URL_CONTEXT]: myContext,

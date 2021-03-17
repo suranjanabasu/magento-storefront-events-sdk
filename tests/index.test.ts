@@ -3,12 +3,12 @@
  * See COPYING.txt for license details.
  */
 
-import mdl, { MagentoDataLayer } from "../src/index";
+import mdl, { MagentoStorefrontEvents } from "../src/index";
 
 beforeAll(() => {
   // Forces magento data layer code to be bundled so that
   // 'data layer should exist' test passes
-  expect(mdl).toBeInstanceOf(MagentoDataLayer);
+  expect(mdl).toBeInstanceOf(MagentoStorefrontEvents);
 });
 
 beforeEach(async () => {
