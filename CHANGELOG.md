@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.1.1...v0.2.0) (2021-03-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* **rename:** Changing the package name to @adobe/magento-storefront-events-sdk.
+* **webpack:** window.magentoDataLayer.default is now window.MagentoDataLayer.
+
+### build
+
+* **webpack:** include default export on window ([839d9d9](https://github.com/adobe/magento-storefront-events-sdk/commit/839d9d9ec4c077d8e6784b24bdbd9d1be8aae54a))
+
+
+* **rename:** change the package name ([9598d98](https://github.com/adobe/magento-storefront-events-sdk/commit/9598d98e3b3fa3ee48657252d8e6b2bf85a49205))
+
 ### [0.1.1](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.1.0...v0.1.1) (2021-03-16)
 
 
