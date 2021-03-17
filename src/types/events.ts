@@ -44,7 +44,7 @@ export type EventName =
 
 export type Event = {
   event: EventName;
-  context: Context & CustomContext;
+  eventInfo: Context & CustomContext;
 };
 
 export type EventHandler = (

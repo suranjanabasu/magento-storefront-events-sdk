@@ -54,7 +54,10 @@ export abstract class Base {
     window.adobeDataLayer.push((dl: AdobeClientDataLayer) => {
       dl.push({
         event,
-        context: { ...this.getContext<Context>(), ...context },
+        eventInfo: {
+          ...this.getContext<Context>(),
+          ...context,
+        },
       });
     });
   }
