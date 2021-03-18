@@ -4,186 +4,189 @@
  */
 
 import {
-  MAGENTO_EXTENSION_CONTEXT,
-  PAGE_OFFSET_CONTEXT,
-  ORDER_CONTEXT,
-  PRODUCT_CONTEXT,
-  SEARCH_INPUT_CONTEXT,
-  SEARCH_RESULTS_CONTEXT,
-  SHOPPER_CONTEXT,
-  SHOPPING_CART_CONTEXT,
-  STOREFRONT_INSTANCE_CONTEXT,
-  CUSTOM_URL_CONTEXT,
-  REFERRER_URL_CONTEXT,
+    MAGENTO_EXTENSION_CONTEXT,
+    PAGE_OFFSET_CONTEXT,
+    ORDER_CONTEXT,
+    PRODUCT_CONTEXT,
+    SEARCH_INPUT_CONTEXT,
+    SEARCH_RESULTS_CONTEXT,
+    SHOPPER_CONTEXT,
+    SHOPPING_CART_CONTEXT,
+    STOREFRONT_INSTANCE_CONTEXT,
+    CUSTOM_URL_CONTEXT,
+    REFERRER_URL_CONTEXT,
 } from "./types/contexts";
 import { Base } from "./Base";
 import {
-  MagentoExtension,
-  PageOffset,
-  Product,
-  Shopper,
-  StorefrontInstance,
-  ShoppingCart,
-  CustomUrl,
-  ReferrerUrl,
-  SearchInput,
-  SearchResults,
-  Order,
+    MagentoExtension,
+    PageOffset,
+    Product,
+    Shopper,
+    StorefrontInstance,
+    ShoppingCart,
+    CustomUrl,
+    ReferrerUrl,
+    SearchInput,
+    SearchResults,
+    Order,
 } from "./types/schemas";
 
 export default class ContextManager extends Base {
-  /**
-   * Get url context
-   */
-  getCustomUrl(): CustomUrl {
-    return this.getContext<CustomUrl>(CUSTOM_URL_CONTEXT);
-  }
+    /**
+     * Get url context
+     */
+    getCustomUrl(): CustomUrl {
+        return this.getContext<CustomUrl>(CUSTOM_URL_CONTEXT);
+    }
 
-  /**
-   * Set url context
-   */
-  setCustomUrl(context: CustomUrl): void {
-    this.setContext<CustomUrl>(CUSTOM_URL_CONTEXT, context);
-  }
+    /**
+     * Set url context
+     */
+    setCustomUrl(context: CustomUrl): void {
+        this.setContext<CustomUrl>(CUSTOM_URL_CONTEXT, context);
+    }
 
-  /**
-   * Get shopper context
-   **/
-  getShopper(): Shopper {
-    return this.getContext<Shopper>(SHOPPER_CONTEXT);
-  }
+    /**
+     * Get shopper context
+     **/
+    getShopper(): Shopper {
+        return this.getContext<Shopper>(SHOPPER_CONTEXT);
+    }
 
-  /**
-   * Set shopper context
-   **/
-  setShopper(context: Shopper): void {
-    this.setContext<Shopper>(SHOPPER_CONTEXT, context);
-  }
+    /**
+     * Set shopper context
+     **/
+    setShopper(context: Shopper): void {
+        this.setContext<Shopper>(SHOPPER_CONTEXT, context);
+    }
 
-  /**
-   * Get Magento extension context
-   */
-  getMagentoExtension(): MagentoExtension {
-    return this.getContext<MagentoExtension>(MAGENTO_EXTENSION_CONTEXT);
-  }
+    /**
+     * Get Magento extension context
+     */
+    getMagentoExtension(): MagentoExtension {
+        return this.getContext<MagentoExtension>(MAGENTO_EXTENSION_CONTEXT);
+    }
 
-  /**
-   * Set Magento extension context
-   */
-  setMagentoExtension(context: MagentoExtension): void {
-    this.setContext<MagentoExtension>(MAGENTO_EXTENSION_CONTEXT, context);
-  }
+    /**
+     * Set Magento extension context
+     */
+    setMagentoExtension(context: MagentoExtension): void {
+        this.setContext<MagentoExtension>(MAGENTO_EXTENSION_CONTEXT, context);
+    }
 
-  /**
-   * Get order context
-   */
-  getOrder(): Order {
-    return this.getContext<Order>(ORDER_CONTEXT);
-  }
+    /**
+     * Get order context
+     */
+    getOrder(): Order {
+        return this.getContext<Order>(ORDER_CONTEXT);
+    }
 
-  /**
-   * Set order context
-   */
-  setOrder(context: Order): void {
-    this.setContext<Order>(ORDER_CONTEXT, context);
-  }
+    /**
+     * Set order context
+     */
+    setOrder(context: Order): void {
+        this.setContext<Order>(ORDER_CONTEXT, context);
+    }
 
-  /**
-   * Get page offset context
-   */
-  getPageOffset(): PageOffset {
-    return this.getContext<PageOffset>(PAGE_OFFSET_CONTEXT);
-  }
+    /**
+     * Get page offset context
+     */
+    getPageOffset(): PageOffset {
+        return this.getContext<PageOffset>(PAGE_OFFSET_CONTEXT);
+    }
 
-  /**
-   * Set page offset context
-   */
-  setPageOffset(context: PageOffset): void {
-    this.setContext<PageOffset>(PAGE_OFFSET_CONTEXT, context);
-  }
+    /**
+     * Set page offset context
+     */
+    setPageOffset(context: PageOffset): void {
+        this.setContext<PageOffset>(PAGE_OFFSET_CONTEXT, context);
+    }
 
-  /**
-   * Get product context
-   */
-  getProduct(): Product {
-    return this.getContext<Product>(PRODUCT_CONTEXT);
-  }
+    /**
+     * Get product context
+     */
+    getProduct(): Product {
+        return this.getContext<Product>(PRODUCT_CONTEXT);
+    }
 
-  /**
-   * Set product context
-   */
-  setProduct(context: Product): void {
-    this.setContext<Product>(PRODUCT_CONTEXT, context);
-  }
+    /**
+     * Set product context
+     */
+    setProduct(context: Product): void {
+        this.setContext<Product>(PRODUCT_CONTEXT, context);
+    }
 
-  /**
-   * Get referrer url context
-   */
-  getReferrerUrl(): ReferrerUrl {
-    return this.getContext<ReferrerUrl>(REFERRER_URL_CONTEXT);
-  }
+    /**
+     * Get referrer url context
+     */
+    getReferrerUrl(): ReferrerUrl {
+        return this.getContext<ReferrerUrl>(REFERRER_URL_CONTEXT);
+    }
 
-  /**
-   * Set referrer url context
-   */
-  setReferrerUrl(context: ReferrerUrl): void {
-    this.setContext<ReferrerUrl>(REFERRER_URL_CONTEXT, context);
-  }
+    /**
+     * Set referrer url context
+     */
+    setReferrerUrl(context: ReferrerUrl): void {
+        this.setContext<ReferrerUrl>(REFERRER_URL_CONTEXT, context);
+    }
 
-  /**
-   * Get search input context
-   */
-  getSearchInput(): SearchInput {
-    return this.getContext<SearchInput>(SEARCH_INPUT_CONTEXT);
-  }
+    /**
+     * Get search input context
+     */
+    getSearchInput(): SearchInput {
+        return this.getContext<SearchInput>(SEARCH_INPUT_CONTEXT);
+    }
 
-  /**
-   * Set search input context
-   */
-  setSearchInput(context: SearchInput): void {
-    this.setContext<SearchInput>(SEARCH_INPUT_CONTEXT, context);
-  }
+    /**
+     * Set search input context
+     */
+    setSearchInput(context: SearchInput): void {
+        this.setContext<SearchInput>(SEARCH_INPUT_CONTEXT, context);
+    }
 
-  /**
-   * Get search results context
-   */
-  getSearchResults(): SearchResults {
-    return this.getContext<SearchResults>(SEARCH_RESULTS_CONTEXT);
-  }
+    /**
+     * Get search results context
+     */
+    getSearchResults(): SearchResults {
+        return this.getContext<SearchResults>(SEARCH_RESULTS_CONTEXT);
+    }
 
-  /**
-   * Set search results context
-   */
-  setSearchResults(context: SearchResults): void {
-    this.setContext<SearchResults>(SEARCH_RESULTS_CONTEXT, context);
-  }
+    /**
+     * Set search results context
+     */
+    setSearchResults(context: SearchResults): void {
+        this.setContext<SearchResults>(SEARCH_RESULTS_CONTEXT, context);
+    }
 
-  /**
-   * Get shopping cart context
-   */
-  getShoppingCart(): ShoppingCart {
-    return this.getContext<ShoppingCart>(SHOPPING_CART_CONTEXT);
-  }
+    /**
+     * Get shopping cart context
+     */
+    getShoppingCart(): ShoppingCart {
+        return this.getContext<ShoppingCart>(SHOPPING_CART_CONTEXT);
+    }
 
-  /**
-   * Set shopping cart context
-   */
-  setShoppingCart(context: ShoppingCart): void {
-    this.setContext<ShoppingCart>(SHOPPING_CART_CONTEXT, context);
-  }
+    /**
+     * Set shopping cart context
+     */
+    setShoppingCart(context: ShoppingCart): void {
+        this.setContext<ShoppingCart>(SHOPPING_CART_CONTEXT, context);
+    }
 
-  /**
-   * Get storefront instance context
-   */
-  getStorefrontInstance(): StorefrontInstance {
-    return this.getContext<StorefrontInstance>(STOREFRONT_INSTANCE_CONTEXT);
-  }
+    /**
+     * Get storefront instance context
+     */
+    getStorefrontInstance(): StorefrontInstance {
+        return this.getContext<StorefrontInstance>(STOREFRONT_INSTANCE_CONTEXT);
+    }
 
-  /**
-   * Set storefront instance context
-   * @param context
-   */
-  setStorefrontInstance(context: StorefrontInstance): void {
-    this.setContext<StorefrontInstance>(STOREFRONT_INSTANCE_CONTEXT, context);
-  }
+    /**
+     * Set storefront instance context
+     * @param context
+     */
+    setStorefrontInstance(context: StorefrontInstance): void {
+        this.setContext<StorefrontInstance>(
+            STOREFRONT_INSTANCE_CONTEXT,
+            context,
+        );
+    }
 }
