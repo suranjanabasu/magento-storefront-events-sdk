@@ -8,24 +8,24 @@ import {
     REFERRER_URL_CONTEXT,
 } from "../src/types/contexts";
 import {
-  ADD_TO_CART,
-  CUSTOM_URL,
-  INITIATE_CHECKOUT,
-  Event,
-  PAGE_ACTIVITY_SUMMARY,
-  PAGE_VIEW,
-  PRODUCT_PAGE_VIEW,
-  RECS_ITEM_ADD_TO_CART_CLICK,
-  RECS_ITEM_CLICK,
-  RECS_REQUEST_SENT,
-  RECS_RESPONSE_RECEIVED,
-  RECS_UNIT_RENDER,
-  RECS_UNIT_VIEW,
-  REFERRER_URL,
-  REMOVE_FROM_CART,
-  SIGN_IN,
-  SIGN_OUT,
-  UPDATE_CART  
+    ADD_TO_CART,
+    CUSTOM_URL,
+    INITIATE_CHECKOUT,
+    Event,
+    PAGE_ACTIVITY_SUMMARY,
+    PAGE_VIEW,
+    PRODUCT_PAGE_VIEW,
+    RECS_ITEM_ADD_TO_CART_CLICK,
+    RECS_ITEM_CLICK,
+    RECS_REQUEST_SENT,
+    RECS_RESPONSE_RECEIVED,
+    RECS_UNIT_RENDER,
+    RECS_UNIT_VIEW,
+    REFERRER_URL,
+    REMOVE_FROM_CART,
+    SIGN_IN,
+    SIGN_OUT,
+    UPDATE_CART,
 } from "../src/types/events";
 import { Shopper } from "../src/types/schemas/shopper";
 
@@ -139,116 +139,115 @@ describe("events", () => {
             });
         });
 
-    mdl.subscribe.productPageView(eventHandler);
-    expect(eventHandler).not.toHaveBeenCalled();
-    mdl.publish.productPageView();
-    expect(eventHandler).toHaveBeenCalledTimes(1);
-    mdl.unsubscribe.productPageView(eventHandler);
-    mdl.publish.productPageView();
-    expect(eventHandler).toHaveBeenCalledTimes(1);
-  });
-
-  test("rec item add to cart click", ()=>{
-    const eventHandler = jest.fn((eventObj) => {
-      expect(eventObj).toEqual({
-        event: RECS_ITEM_ADD_TO_CART_CLICK,
-        eventInfo: expect.any(Object),
-      });
+        mdl.subscribe.productPageView(eventHandler);
+        expect(eventHandler).not.toHaveBeenCalled();
+        mdl.publish.productPageView();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+        mdl.unsubscribe.productPageView(eventHandler);
+        mdl.publish.productPageView();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
-    mdl.subscribe.recsItemAddToCartClick(eventHandler);
-    expect(eventHandler).not.toHaveBeenCalled();
-    mdl.publish.recsItemAddToCartClick();
-    expect(eventHandler).toHaveBeenCalledTimes(1);
-    mdl.unsubscribe.recsItemAddToCartClick(eventHandler);
-    mdl.publish.recsItemAddToCartClick();
-    expect(eventHandler).toHaveBeenCalledTimes(1);
-  })
+    test("rec item add to cart click", () => {
+        const eventHandler = jest.fn(eventObj => {
+            expect(eventObj).toEqual({
+                event: RECS_ITEM_ADD_TO_CART_CLICK,
+                eventInfo: expect.any(Object),
+            });
+        });
 
-  test("rec item click", ()=>{
-    const eventHandler = jest.fn((eventObj) => {
-      expect(eventObj).toEqual({
-        event: RECS_ITEM_CLICK,
-        eventInfo: expect.any(Object),
-      });
-    });
-    mdl.subscribe.recsItemClick(eventHandler);
-    expect(eventHandler).not.toHaveBeenCalled();
-    mdl.publish.recsItemClick();
-    expect(eventHandler).toHaveBeenCalledTimes(1);
-    mdl.unsubscribe.recsItemClick(eventHandler);
-    mdl.publish.recsItemClick();
-    expect(eventHandler).toHaveBeenCalledTimes(1);
-  })
-
-  test("rec request sent", ()=>{
-    const eventHandler = jest.fn((eventObj) => {
-      expect(eventObj).toEqual({
-        event: RECS_REQUEST_SENT,
-        eventInfo: expect.any(Object),
-      });
+        mdl.subscribe.recsItemAddToCartClick(eventHandler);
+        expect(eventHandler).not.toHaveBeenCalled();
+        mdl.publish.recsItemAddToCartClick();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+        mdl.unsubscribe.recsItemAddToCartClick(eventHandler);
+        mdl.publish.recsItemAddToCartClick();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
-    mdl.subscribe.recsRequestSent(eventHandler);
-    expect(eventHandler).not.toHaveBeenCalled();
-    mdl.publish.recsRequestSent();
-    expect(eventHandler).toHaveBeenCalledTimes(1);
-    mdl.unsubscribe.recsRequestSent(eventHandler);
-    mdl.publish.recsRequestSent();
-    expect(eventHandler).toHaveBeenCalledTimes(1);
-  })
-
-
-  test("rec response sent", ()=>{
-    const eventHandler = jest.fn((eventObj) => {
-      expect(eventObj).toEqual({
-        event: RECS_RESPONSE_RECEIVED,
-        eventInfo: expect.any(Object),
-      });
+    test("rec item click", () => {
+        const eventHandler = jest.fn(eventObj => {
+            expect(eventObj).toEqual({
+                event: RECS_ITEM_CLICK,
+                eventInfo: expect.any(Object),
+            });
+        });
+        mdl.subscribe.recsItemClick(eventHandler);
+        expect(eventHandler).not.toHaveBeenCalled();
+        mdl.publish.recsItemClick();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+        mdl.unsubscribe.recsItemClick(eventHandler);
+        mdl.publish.recsItemClick();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
-    mdl.subscribe.recsResponseReceived(eventHandler);
-    expect(eventHandler).not.toHaveBeenCalled();
-    mdl.publish.recsResponseReceived();
-    expect(eventHandler).toHaveBeenCalledTimes(1);
-    mdl.unsubscribe.recsResponseReceived(eventHandler);
-    mdl.publish.recsResponseReceived();
-    expect(eventHandler).toHaveBeenCalledTimes(1);
-  })
+    test("rec request sent", () => {
+        const eventHandler = jest.fn(eventObj => {
+            expect(eventObj).toEqual({
+                event: RECS_REQUEST_SENT,
+                eventInfo: expect.any(Object),
+            });
+        });
 
-  test("rec unit render", ()=>{
-    const eventHandler = jest.fn((eventObj) => {
-      expect(eventObj).toEqual({
-        event: RECS_UNIT_RENDER,
-        eventInfo: expect.any(Object),
-      });
+        mdl.subscribe.recsRequestSent(eventHandler);
+        expect(eventHandler).not.toHaveBeenCalled();
+        mdl.publish.recsRequestSent();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+        mdl.unsubscribe.recsRequestSent(eventHandler);
+        mdl.publish.recsRequestSent();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
-    mdl.subscribe.recsUnitRender(eventHandler);
-    expect(eventHandler).not.toHaveBeenCalled();
-    mdl.publish.recsUnitRender();
-    expect(eventHandler).toHaveBeenCalledTimes(1);
-    mdl.unsubscribe.recsUnitRender(eventHandler);
-    mdl.publish.recsUnitRender();
-    expect(eventHandler).toHaveBeenCalledTimes(1);
-  })
+    test("rec response sent", () => {
+        const eventHandler = jest.fn(eventObj => {
+            expect(eventObj).toEqual({
+                event: RECS_RESPONSE_RECEIVED,
+                eventInfo: expect.any(Object),
+            });
+        });
 
-  test("rec unit view", ()=>{
-    const eventHandler = jest.fn((eventObj) => {
-      expect(eventObj).toEqual({
-        event: RECS_UNIT_VIEW,
-        eventInfo: expect.any(Object),
-      });
+        mdl.subscribe.recsResponseReceived(eventHandler);
+        expect(eventHandler).not.toHaveBeenCalled();
+        mdl.publish.recsResponseReceived();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+        mdl.unsubscribe.recsResponseReceived(eventHandler);
+        mdl.publish.recsResponseReceived();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
-    mdl.subscribe.recsUnitView(eventHandler);
-    expect(eventHandler).not.toHaveBeenCalled();
-    mdl.publish.recsUnitView();
-    expect(eventHandler).toHaveBeenCalledTimes(1);
-    mdl.unsubscribe.recsUnitView(eventHandler);
-    mdl.publish.recsUnitView();
-    expect(eventHandler).toHaveBeenCalledTimes(1);
-  })
+    test("rec unit render", () => {
+        const eventHandler = jest.fn(eventObj => {
+            expect(eventObj).toEqual({
+                event: RECS_UNIT_RENDER,
+                eventInfo: expect.any(Object),
+            });
+        });
+
+        mdl.subscribe.recsUnitRender(eventHandler);
+        expect(eventHandler).not.toHaveBeenCalled();
+        mdl.publish.recsUnitRender();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+        mdl.unsubscribe.recsUnitRender(eventHandler);
+        mdl.publish.recsUnitRender();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+    });
+
+    test("rec unit view", () => {
+        const eventHandler = jest.fn(eventObj => {
+            expect(eventObj).toEqual({
+                event: RECS_UNIT_VIEW,
+                eventInfo: expect.any(Object),
+            });
+        });
+
+        mdl.subscribe.recsUnitView(eventHandler);
+        expect(eventHandler).not.toHaveBeenCalled();
+        mdl.publish.recsUnitView();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+        mdl.unsubscribe.recsUnitView(eventHandler);
+        mdl.publish.recsUnitView();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+    });
 
     test("referrer url", async () => {
         const eventHandler = jest.fn(eventObj => {

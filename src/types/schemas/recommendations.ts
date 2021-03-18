@@ -14,8 +14,8 @@ export type RecUnit = {
     source: "api" | "cdn-backup";
     typeId: string;
     pageType?: string;
-}
+};
 
-export type RecProduct = Product &  { 
-   unitId: string;  
-}
+export type RecProduct = Product & {
+    unitId: string;
+};
