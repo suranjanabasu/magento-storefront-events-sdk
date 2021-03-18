@@ -82,14 +82,14 @@ export default class PublishManager extends Base {
   /**
    * Publish Recommended Item Add to Cart Click event
    */
-   recItemAddToCartClick(context?: CustomContext): void {
+   recsItemAddToCartClick(context?: CustomContext): void {
     this.pushEvent(RECS_ITEM_ADD_TO_CART_CLICK, context)
   }
 
   /**
    * Publish Recommended Item Click event
    */
-   recItemClick(context?: CustomContext): void {
+   recsItemClick(context?: CustomContext): void {
     this.pushEvent(RECS_ITEM_CLICK, context)
   }
 

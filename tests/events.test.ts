@@ -156,12 +156,12 @@ describe("events", () => {
       });
     });
 
-    mdl.subscribe.recItemAddToCartClick(eventHandler);
+    mdl.subscribe.recsItemAddToCartClick(eventHandler);
     expect(eventHandler).not.toHaveBeenCalled();
-    mdl.publish.recItemAddToCartClick();
+    mdl.publish.recsItemAddToCartClick();
     expect(eventHandler).toHaveBeenCalledTimes(1);
-    mdl.unsubscribe.recItemAddToCartClick(eventHandler);
-    mdl.publish.recItemAddToCartClick();
+    mdl.unsubscribe.recsItemAddToCartClick(eventHandler);
+    mdl.publish.recsItemAddToCartClick();
     expect(eventHandler).toHaveBeenCalledTimes(1);
   })
 
@@ -172,13 +172,12 @@ describe("events", () => {
         eventInfo: expect.any(Object),
       });
     });
-
-    mdl.subscribe.recItemClick(eventHandler);
+    mdl.subscribe.recsItemClick(eventHandler);
     expect(eventHandler).not.toHaveBeenCalled();
-    mdl.publish.recItemClick();
+    mdl.publish.recsItemClick();
     expect(eventHandler).toHaveBeenCalledTimes(1);
-    mdl.unsubscribe.recItemClick(eventHandler);
-    mdl.publish.recItemClick();
+    mdl.unsubscribe.recsItemClick(eventHandler);
+    mdl.publish.recsItemClick();
     expect(eventHandler).toHaveBeenCalledTimes(1);
   })
 

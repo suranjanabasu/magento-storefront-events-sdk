@@ -127,7 +127,7 @@ export default class SubscribeManager extends Base {
 /**
    * Subscribe to Recommended Item Add to Cart Click event
    */
- recItemAddToCartClick(
+ recsItemAddToCartClick(
   handler: EventHandler,
   options?: ListenerOptions
 ): void {
@@ -137,7 +137,7 @@ export default class SubscribeManager extends Base {
 /**
    * Subscribe to Recommended Item Click event
    */
- recItemClick(
+ recsItemClick(
   handler: EventHandler,
   options?: ListenerOptions
 ): void {

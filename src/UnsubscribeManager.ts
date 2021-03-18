@@ -98,7 +98,7 @@ export default class UnsubscribeManager extends Base {
   /**
    * Unsubscribe to Recommended Item Add to Cart Click event
    */
-  recItemAddToCartClick(
+  recsItemAddToCartClick(
     handler: EventHandler,
   ): void {
     this.removeEventListener(RECS_ITEM_ADD_TO_CART_CLICK, handler);
@@ -108,7 +108,7 @@ export default class UnsubscribeManager extends Base {
   /**
      * Unsubscribe to Recommended Item Click event
      */
-  recItemClick(
+  recsItemClick(
     handler: EventHandler,
   ): void {
     this.removeEventListener(RECS_ITEM_CLICK, handler);
