@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.2.0...v0.2.1) (2021-03-18)
+
+
+### Features
+
+* **recommendations:** enables recommendations events ([cd76752](https://github.com/adobe/magento-storefront-events-sdk/commit/cd767529c0afaa24df5d2f7362057b1e47838b44))
+
+
+### Bug Fixes
+
+* **filename:** fixed recomendations.js to reocmmendations.js ([b6d7e13](https://github.com/adobe/magento-storefront-events-sdk/commit/b6d7e136242ca64e3fc64a95e2da09ea05aa2f9e))
+
 ## [0.2.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.1.1...v0.2.0) (2021-03-17)
 
 ### ⚠ BREAKING CHANGES
