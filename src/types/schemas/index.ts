@@ -7,10 +7,10 @@ export * from "./magentoJsTracker";
 export * from "./order";
 export * from "./pageOffset";
 export * from "./product";
+export * from "./recommendations"
 export * from "./referrerUrl";
 export * from "./searchInput";
 export * from "./searchResults";
 export * from "./shopper";
 export * from "./shoppingCart";
 export * from "./storefrontInstance";
-export * from "./recomendations"
