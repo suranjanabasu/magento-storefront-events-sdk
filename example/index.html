@@ -4,12 +4,12 @@
         <script src="http://localhost:8080/index.js"></script>
 
         <script>
-            const mdl = window.magentoStorefrontEvents
+            const mdl = window.magentoStorefrontEvents;
 
-            mdl.subscribe.addToCart(() => console.log("addToCart"))
+            mdl.subscribe.addToCart(() => console.log("addToCart"));
 
             setTimeout(() => {
-                mdl.publish.addToCart()
+                mdl.publish.addToCart();
             }, 1000);
         </script>
     </head>

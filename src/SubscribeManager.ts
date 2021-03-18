@@ -17,6 +17,12 @@ import {
     PAGE_VIEW,
     PLACE_ORDER,
     PRODUCT_PAGE_VIEW,
+    RECS_ITEM_ADD_TO_CART_CLICK,
+    RECS_ITEM_CLICK,
+    RECS_REQUEST_SENT,
+    RECS_RESPONSE_RECEIVED,
+    RECS_UNIT_RENDER,
+    RECS_UNIT_VIEW,
     REFERRER_URL,
     REMOVE_FROM_CART,
     SEARCH_REQUEST_SENT,
@@ -92,6 +98,54 @@ export default class SubscribeManager extends Base {
      */
     productPageView(handler: EventHandler, options?: ListenerOptions): void {
         this.addEventListener(PRODUCT_PAGE_VIEW, handler, options);
+    }
+
+    /**
+     * Subscribe to Recommended Item Add to Cart Click event
+     */
+    recsItemAddToCartClick(
+        handler: EventHandler,
+        options?: ListenerOptions,
+    ): void {
+        this.addEventListener(RECS_ITEM_ADD_TO_CART_CLICK, handler, options);
+    }
+
+    /**
+     * Subscribe to Recommended Item Click event
+     */
+    recsItemClick(handler: EventHandler, options?: ListenerOptions): void {
+        this.addEventListener(RECS_ITEM_CLICK, handler, options);
+    }
+
+    /**
+     * Subscribe to Recommendations API Request event
+     */
+    recsRequestSent(handler: EventHandler, options?: ListenerOptions): void {
+        this.addEventListener(RECS_REQUEST_SENT, handler, options);
+    }
+
+    /**
+     * Subscribe to Recommendations Response Received event
+     */
+    recsResponseReceived(
+        handler: EventHandler,
+        options?: ListenerOptions,
+    ): void {
+        this.addEventListener(RECS_RESPONSE_RECEIVED, handler, options);
+    }
+
+    /**
+     * Subscribe to Recommended Unit Render Event
+     */
+    recsUnitRender(handler: EventHandler, options?: ListenerOptions): void {
+        this.addEventListener(RECS_UNIT_RENDER, handler, options);
+    }
+
+    /**
+     * Subscribe to Recommended Unit View event
+     */
+    recsUnitView(handler: EventHandler, options?: ListenerOptions): void {
+        this.addEventListener(RECS_UNIT_VIEW, handler, options);
     }
 
     /**
