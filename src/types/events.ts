@@ -55,15 +55,13 @@ export type EventName =
   | typeof UPDATE_CART;
 
 export type Event = {
-  event: EventName;
-  eventInfo: Context & CustomContext;
+    event: EventName;
+    eventInfo: Context & CustomContext;
 };
 
-export type EventHandler = (
-  event: Event
-) => void;
+export type EventHandler = (event: Event) => void;
 
 export type ListenerOptions = {
-  path?: string;
-  scope?: "past" | "future" | "all";
+    path?: string;
+    scope?: "past" | "future" | "all";
 };

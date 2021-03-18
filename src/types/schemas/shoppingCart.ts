@@ -6,30 +6,30 @@
 import { Product } from "./product";
 
 export type ShoppingCart = {
-  id: string | null;
-  items?: Array<ShoppingCartItem>;
-  prices?: Array<Price>;
-  totalQuantity: number;
+    id: string | null;
+    items?: Array<ShoppingCartItem>;
+    prices?: Array<Price>;
+    totalQuantity: number;
 };
 
 type Price = {
-  value: number;
-  currency?: string;
+    value: number;
+    currency?: string;
 };
 
 type ShoppingCartItem = {
-  canApplyMsrp: boolean;
-  foramttedPrice: string;
-  id: string;
-  prices?: Array<Price>;
-  product: Product;
-  configurableOptions?: Array<ConfigurableOption>;
-  quantity?: number;
+    canApplyMsrp: boolean;
+    foramttedPrice: string;
+    id: string;
+    prices?: Array<Price>;
+    product: Product;
+    configurableOptions?: Array<ConfigurableOption>;
+    quantity?: number;
 };
 
 type ConfigurableOption = {
-  id: number;
-  optionLabel: string;
-  valueId: number;
-  valueLabel: string;
+    id: number;
+    optionLabel: string;
+    valueId: number;
+    valueLabel: string;
 };

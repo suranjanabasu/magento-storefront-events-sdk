@@ -4,6 +4,6 @@
  */
 
 export type Experiment = {
-  experimentName: string;
-  variantName: string;
+    experimentName: string;
+    variantName: string;
 };
