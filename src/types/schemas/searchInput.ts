@@ -4,8 +4,8 @@
  */
 
 export type SearchInput = {
-  searchType?: "popover" | "plp" | null;
-  query: string;
-  refinementAttribute: string | null;
-  refinementSelection: string | null;
+    searchType?: "popover" | "plp" | null;
+    query: string;
+    refinementAttribute: string | null;
+    refinementSelection: string | null;
 };

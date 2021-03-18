@@ -16,20 +16,20 @@ export const SHOPPING_CART_CONTEXT = "shoppingCartContext";
 export const STOREFRONT_INSTANCE_CONTEXT = "storefrontInstanceContext";
 
 export type ContextName =
-  | typeof CUSTOM_URL_CONTEXT
-  | typeof MAGENTO_EXTENSION_CONTEXT
-  | typeof ORDER_CONTEXT
-  | typeof PAGE_OFFSET_CONTEXT
-  | typeof PRODUCT_CONTEXT
-  | typeof REFERRER_URL_CONTEXT
-  | typeof SEARCH_INPUT_CONTEXT
-  | typeof SEARCH_RESULTS_CONTEXT
-  | typeof SHOPPER_CONTEXT
-  | typeof SHOPPING_CART_CONTEXT
-  | typeof STOREFRONT_INSTANCE_CONTEXT;
+    | typeof CUSTOM_URL_CONTEXT
+    | typeof MAGENTO_EXTENSION_CONTEXT
+    | typeof ORDER_CONTEXT
+    | typeof PAGE_OFFSET_CONTEXT
+    | typeof PRODUCT_CONTEXT
+    | typeof REFERRER_URL_CONTEXT
+    | typeof SEARCH_INPUT_CONTEXT
+    | typeof SEARCH_RESULTS_CONTEXT
+    | typeof SHOPPER_CONTEXT
+    | typeof SHOPPING_CART_CONTEXT
+    | typeof STOREFRONT_INSTANCE_CONTEXT;
 
 export type Context = {
-  [K in ContextName]: unknown;
+    [K in ContextName]: unknown;
 };
 
 export type CustomContext = Record<string, unknown>;

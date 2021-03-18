@@ -4,6 +4,6 @@
  */
 
 export type MagentoJsTracker = {
-  magentoJsVersion: string;
-  magentoJsBuild: string;
+    magentoJsVersion: string;
+    magentoJsBuild: string;
 };

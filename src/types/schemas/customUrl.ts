@@ -4,5 +4,5 @@
  */
 
 export type CustomUrl = {
-  customUrl: string;
+    customUrl: string;
 };

@@ -4,5 +4,5 @@
  */
 
 export type ReferrerUrl = {
-  referrerUrl: string;
+    referrerUrl: string;
 };
