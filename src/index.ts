@@ -3,7 +3,7 @@
  * See COPYING.txt for license details.
  */
 
-import MagentoStorefrontEvents from "./magentoStorefrontEvents";
+import MagentoStorefrontEvents from "./MagentoStorefrontEvents";
 
 export { MagentoStorefrontEvents };
 export default new MagentoStorefrontEvents();

@@ -3,10 +3,10 @@
  * See COPYING.txt for license details.
  */
 
-import ContextManager from "./contextManager";
-import PublishManager from "./publishManager";
-import SubscribeManager from "./subscribeManager";
-import UnsubscribeManager from "./unsubscribeManager";
+import ContextManager from "./ContextManager";
+import PublishManager from "./PublishManager";
+import SubscribeManager from "./SubscribeManager";
+import UnsubscribeManager from "./UnsubscribeManager";
 
 class MagentoStorefrontEvents {
     constructor() {

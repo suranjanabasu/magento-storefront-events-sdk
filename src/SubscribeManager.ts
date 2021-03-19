@@ -3,7 +3,7 @@
  * See COPYING.txt for license details.
  */
 
-import { Base } from "./base";
+import { Base } from "./Base";
 import events from "./events";
 import { ListenerOptions, EventHandler } from "./types/events";
 
