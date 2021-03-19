@@ -2,31 +2,10 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+import contexts from "../src/contexts";
+import events from "../src/events";
 import mdl, { MagentoStorefrontEvents } from "../src/index";
-import {
-    CUSTOM_URL_CONTEXT,
-    REFERRER_URL_CONTEXT,
-} from "../src/types/contexts";
-import {
-    ADD_TO_CART,
-    CUSTOM_URL,
-    INITIATE_CHECKOUT,
-    Event,
-    PAGE_ACTIVITY_SUMMARY,
-    PAGE_VIEW,
-    PRODUCT_PAGE_VIEW,
-    RECS_ITEM_ADD_TO_CART_CLICK,
-    RECS_ITEM_CLICK,
-    RECS_REQUEST_SENT,
-    RECS_RESPONSE_RECEIVED,
-    RECS_UNIT_RENDER,
-    RECS_UNIT_VIEW,
-    REFERRER_URL,
-    REMOVE_FROM_CART,
-    SIGN_IN,
-    SIGN_OUT,
-    UPDATE_CART,
-} from "../src/types/events";
+import { Event } from "../src/types/events";
 import { Shopper } from "../src/types/schemas/shopper";
 
 beforeAll(() => {
@@ -49,7 +28,7 @@ describe("events", () => {
     test("add to cart", async () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({
-                event: ADD_TO_CART,
+                event: events.ADD_TO_CART,
                 eventInfo: expect.any(Object),
             });
         });
@@ -66,7 +45,7 @@ describe("events", () => {
     test("custom url", async () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({
-                event: CUSTOM_URL,
+                event: events.CUSTOM_URL,
                 eventInfo: expect.any(Object),
             });
         });
@@ -83,7 +62,7 @@ describe("events", () => {
     test("initiate checkout", async () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({
-                event: INITIATE_CHECKOUT,
+                event: events.INITIATE_CHECKOUT,
                 eventInfo: expect.any(Object),
             });
         });
@@ -100,7 +79,7 @@ describe("events", () => {
     test("page activity summary", async () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({
-                event: PAGE_ACTIVITY_SUMMARY,
+                event: events.PAGE_ACTIVITY_SUMMARY,
                 eventInfo: expect.any(Object),
             });
         });
@@ -117,7 +96,7 @@ describe("events", () => {
     test("page view", async () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({
-                event: PAGE_VIEW,
+                event: events.PAGE_VIEW,
                 eventInfo: expect.any(Object),
             });
         });
@@ -134,7 +113,7 @@ describe("events", () => {
     test("product page view", async () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({
-                event: PRODUCT_PAGE_VIEW,
+                event: events.PRODUCT_PAGE_VIEW,
                 eventInfo: expect.any(Object),
             });
         });
@@ -151,7 +130,7 @@ describe("events", () => {
     test("rec item add to cart click", () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({
-                event: RECS_ITEM_ADD_TO_CART_CLICK,
+                event: events.RECS_ITEM_ADD_TO_CART_CLICK,
                 eventInfo: expect.any(Object),
             });
         });
@@ -168,7 +147,7 @@ describe("events", () => {
     test("rec item click", () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({
-                event: RECS_ITEM_CLICK,
+                event: events.RECS_ITEM_CLICK,
                 eventInfo: expect.any(Object),
             });
         });
@@ -184,7 +163,7 @@ describe("events", () => {
     test("rec request sent", () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({
-                event: RECS_REQUEST_SENT,
+                event: events.RECS_REQUEST_SENT,
                 eventInfo: expect.any(Object),
             });
         });
@@ -201,7 +180,7 @@ describe("events", () => {
     test("rec response sent", () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({
-                event: RECS_RESPONSE_RECEIVED,
+                event: events.RECS_RESPONSE_RECEIVED,
                 eventInfo: expect.any(Object),
             });
         });
@@ -218,7 +197,7 @@ describe("events", () => {
     test("rec unit render", () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({
-                event: RECS_UNIT_RENDER,
+                event: events.RECS_UNIT_RENDER,
                 eventInfo: expect.any(Object),
             });
         });
@@ -235,7 +214,7 @@ describe("events", () => {
     test("rec unit view", () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({
-                event: RECS_UNIT_VIEW,
+                event: events.RECS_UNIT_VIEW,
                 eventInfo: expect.any(Object),
             });
         });
@@ -252,7 +231,7 @@ describe("events", () => {
     test("referrer url", async () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({
-                event: REFERRER_URL,
+                event: events.REFERRER_URL,
                 eventInfo: expect.any(Object),
             });
         });
@@ -269,7 +248,7 @@ describe("events", () => {
     test("remove from cart", async () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({
-                event: REMOVE_FROM_CART,
+                event: events.REMOVE_FROM_CART,
                 eventInfo: expect.any(Object),
             });
         });
@@ -286,7 +265,7 @@ describe("events", () => {
     test("sign in", async () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({
-                event: SIGN_IN,
+                event: events.SIGN_IN,
                 eventInfo: expect.any(Object),
             });
         });
@@ -303,7 +282,7 @@ describe("events", () => {
     test("sign out", async () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({
-                event: SIGN_OUT,
+                event: events.SIGN_OUT,
                 eventInfo: expect.any(Object),
             });
         });
@@ -320,7 +299,7 @@ describe("events", () => {
     test("update cart", async () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({
-                event: UPDATE_CART,
+                event: events.UPDATE_CART,
                 eventInfo: expect.any(Object),
             });
         });
@@ -385,15 +364,15 @@ describe("events", () => {
 
         const handler = (event: Event) => {
             expect(event.eventInfo).toEqual({
-                [CUSTOM_URL_CONTEXT]: expect.anything(),
-                [REFERRER_URL_CONTEXT]: myContext,
+                [contexts.CUSTOM_URL_CONTEXT]: expect.anything(),
+                [contexts.REFERRER_URL_CONTEXT]: myContext,
             });
         };
         // now set the context to something else
         mdl.context.setReferrerUrl({ referrerUrl: "different.me" });
         // fire event with context to overwrite
         mdl.subscribe.pageView(handler);
-        mdl.publish.pageView({ [REFERRER_URL_CONTEXT]: myContext });
+        mdl.publish.pageView({ [contexts.REFERRER_URL_CONTEXT]: myContext });
     });
 
     test("event context data is not persisted in data layer", () => {
