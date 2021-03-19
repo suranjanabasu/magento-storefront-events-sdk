@@ -4,192 +4,168 @@
  */
 
 import { Base } from "./Base";
-import {
-    ADD_TO_CART,
-    CUSTOM_URL,
-    DATA_LAYER_CHANGE,
-    DATA_LAYER_EVENT,
-    INITIATE_CHECKOUT,
-    EventHandler,
-    PAGE_ACTIVITY_SUMMARY,
-    PAGE_VIEW,
-    PLACE_ORDER,
-    PRODUCT_PAGE_VIEW,
-    RECS_ITEM_ADD_TO_CART_CLICK,
-    RECS_ITEM_CLICK,
-    RECS_REQUEST_SENT,
-    RECS_RESPONSE_RECEIVED,
-    RECS_UNIT_RENDER,
-    RECS_UNIT_VIEW,
-    REFERRER_URL,
-    REMOVE_FROM_CART,
-    SEARCH_REQUEST_SENT,
-    SEARCH_RESPONSE_RECEIVED,
-    SEARCH_RESULT_CLICK,
-    SIGN_IN,
-    SIGN_OUT,
-    UPDATE_CART,
-} from "./types/events";
+import events from "./events";
+import { EventHandler } from "./types/events";
 
 export default class UnsubscribeManager extends Base {
     /**
      *  Unsubscribe from Add to Cart event
      */
     addToCart(handler: EventHandler): void {
-        this.removeEventListener(ADD_TO_CART, handler);
+        this.removeEventListener(events.ADD_TO_CART, handler);
     }
 
     /**
      * Unsubscribe from Custom Url event
      */
     customUrl(handler: EventHandler): void {
-        this.removeEventListener(CUSTOM_URL, handler);
+        this.removeEventListener(events.CUSTOM_URL, handler);
     }
 
     /**
      * Unsubscribe from Data Layer Change event
      */
     dataLayerChange(handler: EventHandler): void {
-        this.removeEventListener(DATA_LAYER_CHANGE, handler);
+        this.removeEventListener(events.DATA_LAYER_CHANGE, handler);
     }
 
     /**
      * Unsubscribe from Data Layer Event event
      */
     dataLayerEvent(handler: EventHandler): void {
-        this.removeEventListener(DATA_LAYER_EVENT, handler);
+        this.removeEventListener(events.DATA_LAYER_EVENT, handler);
     }
 
     /**
      * Unsubscribe from Initiate Checkout event
      */
     initiateCheckout(handler: EventHandler): void {
-        this.removeEventListener(INITIATE_CHECKOUT, handler);
+        this.removeEventListener(events.INITIATE_CHECKOUT, handler);
     }
 
     /**
      * Unsubscribe from Page Activity Summary event
      */
     pageActivitySummary(handler: EventHandler): void {
-        this.removeEventListener(PAGE_ACTIVITY_SUMMARY, handler);
+        this.removeEventListener(events.PAGE_ACTIVITY_SUMMARY, handler);
     }
 
     /**
      * Unsubscribe from Page View event
      */
     pageView(handler: EventHandler): void {
-        this.removeEventListener(PAGE_VIEW, handler);
+        this.removeEventListener(events.PAGE_VIEW, handler);
     }
 
     /**
      * Unsubscribe from Place Order event
      */
     placeOrder(handler: EventHandler): void {
-        this.removeEventListener(PLACE_ORDER, handler);
+        this.removeEventListener(events.PLACE_ORDER, handler);
     }
 
     /**
      * Unsubscribe from Product Page View event
      */
     productPageView(handler: EventHandler): void {
-        this.removeEventListener(PRODUCT_PAGE_VIEW, handler);
+        this.removeEventListener(events.PRODUCT_PAGE_VIEW, handler);
     }
 
     /**
      * Unsubscribe to Recommended Item Add to Cart Click event
      */
     recsItemAddToCartClick(handler: EventHandler): void {
-        this.removeEventListener(RECS_ITEM_ADD_TO_CART_CLICK, handler);
+        this.removeEventListener(events.RECS_ITEM_ADD_TO_CART_CLICK, handler);
     }
 
     /**
      * Unsubscribe to Recommended Item Click event
      */
     recsItemClick(handler: EventHandler): void {
-        this.removeEventListener(RECS_ITEM_CLICK, handler);
+        this.removeEventListener(events.RECS_ITEM_CLICK, handler);
     }
 
     /**
      * Unsubscribe to Recommendations API Request event
      */
     recsRequestSent(handler: EventHandler): void {
-        this.removeEventListener(RECS_REQUEST_SENT, handler);
+        this.removeEventListener(events.RECS_REQUEST_SENT, handler);
     }
 
     /**
      * Unsubscribe to Recommendations Response Received event
      */
     recsResponseReceived(handler: EventHandler): void {
-        this.removeEventListener(RECS_RESPONSE_RECEIVED, handler);
+        this.removeEventListener(events.RECS_RESPONSE_RECEIVED, handler);
     }
 
     /**
      * Unsubscribe to Recommended Unit Render Event
      */
     recsUnitRender(handler: EventHandler): void {
-        this.removeEventListener(RECS_UNIT_RENDER, handler);
+        this.removeEventListener(events.RECS_UNIT_RENDER, handler);
     }
 
     /**
      * Unsubscribe to Recommended Unit View event
      */
     recsUnitView(handler: EventHandler): void {
-        this.removeEventListener(RECS_UNIT_VIEW, handler);
+        this.removeEventListener(events.RECS_UNIT_VIEW, handler);
     }
 
     /**
      * Unsubscribe from Referrer Url event
      */
     referrerUrl(handler: EventHandler): void {
-        this.removeEventListener(REFERRER_URL, handler);
+        this.removeEventListener(events.REFERRER_URL, handler);
     }
 
     /**
      * Unsubscribe from Remove from Cart event
      */
     removeFromCart(handler: EventHandler): void {
-        this.removeEventListener(REMOVE_FROM_CART, handler);
+        this.removeEventListener(events.REMOVE_FROM_CART, handler);
     }
 
     /**
      * Unsubscribe from Search Request Sent event
      */
     searchRequestSent(handler: EventHandler): void {
-        this.removeEventListener(SEARCH_REQUEST_SENT, handler);
+        this.removeEventListener(events.SEARCH_REQUEST_SENT, handler);
     }
 
     /**
      * Unsubscribe from Search Response Received event
      */
     searchResponseReceived(handler: EventHandler): void {
-        this.removeEventListener(SEARCH_RESPONSE_RECEIVED, handler);
+        this.removeEventListener(events.SEARCH_RESPONSE_RECEIVED, handler);
     }
 
     /**
      * Unsubscribe from Search Result Click event
      */
     searchResultClick(handler: EventHandler): void {
-        this.removeEventListener(SEARCH_RESULT_CLICK, handler);
+        this.removeEventListener(events.SEARCH_RESULT_CLICK, handler);
     }
 
     /**
      * Unsubscribe from Sign In event
      */
     signIn(handler: EventHandler): void {
-        this.removeEventListener(SIGN_IN, handler);
+        this.removeEventListener(events.SIGN_IN, handler);
     }
 
     /**
      * Unsubscribe from Sign Out event
      */
     signOut(handler: EventHandler): void {
-        this.removeEventListener(SIGN_OUT, handler);
+        this.removeEventListener(events.SIGN_OUT, handler);
     }
 
     /**
      * Unsubscribe from Update Cart event
      */
     updateCart(handler: EventHandler): void {
-        this.removeEventListener(UPDATE_CART, handler);
+        this.removeEventListener(events.UPDATE_CART, handler);
     }
 }
