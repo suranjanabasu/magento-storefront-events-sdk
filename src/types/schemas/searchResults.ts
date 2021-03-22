@@ -8,7 +8,7 @@ type SearchResultProduct = {
     sku: string;
     url: string;
     imageUrl: string;
-    price: string;
+    price: number;
     rank: number;
 };
 
@@ -19,7 +19,7 @@ type SearchResultCategory = {
 };
 
 type SearchResultSuggestion = {
-    query: string;
+    suggestion: string;
     rank: number;
 };
 
