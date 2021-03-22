@@ -79,10 +79,14 @@ export const generateReferrerUrlContext = (
 export const generateSearchInputContext = (
     overrides?: Partial<SearchInput>,
 ): SearchInput => ({
-    searchType: "popover",
+    source: "search-bar",
     query: "pants",
+    page: 1,
+    perPage: 20,
     refinementAttribute: "size",
     refinementSelection: "large",
+    sortType: "relevance",
+    sortOrder: "descending",
     ...overrides,
 });
 
@@ -90,10 +94,13 @@ export const generateSearchResultsContext = (
     overrides?: Partial<SearchResults>,
 ): SearchResults => ({
     products: [],
-    suggestions: [],
     categories: [],
+    suggestions: [],
+    productCount: 0,
+    categoryCount: 0,
+    suggestionCount: 0,
     page: 1,
-    perPage: 100,
+    perPage: 20,
     ...overrides,
 });
 
