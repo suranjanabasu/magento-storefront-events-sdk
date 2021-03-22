@@ -3,9 +3,15 @@
  * See COPYING.txt for license details.
  */
 
-export type SearchInput = {
-    searchType?: "popover" | "plp" | null;
+type SearchInput = {
+    source: "search-bar" | "results-page" | "custom" | null;
     query: string;
-    refinementAttribute: string | null;
-    refinementSelection: string | null;
+    page: number;
+    perPage: number;
+    refinementAttribute?: string;
+    refinementSelection?: string;
+    sortType: string;
+    sortOrder: "ascending" | "descending";
 };
+
+export { SearchInput };

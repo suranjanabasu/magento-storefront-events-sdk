@@ -3,20 +3,33 @@
  * See COPYING.txt for license details.
  */
 
-type SearchResultItem = {
-    title: string;
+type SearchResultProduct = {
+    name: string;
+    sku: string;
+    url: string;
+    imageUrl: string;
+    price: string;
+    rank: number;
+};
+
+type SearchResultCategory = {
+    name: string;
     url: string;
     rank: number;
-    resultType: "category" | "suggestion" | "product";
-    sku?: string;
-    imageUrl?: string;
-    price?: string;
+};
+
+type SearchResultSuggestion = {
+    query: string;
+    rank: number;
 };
 
 export type SearchResults = {
-    products: Array<SearchResultItem>;
-    suggestions?: Array<SearchResultItem>;
-    categories?: Array<SearchResultItem>;
+    products: Array<SearchResultProduct>;
+    categories: Array<SearchResultCategory>;
+    suggestions: Array<SearchResultSuggestion>;
+    productCount: number;
+    categoryCount: number;
+    suggestionCount: number;
     page: number;
     perPage: number;
 };
