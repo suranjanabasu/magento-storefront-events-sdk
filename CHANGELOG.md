@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.2.3...v0.3.0) (2021-03-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* Removed the SEARCH_RESULT_CLICK event.
+
+### Features
+
+* support search result click events ([1759ba0](https://github.com/adobe/magento-storefront-events-sdk/commit/1759ba055286ab501ff80d5aeb00bf690ac31e56))
+
 ### [0.2.3](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.2.2...v0.2.3) (2021-03-19)
 
 ### [0.2.2](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.2.1...v0.2.2) (2021-03-18)
