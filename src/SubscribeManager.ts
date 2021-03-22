@@ -141,6 +141,20 @@ export default class SubscribeManager extends Base {
     }
 
     /**
+     * Subscribe to Search Category Click event
+     */
+    searchCategoryClick(handler: EventHandler): void {
+        this.addEventListener(events.SEARCH_CATEGORY_CLICK, handler);
+    }
+
+    /**
+     * Subscribe to Search Product Click event
+     */
+    searchProductClick(handler: EventHandler): void {
+        this.addEventListener(events.SEARCH_PRODUCT_CLICK, handler);
+    }
+
+    /**
      * Subscribe to Search Request Sent event
      */
     searchRequestSent(handler: EventHandler): void {
@@ -155,10 +169,17 @@ export default class SubscribeManager extends Base {
     }
 
     /**
-     * Subscribe to Search Result Click event
+     * Subscribe to Search Results View event
      */
-    searchResultClick(handler: EventHandler): void {
-        this.addEventListener(events.SEARCH_RESULT_CLICK, handler);
+    searchResultsView(handler: EventHandler): void {
+        this.addEventListener(events.SEARCH_RESULTS_VIEW, handler);
+    }
+
+    /**
+     * Subscribe to Search Suggestion Click event
+     */
+    searchSuggestionClick(handler: EventHandler): void {
+        this.addEventListener(events.SEARCH_SUGGESTION_CLICK, handler);
     }
 
     /**

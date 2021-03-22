@@ -262,6 +262,108 @@ describe("events", () => {
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
+    test("search category click", async () => {
+        const eventHandler = jest.fn(eventObj => {
+            expect(eventObj).toEqual({
+                event: events.SEARCH_CATEGORY_CLICK,
+                eventInfo: expect.any(Object),
+            });
+        });
+
+        mdl.subscribe.searchCategoryClick(eventHandler);
+        expect(eventHandler).not.toHaveBeenCalled();
+        mdl.publish.searchCategoryClick();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+        mdl.unsubscribe.searchCategoryClick(eventHandler);
+        mdl.publish.searchCategoryClick();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+    });
+
+    test("search product click", async () => {
+        const eventHandler = jest.fn(eventObj => {
+            expect(eventObj).toEqual({
+                event: events.SEARCH_PRODUCT_CLICK,
+                eventInfo: expect.any(Object),
+            });
+        });
+
+        mdl.subscribe.searchProductClick(eventHandler);
+        expect(eventHandler).not.toHaveBeenCalled();
+        mdl.publish.searchProductClick();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+        mdl.unsubscribe.searchProductClick(eventHandler);
+        mdl.publish.searchProductClick();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+    });
+
+    test("search request sent", async () => {
+        const eventHandler = jest.fn(eventObj => {
+            expect(eventObj).toEqual({
+                event: events.SEARCH_REQUEST_SENT,
+                eventInfo: expect.any(Object),
+            });
+        });
+
+        mdl.subscribe.searchRequestSent(eventHandler);
+        expect(eventHandler).not.toHaveBeenCalled();
+        mdl.publish.searchRequestSent();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+        mdl.unsubscribe.searchRequestSent(eventHandler);
+        mdl.publish.searchRequestSent();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+    });
+
+    test("search response received", async () => {
+        const eventHandler = jest.fn(eventObj => {
+            expect(eventObj).toEqual({
+                event: events.SEARCH_RESPONSE_RECEIVED,
+                eventInfo: expect.any(Object),
+            });
+        });
+
+        mdl.subscribe.searchResponseReceived(eventHandler);
+        expect(eventHandler).not.toHaveBeenCalled();
+        mdl.publish.searchResponseReceived();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+        mdl.unsubscribe.searchResponseReceived(eventHandler);
+        mdl.publish.searchResponseReceived();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+    });
+
+    test("search results view", async () => {
+        const eventHandler = jest.fn(eventObj => {
+            expect(eventObj).toEqual({
+                event: events.SEARCH_RESULTS_VIEW,
+                eventInfo: expect.any(Object),
+            });
+        });
+
+        mdl.subscribe.searchResultsView(eventHandler);
+        expect(eventHandler).not.toHaveBeenCalled();
+        mdl.publish.searchResultsView();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+        mdl.unsubscribe.searchResultsView(eventHandler);
+        mdl.publish.searchResultsView();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+    });
+
+    test("search suggestion click", async () => {
+        const eventHandler = jest.fn(eventObj => {
+            expect(eventObj).toEqual({
+                event: events.SEARCH_SUGGESTION_CLICK,
+                eventInfo: expect.any(Object),
+            });
+        });
+
+        mdl.subscribe.searchSuggestionClick(eventHandler);
+        expect(eventHandler).not.toHaveBeenCalled();
+        mdl.publish.searchSuggestionClick();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+        mdl.unsubscribe.searchSuggestionClick(eventHandler);
+        mdl.publish.searchSuggestionClick();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+    });
+
     test("sign in", async () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({
