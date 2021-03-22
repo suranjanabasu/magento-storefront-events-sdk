@@ -24,9 +24,12 @@ export type EventName =
     | typeof events.RECS_UNIT_VIEW
     | typeof events.REFERRER_URL
     | typeof events.REMOVE_FROM_CART
+    | typeof events.SEARCH_CATEGORY_CLICK
+    | typeof events.SEARCH_PRODUCT_CLICK
     | typeof events.SEARCH_REQUEST_SENT
     | typeof events.SEARCH_RESPONSE_RECEIVED
-    | typeof events.SEARCH_RESULT_CLICK
+    | typeof events.SEARCH_RESULTS_VIEW
+    | typeof events.SEARCH_SUGGESTION_CLICK
     | typeof events.SIGN_IN
     | typeof events.SIGN_OUT
     | typeof events.UPDATE_CART;

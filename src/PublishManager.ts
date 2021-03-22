@@ -114,6 +114,20 @@ export default class PublishManager extends Base {
     }
 
     /**
+     * Publish Search Category Click event
+     */
+    searchCategoryClick(context?: CustomContext): void {
+        this.pushEvent(events.SEARCH_CATEGORY_CLICK, context);
+    }
+
+    /**
+     * Publish Search Product Click event
+     */
+    searchProductClick(context?: CustomContext): void {
+        this.pushEvent(events.SEARCH_PRODUCT_CLICK, context);
+    }
+
+    /**
      * Publish Search Request Sent event
      */
     searchRequestSent(context?: CustomContext): void {
@@ -128,10 +142,17 @@ export default class PublishManager extends Base {
     }
 
     /**
-     * Publish Search Result Click event
+     * Publish Search Results View event
      */
-    searchResultClick(context?: CustomContext): void {
-        this.pushEvent(events.SEARCH_RESULT_CLICK, context);
+    searchResultsView(context?: CustomContext): void {
+        this.pushEvent(events.SEARCH_RESULTS_VIEW, context);
+    }
+
+    /**
+     * Publish Search Suggestion Click event
+     */
+    searchSuggestionClick(context?: CustomContext): void {
+        this.pushEvent(events.SEARCH_SUGGESTION_CLICK, context);
     }
 
     /**

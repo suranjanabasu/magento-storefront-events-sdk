@@ -128,6 +128,20 @@ export default class UnsubscribeManager extends Base {
     }
 
     /**
+     * Unsubscribe from Search Category Click event
+     */
+    searchCategoryClick(handler: EventHandler): void {
+        this.removeEventListener(events.SEARCH_CATEGORY_CLICK, handler);
+    }
+
+    /**
+     * Unsubscribe from Search Product Click event
+     */
+    searchProductClick(handler: EventHandler): void {
+        this.removeEventListener(events.SEARCH_PRODUCT_CLICK, handler);
+    }
+
+    /**
      * Unsubscribe from Search Request Sent event
      */
     searchRequestSent(handler: EventHandler): void {
@@ -142,10 +156,17 @@ export default class UnsubscribeManager extends Base {
     }
 
     /**
-     * Unsubscribe from Search Result Click event
+     * Unsubscribe from Search Results View event
      */
-    searchResultClick(handler: EventHandler): void {
-        this.removeEventListener(events.SEARCH_RESULT_CLICK, handler);
+    searchResultsView(handler: EventHandler): void {
+        this.removeEventListener(events.SEARCH_RESULTS_VIEW, handler);
+    }
+
+    /**
+     * Unsubscribe from Search Suggestion Click event
+     */
+    searchSuggestionClick(handler: EventHandler): void {
+        this.removeEventListener(events.SEARCH_SUGGESTION_CLICK, handler);
     }
 
     /**
