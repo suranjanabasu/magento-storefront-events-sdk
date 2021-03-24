@@ -121,7 +121,7 @@ export const generateStorefrontInstanceContext = (
 ): StorefrontInstance => ({
     baseCurrencyCode: "USD",
     environment: "Test",
-    environtmentId: "12345",
+    environmentId: "12345",
     storeId: 12345,
     storeName: "Test Store",
     storeUrl: "https://www.test.org",

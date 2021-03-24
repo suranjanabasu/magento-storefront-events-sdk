@@ -4,7 +4,7 @@
  */
 
 export type StorefrontInstance = {
-    environtmentId: string;
+    environmentId: string;
     instanceId?: string;
     environment: string;
     storeUrl: string;
