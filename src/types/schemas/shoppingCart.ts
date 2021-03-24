@@ -19,7 +19,7 @@ type Price = {
 
 type ShoppingCartItem = {
     canApplyMsrp: boolean;
-    foramttedPrice: string;
+    formattedPrice: string;
     id: string;
     prices?: Array<Price>;
     product: Product;
