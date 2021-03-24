@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.4.0...v0.5.0) (2021-03-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* Renamed foramttedPrice to formattedPrice in ShoppingCartItem.
+
+### Bug Fixes
+
+* fix typo in ShoppingCartItem ([bd61d84](https://github.com/adobe/magento-storefront-events-sdk/commit/bd61d842cf306149b16528494e35bb3ff5fbee9a))
+
 ## [0.4.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.3.1...v0.4.0) (2021-03-24)
 
 
