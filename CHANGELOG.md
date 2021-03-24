@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.3.1...v0.4.0) (2021-03-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* Renamed environtmentId to environmentId.
+
+### Bug Fixes
+
+* fix storefront instance typo ([d4fb111](https://github.com/adobe/magento-storefront-events-sdk/commit/d4fb11173f108f4ffe6a9f2a1b9731a13ca61ba5))
+
 ### [0.3.1](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.3.0...v0.3.1) (2021-03-22)
 
 ## [0.3.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.2.3...v0.3.0) (2021-03-22)
