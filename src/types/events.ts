@@ -30,6 +30,7 @@ export type EventName =
     | typeof events.SEARCH_RESPONSE_RECEIVED
     | typeof events.SEARCH_RESULTS_VIEW
     | typeof events.SEARCH_SUGGESTION_CLICK
+    | typeof events.SHOPPING_CART_VIEW
     | typeof events.SIGN_IN
     | typeof events.SIGN_OUT
     | typeof events.UPDATE_CART;

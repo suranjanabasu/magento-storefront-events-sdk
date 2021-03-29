@@ -170,6 +170,13 @@ export default class UnsubscribeManager extends Base {
     }
 
     /**
+     * Unsubscribe from Shopping Cart View event
+     */
+    shoppingCartView(handler: EventHandler): void {
+        this.removeEventListener(events.SHOPPING_CART_VIEW, handler);
+    }
+
+    /**
      * Unsubscribe from Sign In event
      */
     signIn(handler: EventHandler): void {

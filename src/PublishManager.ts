@@ -156,6 +156,13 @@ export default class PublishManager extends Base {
     }
 
     /**
+     * Publish Shopping Cart View event
+     */
+    shoppingCartView(context?: CustomContext): void {
+        this.pushEvent(events.SHOPPING_CART_VIEW, context);
+    }
+
+    /**
      * Publish Sign In event
      */
     signIn(context?: CustomContext): void {
