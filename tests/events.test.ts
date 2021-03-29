@@ -364,6 +364,23 @@ describe("events", () => {
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
+    test("shopping cart view", async () => {
+        const eventHandler = jest.fn(eventObj => {
+            expect(eventObj).toEqual({
+                event: events.SHOPPING_CART_VIEW,
+                eventInfo: expect.any(Object),
+            });
+        });
+
+        mdl.subscribe.shoppingCartView(eventHandler);
+        expect(eventHandler).not.toHaveBeenCalled();
+        mdl.publish.shoppingCartView();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+        mdl.unsubscribe.shoppingCartView(eventHandler);
+        mdl.publish.shoppingCartView();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+    });
+
     test("sign in", async () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({

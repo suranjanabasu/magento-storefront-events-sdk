@@ -27,6 +27,7 @@ const events = {
     SEARCH_RESPONSE_RECEIVED: "search-response-received",
     SEARCH_RESULTS_VIEW: "search-results-view",
     SEARCH_SUGGESTION_CLICK: "search-suggestion-click",
+    SHOPPING_CART_VIEW: "shopping-cart-view",
     SIGN_IN: "sign-in",
     SIGN_OUT: "sign-out",
     UPDATE_CART: "update-cart",

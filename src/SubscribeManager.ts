@@ -183,6 +183,13 @@ export default class SubscribeManager extends Base {
     }
 
     /**
+     * Subscribe to Shopping Cart View event
+     */
+    shoppingCartView(handler: EventHandler): void {
+        this.addEventListener(events.SHOPPING_CART_VIEW, handler);
+    }
+
+    /**
      * Subscribe to Sign In event
      */
     signIn(handler: EventHandler, options?: ListenerOptions): void {
