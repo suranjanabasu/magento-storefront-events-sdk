@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.1](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.5.0...v0.5.1) (2021-03-29)
+
+
+### Features
+
+* support shopping cart view event ([5231139](https://github.com/adobe/magento-storefront-events-sdk/commit/52311395578768d2ac8864143c2adf28c5ce25ab))
+
 ## [0.5.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.4.0...v0.5.0) (2021-03-24)
 
 
