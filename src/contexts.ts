@@ -9,6 +9,7 @@ const contexts = {
     ORDER_CONTEXT: "orderContext",
     PAGE_OFFSET_CONTEXT: "pageOffsetContext",
     PRODUCT_CONTEXT: "productContext",
+    RECOMMENDATIONS_CONTEXT: "recommendationsContext",
     REFERRER_URL_CONTEXT: "referrerUrlContext",
     SEARCH_INPUT_CONTEXT: "searchInputContext",
     SEARCH_RESULTS_CONTEXT: "searchResultsContext",
