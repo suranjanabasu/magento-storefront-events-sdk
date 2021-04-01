@@ -13,6 +13,7 @@ import {
     StorefrontInstance,
     ShoppingCart,
     CustomUrl,
+    Recommendations,
     ReferrerUrl,
     SearchInput,
     SearchResults,
@@ -107,6 +108,25 @@ export default class ContextManager extends Base {
      */
     setProduct(context: Product): void {
         this.setContext<Product>(contexts.PRODUCT_CONTEXT, context);
+    }
+
+    /**
+     * Get recommendations context
+     */
+    getRecommendations(): Recommendations {
+        return this.getContext<Recommendations>(
+            contexts.RECOMMENDATIONS_CONTEXT,
+        );
+    }
+
+    /**
+     * Set recommendations context
+     */
+    setRecommendations(context: Recommendations): void {
+        this.setContext<Recommendations>(
+            contexts.RECOMMENDATIONS_CONTEXT,
+            context,
+        );
     }
 
     /**

@@ -10,6 +10,7 @@ import {
     generateOrderContext,
     generatePageOffsetsContext,
     generateProductContext,
+    generateRecommendationsContext,
     generateReferrerUrlContext,
     generateSearchInputContext,
     generateSearchResultsContext,
@@ -68,6 +69,13 @@ describe("contexts", () => {
         expect(mdl.context.getProduct()).toBeUndefined();
         mdl.context.setProduct(context);
         expect(mdl.context.getProduct()).toEqual(context);
+    });
+
+    test("recommendations context", () => {
+        const context = generateRecommendationsContext();
+        expect(mdl.context.getRecommendations()).toBeUndefined();
+        mdl.context.setRecommendations(context);
+        expect(mdl.context.getRecommendations()).toEqual(context);
     });
 
     test("referrer url context", () => {
