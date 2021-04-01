@@ -51,8 +51,13 @@ export type Prices = {
 };
 
 export type Price = {
-    finalAdjustments: Array<any>;
+    finalAdjustments: Array<Adjustment>;
     final: number;
     regular: number;
-    regularAdjustments: Array<any>;
+    regularAdjustments: Array<Adjustment>;
+};
+
+export type Adjustment = {
+    code: string;
+    value: number;
 };
