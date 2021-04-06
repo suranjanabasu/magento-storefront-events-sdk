@@ -59,5 +59,5 @@ export type Price = {
 
 export type Adjustment = {
     code: string;
-    value: number;
+    amount: number;
 };
