@@ -7,7 +7,7 @@ import { Base } from "./Base";
 import contexts from "./contexts";
 import {
     MagentoExtension,
-    PageOffset,
+    Page,
     Product,
     Shopper,
     StorefrontInstance,
@@ -85,15 +85,15 @@ export default class ContextManager extends Base {
     /**
      * Get page offset context
      */
-    getPageOffset(): PageOffset {
-        return this.getContext<PageOffset>(contexts.PAGE_OFFSET_CONTEXT);
+    getPage(): Page {
+        return this.getContext<Page>(contexts.PAGE_CONTEXT);
     }
 
     /**
      * Set page offset context
      */
-    setPageOffset(context: PageOffset): void {
-        this.setContext<PageOffset>(contexts.PAGE_OFFSET_CONTEXT, context);
+    setPage(context: Page): void {
+        this.setContext<Page>(contexts.PAGE_CONTEXT, context);
     }
 
     /**

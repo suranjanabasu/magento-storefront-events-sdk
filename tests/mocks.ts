@@ -7,7 +7,7 @@ import { CustomUrl } from "../src/types/schemas/customUrl";
 import {
     MagentoExtension,
     Order,
-    PageOffset,
+    Page,
     Product,
     Recommendations,
     ReferrerUrl,
@@ -46,9 +46,8 @@ export const generateOrderContext = (overrides?: Partial<Order>): Order => ({
     ...overrides,
 });
 
-export const generatePageOffsetsContext = (
-    overrides?: Partial<PageOffset>,
-): PageOffset => ({
+export const generatePageContext = (overrides?: Partial<Page>): Page => ({
+    pageType: "pdp",
     eventType: "visibilityHidden",
     maxXOffset: 0,
     maxYOffset: 0,
