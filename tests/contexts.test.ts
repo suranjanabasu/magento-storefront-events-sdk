@@ -8,7 +8,7 @@ import {
     generateCustomUrlContext,
     generateMagentoExtensionContext,
     generateOrderContext,
-    generatePageOffsetsContext,
+    generatePageContext,
     generateProductContext,
     generateRecommendationsContext,
     generateReferrerUrlContext,
@@ -57,11 +57,11 @@ describe("contexts", () => {
         expect(mdl.context.getOrder()).toEqual(context);
     });
 
-    test("page offset context", () => {
-        const context = generatePageOffsetsContext();
-        expect(mdl.context.getPageOffset()).toBeUndefined();
-        mdl.context.setPageOffset(context);
-        expect(mdl.context.getPageOffset()).toEqual(context);
+    test("page context", () => {
+        const context = generatePageContext();
+        expect(mdl.context.getPage()).toBeUndefined();
+        mdl.context.setPage(context);
+        expect(mdl.context.getPage()).toEqual(context);
     });
 
     test("product context", () => {

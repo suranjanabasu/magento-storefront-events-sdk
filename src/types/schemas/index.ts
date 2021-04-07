@@ -5,7 +5,7 @@ export * from "./giftCard";
 export * from "./magentoExtension";
 export * from "./magentoJsTracker";
 export * from "./order";
-export * from "./pageOffset";
+export * from "./page";
 export * from "./product";
 export * from "./recommendations";
 export * from "./referrerUrl";

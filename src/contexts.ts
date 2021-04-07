@@ -7,7 +7,7 @@ const contexts = {
     CUSTOM_URL_CONTEXT: "customUrlContext",
     MAGENTO_EXTENSION_CONTEXT: "magentoExtensionContext",
     ORDER_CONTEXT: "orderContext",
-    PAGE_OFFSET_CONTEXT: "pageOffsetContext",
+    PAGE_CONTEXT: "pageContext",
     PRODUCT_CONTEXT: "productContext",
     RECOMMENDATIONS_CONTEXT: "recommendationsContext",
     REFERRER_URL_CONTEXT: "referrerUrlContext",

@@ -3,7 +3,8 @@
  * See COPYING.txt for license details.
  */
 
-export type PageOffset = {
+export type Page = {
+    pageType: string;
     eventType?: "pageUnload" | "visibilityHidden";
     maxXOffset: number;
     maxYOffset: number;
