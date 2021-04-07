@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.6.0...v0.7.0) (2021-04-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* Renamed the getPageOffset and setPageOffset methods to getPage and setPage.
+
+SEARCH-1329
+
+### Features
+
+* add page context ([530de3d](https://github.com/adobe/magento-storefront-events-sdk/commit/530de3db82d84527edd3e38bd6082ee28a3eebba))
+
 ## [0.6.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.5.2...v0.6.0) (2021-04-06)
 
 
