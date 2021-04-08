@@ -16,35 +16,39 @@ export abstract class Base {
             [name]: context,
         });
     }
+
     // Get a context from ACDL
     protected getContext<T>(name?: ContextName): T {
         return window.adobeDataLayer.getState
             ? window.adobeDataLayer.getState(name)
             : ({} as T);
     }
+
     // Add event listener to ACDL
     protected addEventListener(
         name: EventName,
         handler: EventHandler,
         options?: ListenerOptions,
     ): void {
-        window.adobeDataLayer.push((dl: AdobeClientDataLayer) => {
-            dl.addEventListener(name, handler, options);
+        window.adobeDataLayer.push((acdl: AdobeClientDataLayer) => {
+            acdl.addEventListener(name, handler, options);
         });
     }
+
     // Remove event listener from ACDL
     protected removeEventListener(
         name: EventName,
         handler: EventHandler,
     ): void {
-        window.adobeDataLayer.push((dl: AdobeClientDataLayer) => {
-            dl.removeEventListener(name, handler);
+        window.adobeDataLayer.push((acdl: AdobeClientDataLayer) => {
+            acdl.removeEventListener(name, handler);
         });
     }
+
     // Push event to ACDL
     protected pushEvent(event: EventName, context: CustomContext = {}): void {
-        window.adobeDataLayer.push((dl: AdobeClientDataLayer) => {
-            dl.push({
+        window.adobeDataLayer.push((acdl: AdobeClientDataLayer) => {
+            acdl.push({
                 event,
                 eventInfo: {
                     ...this.getContext<Context>(),

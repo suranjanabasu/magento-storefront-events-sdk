@@ -3,7 +3,7 @@
  * See COPYING.txt for license details.
  */
 
-type SearchResultProduct = {
+export type SearchResultProduct = {
     name: string;
     sku: string;
     url: string;
@@ -12,13 +12,13 @@ type SearchResultProduct = {
     rank: number;
 };
 
-type SearchResultCategory = {
+export type SearchResultCategory = {
     name: string;
     url: string;
     rank: number;
 };
 
-type SearchResultSuggestion = {
+export type SearchResultSuggestion = {
     suggestion: string;
     rank: number;
 };

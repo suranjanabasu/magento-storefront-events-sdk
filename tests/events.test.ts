@@ -110,6 +110,23 @@ describe("events", () => {
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
+    test("place order", async () => {
+        const eventHandler = jest.fn(eventObj => {
+            expect(eventObj).toEqual({
+                event: events.PLACE_ORDER,
+                eventInfo: expect.any(Object),
+            });
+        });
+
+        mdl.subscribe.placeOrder(eventHandler);
+        expect(eventHandler).not.toHaveBeenCalled();
+        mdl.publish.placeOrder();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+        mdl.unsubscribe.placeOrder(eventHandler);
+        mdl.publish.placeOrder();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+    });
+
     test("product page view", async () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({
@@ -137,10 +154,10 @@ describe("events", () => {
 
         mdl.subscribe.recsItemAddToCartClick(eventHandler);
         expect(eventHandler).not.toHaveBeenCalled();
-        mdl.publish.recsItemAddToCartClick();
+        mdl.publish.recsItemAddToCartClick("abc123", 123456);
         expect(eventHandler).toHaveBeenCalledTimes(1);
         mdl.unsubscribe.recsItemAddToCartClick(eventHandler);
-        mdl.publish.recsItemAddToCartClick();
+        mdl.publish.recsItemAddToCartClick("abc123", 123456);
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
@@ -153,10 +170,10 @@ describe("events", () => {
         });
         mdl.subscribe.recsItemClick(eventHandler);
         expect(eventHandler).not.toHaveBeenCalled();
-        mdl.publish.recsItemClick();
+        mdl.publish.recsItemClick("abc123", 123456);
         expect(eventHandler).toHaveBeenCalledTimes(1);
         mdl.unsubscribe.recsItemClick(eventHandler);
-        mdl.publish.recsItemClick();
+        mdl.publish.recsItemClick("abc123", 123456);
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
@@ -204,10 +221,10 @@ describe("events", () => {
 
         mdl.subscribe.recsUnitRender(eventHandler);
         expect(eventHandler).not.toHaveBeenCalled();
-        mdl.publish.recsUnitRender();
+        mdl.publish.recsUnitRender("abc123");
         expect(eventHandler).toHaveBeenCalledTimes(1);
         mdl.unsubscribe.recsUnitRender(eventHandler);
-        mdl.publish.recsUnitRender();
+        mdl.publish.recsUnitRender("abc123");
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
@@ -221,10 +238,10 @@ describe("events", () => {
 
         mdl.subscribe.recsUnitView(eventHandler);
         expect(eventHandler).not.toHaveBeenCalled();
-        mdl.publish.recsUnitView();
+        mdl.publish.recsUnitView("abc123");
         expect(eventHandler).toHaveBeenCalledTimes(1);
         mdl.unsubscribe.recsUnitView(eventHandler);
-        mdl.publish.recsUnitView();
+        mdl.publish.recsUnitView("abc123");
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
@@ -272,10 +289,10 @@ describe("events", () => {
 
         mdl.subscribe.searchCategoryClick(eventHandler);
         expect(eventHandler).not.toHaveBeenCalled();
-        mdl.publish.searchCategoryClick();
+        mdl.publish.searchCategoryClick("tops");
         expect(eventHandler).toHaveBeenCalledTimes(1);
         mdl.unsubscribe.searchCategoryClick(eventHandler);
-        mdl.publish.searchCategoryClick();
+        mdl.publish.searchCategoryClick("tops");
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
@@ -289,10 +306,10 @@ describe("events", () => {
 
         mdl.subscribe.searchProductClick(eventHandler);
         expect(eventHandler).not.toHaveBeenCalled();
-        mdl.publish.searchProductClick();
+        mdl.publish.searchProductClick("abc123");
         expect(eventHandler).toHaveBeenCalledTimes(1);
         mdl.unsubscribe.searchProductClick(eventHandler);
-        mdl.publish.searchProductClick();
+        mdl.publish.searchProductClick("abc123");
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
@@ -357,10 +374,10 @@ describe("events", () => {
 
         mdl.subscribe.searchSuggestionClick(eventHandler);
         expect(eventHandler).not.toHaveBeenCalled();
-        mdl.publish.searchSuggestionClick();
+        mdl.publish.searchSuggestionClick("pants");
         expect(eventHandler).toHaveBeenCalledTimes(1);
         mdl.unsubscribe.searchSuggestionClick(eventHandler);
-        mdl.publish.searchSuggestionClick();
+        mdl.publish.searchSuggestionClick("pants");
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
@@ -466,32 +483,15 @@ describe("events", () => {
         mdl.subscribe.signIn(deferredHandler);
     });
 
-    test("event publisher passes user-defined context through to subscribers", () => {
-        const myContext = { foo: "bar" };
+    test("event publisher passes custom context through to subscribers", () => {
+        const customContext = { foo: "bar" };
+
         const handler = (event: Event) => {
-            expect(event.eventInfo).toEqual(myContext);
+            expect(event.eventInfo).toEqual({ customContext });
         };
 
         mdl.subscribe.addToCart(handler);
-        mdl.publish.addToCart(myContext);
-    });
-
-    test("user-defined context merges with and overrides acdl context", () => {
-        mdl.context.setCustomUrl({ customUrl: "testing.edu" });
-        mdl.context.setReferrerUrl({ referrerUrl: "test.com" });
-        const myContext = mdl.context.getReferrerUrl(); // using get/set to make sure our context matches exactly what referrer context would look like in the data layer
-
-        const handler = (event: Event) => {
-            expect(event.eventInfo).toEqual({
-                [contexts.CUSTOM_URL_CONTEXT]: expect.anything(),
-                [contexts.REFERRER_URL_CONTEXT]: myContext,
-            });
-        };
-        // now set the context to something else
-        mdl.context.setReferrerUrl({ referrerUrl: "different.me" });
-        // fire event with context to overwrite
-        mdl.subscribe.pageView(handler);
-        mdl.publish.pageView({ [contexts.REFERRER_URL_CONTEXT]: myContext });
+        mdl.publish.addToCart(customContext);
     });
 
     test("event context data is not persisted in data layer", () => {
