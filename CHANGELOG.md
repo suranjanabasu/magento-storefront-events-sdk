@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.8.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.7.0...v0.8.0) (2021-04-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* The following events now require additional parameters when published:
+- recsItemAddToCartClick
+- recsItemClick
+- recsUnitRender
+- recsUnitView
+- searchCategoryClick
+- searchProductClick
+- searchSuggestionClick
+
+SEARCH-1326
+
+### Features
+
+* pass additional data to publish ([0d50b0c](https://github.com/adobe/magento-storefront-events-sdk/commit/0d50b0c8a99b64d9f020e630997ebfca3ea18070))
+
 ## [0.7.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.6.0...v0.7.0) (2021-04-07)
 
 
