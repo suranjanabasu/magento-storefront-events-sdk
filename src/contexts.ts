@@ -4,18 +4,18 @@
  */
 
 const contexts = {
-    CUSTOM_URL_CONTEXT: "customUrlContext",
-    MAGENTO_EXTENSION_CONTEXT: "magentoExtensionContext",
-    ORDER_CONTEXT: "orderContext",
-    PAGE_CONTEXT: "pageContext",
-    PRODUCT_CONTEXT: "productContext",
-    RECOMMENDATIONS_CONTEXT: "recommendationsContext",
-    REFERRER_URL_CONTEXT: "referrerUrlContext",
-    SEARCH_INPUT_CONTEXT: "searchInputContext",
-    SEARCH_RESULTS_CONTEXT: "searchResultsContext",
-    SHOPPER_CONTEXT: "shopperContext",
-    SHOPPING_CART_CONTEXT: "shoppingCartContext",
-    STOREFRONT_INSTANCE_CONTEXT: "storefrontInstanceContext",
+    CUSTOM_URL_CONTEXT: "customUrlContext" as const,
+    MAGENTO_EXTENSION_CONTEXT: "magentoExtensionContext" as const,
+    ORDER_CONTEXT: "orderContext" as const,
+    PAGE_CONTEXT: "pageContext" as const,
+    PRODUCT_CONTEXT: "productContext" as const,
+    RECOMMENDATIONS_CONTEXT: "recommendationsContext" as const,
+    REFERRER_URL_CONTEXT: "referrerUrlContext" as const,
+    SEARCH_INPUT_CONTEXT: "searchInputContext" as const,
+    SEARCH_RESULTS_CONTEXT: "searchResultsContext" as const,
+    SHOPPER_CONTEXT: "shopperContext" as const,
+    SHOPPING_CART_CONTEXT: "shoppingCartContext" as const,
+    STOREFRONT_INSTANCE_CONTEXT: "storefrontInstanceContext" as const,
 };
 
 export default contexts;
