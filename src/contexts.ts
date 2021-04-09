@@ -16,6 +16,6 @@ const contexts = {
     SHOPPER_CONTEXT: "shopperContext",
     SHOPPING_CART_CONTEXT: "shoppingCartContext",
     STOREFRONT_INSTANCE_CONTEXT: "storefrontInstanceContext",
-};
+} as const;
 
 export default contexts;

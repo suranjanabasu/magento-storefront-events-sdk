@@ -4,6 +4,20 @@
  */
 
 import contexts from "../contexts";
+import {
+    CustomUrl,
+    MagentoExtension,
+    Order,
+    Page,
+    Product,
+    Recommendations,
+    ReferrerUrl,
+    SearchInput,
+    SearchResults,
+    Shopper,
+    ShoppingCart,
+    StorefrontInstance,
+} from "./schemas";
 
 export type ContextName =
     | typeof contexts.CUSTOM_URL_CONTEXT
@@ -11,6 +25,7 @@ export type ContextName =
     | typeof contexts.ORDER_CONTEXT
     | typeof contexts.PAGE_CONTEXT
     | typeof contexts.PRODUCT_CONTEXT
+    | typeof contexts.RECOMMENDATIONS_CONTEXT
     | typeof contexts.REFERRER_URL_CONTEXT
     | typeof contexts.SEARCH_INPUT_CONTEXT
     | typeof contexts.SEARCH_RESULTS_CONTEXT
@@ -19,7 +34,18 @@ export type ContextName =
     | typeof contexts.STOREFRONT_INSTANCE_CONTEXT;
 
 export type Context = {
-    [K in ContextName]: unknown;
+    [contexts.CUSTOM_URL_CONTEXT]: CustomUrl;
+    [contexts.MAGENTO_EXTENSION_CONTEXT]: MagentoExtension;
+    [contexts.ORDER_CONTEXT]: Order;
+    [contexts.PAGE_CONTEXT]: Page;
+    [contexts.PRODUCT_CONTEXT]: Product;
+    [contexts.RECOMMENDATIONS_CONTEXT]: Recommendations;
+    [contexts.REFERRER_URL_CONTEXT]: ReferrerUrl;
+    [contexts.SEARCH_INPUT_CONTEXT]: SearchInput;
+    [contexts.SEARCH_RESULTS_CONTEXT]: SearchResults;
+    [contexts.SHOPPER_CONTEXT]: Shopper;
+    [contexts.SHOPPING_CART_CONTEXT]: ShoppingCart;
+    [contexts.STOREFRONT_INSTANCE_CONTEXT]: StorefrontInstance;
 };
 
 export type CustomContext = Record<string, unknown>;

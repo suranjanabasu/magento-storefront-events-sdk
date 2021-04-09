@@ -31,6 +31,6 @@ const events = {
     SIGN_IN: "sign-in",
     SIGN_OUT: "sign-out",
     UPDATE_CART: "update-cart",
-};
+} as const;
 
 export default events;
