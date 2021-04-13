@@ -8,10 +8,19 @@ type SearchInput = {
     query: string;
     page: number;
     perPage: number;
-    refinementAttribute?: string;
-    refinementSelection?: string;
+    filters: Array<SearchFilter>;
     sortType: string;
     sortOrder: "ascending" | "descending";
+};
+
+type SearchFilter = {
+    attribute: string;
+    eq?: string;
+    in?: Array<string>;
+    range?: {
+        from?: number;
+        to?: number;
+    };
 };
 
 export { SearchInput };
