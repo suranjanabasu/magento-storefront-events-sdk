@@ -11,6 +11,7 @@ const config = {
             name: "magentoStorefrontEvents",
             type: "umd",
             export: "default",
+            umdNamedDefine: true,
         },
         clean: true,
     },
