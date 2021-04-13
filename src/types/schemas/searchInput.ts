@@ -23,4 +23,4 @@ type SearchFilter = {
     };
 };
 
-export { SearchInput };
+export { SearchInput, SearchFilter };
