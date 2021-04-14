@@ -221,6 +221,7 @@ export const generateSearchResultsContext = (
     suggestionCount: 0,
     page: 1,
     perPage: 20,
+    facets: [],
     ...overrides,
 });
 

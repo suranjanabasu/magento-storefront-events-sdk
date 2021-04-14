@@ -281,4 +281,5 @@ mse.context.setSearchResults({
     productCount: 1,
     categoryCount: 2,
     suggestionCount: 1,
+    facets: [],
 });
