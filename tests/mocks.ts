@@ -200,6 +200,7 @@ export const generateReferrerUrlContext = (
 export const generateSearchInputContext = (
     overrides?: Partial<SearchInput>,
 ): SearchInput => ({
+    searchRequestId: "abc123",
     source: "search-bar",
     query: "pants",
     page: 1,
@@ -213,6 +214,7 @@ export const generateSearchInputContext = (
 export const generateSearchResultsContext = (
     overrides?: Partial<SearchResults>,
 ): SearchResults => ({
+    searchRequestId: "abc123",
     products: [],
     categories: [],
     suggestions: [],

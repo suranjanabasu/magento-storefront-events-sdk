@@ -24,6 +24,7 @@ export type SearchResultSuggestion = {
 };
 
 export type SearchResults = {
+    searchRequestId: string;
     products: Array<SearchResultProduct>;
     categories: Array<SearchResultCategory>;
     suggestions: Array<SearchResultSuggestion>;
