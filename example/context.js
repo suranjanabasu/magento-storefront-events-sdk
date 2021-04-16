@@ -242,8 +242,7 @@ mse.context.setSearchInput({
     query: "red patns",
     page: 1,
     perPage: 20,
-    refinementAttribute: null,
-    refinementSelection: null,
+    filters: [{ attribute: "size", eq: "small" }],
     sortType: "relevance",
     sortOrder: "descending",
 });
