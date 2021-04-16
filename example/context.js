@@ -238,6 +238,7 @@ mse.context.setShopper({
 });
 
 mse.context.setSearchInput({
+    searchRequestId: "abc123",
     source: "search-bar",
     query: "red patns",
     page: 1,
@@ -248,6 +249,7 @@ mse.context.setSearchInput({
 });
 
 mse.context.setSearchResults({
+    searchRequestId: "abc123",
     products: [
         {
             name: "Red Pants",
@@ -281,4 +283,5 @@ mse.context.setSearchResults({
     productCount: 1,
     categoryCount: 2,
     suggestionCount: 1,
+    facets: [],
 });
