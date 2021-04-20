@@ -234,8 +234,19 @@ export const generateShopperContext = (
 export const generateShoppingCartContext = (
     overrides?: Partial<ShoppingCart>,
 ): ShoppingCart => ({
-    totalQuantity: 5,
     id: "1",
+    items: [],
+    prices: {
+        subtotalExcludingTax: {
+            value: 19.99,
+            currency: "USD",
+        },
+        subtotalIncludingTax: {
+            value: 23.23,
+            currency: "USD",
+        },
+    },
+    totalQuantity: 5,
     ...overrides,
 });
 
