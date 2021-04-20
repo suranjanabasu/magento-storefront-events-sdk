@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.10.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.9.0...v0.10.0) (2021-04-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* The ShoppingCart context now has a different shape.
+
+SEARCH-1381
+
+### Bug Fixes
+
+* fix shopping cart types ([af4b967](https://github.com/adobe/magento-storefront-events-sdk/commit/af4b9679f91a5d4e8111e8ed5073a59f7c01d098))
+
 ## [0.9.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.8.1...v0.9.0) (2021-04-16)
 
 
