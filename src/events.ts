@@ -9,6 +9,7 @@ const events = {
     DATA_LAYER_CHANGE: "adobeDataLayer:change",
     DATA_LAYER_EVENT: "adobeDataLayer:event",
     INITIATE_CHECKOUT: "initiate-checkout",
+    INSTANT_PURCHASE: "instant-purchase",
     PAGE_ACTIVITY_SUMMARY: "page-activity-summary",
     PAGE_VIEW: "page-view",
     PLACE_ORDER: "place-order",

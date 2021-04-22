@@ -76,6 +76,23 @@ describe("events", () => {
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
+    test("instant purchase", async () => {
+        const eventHandler = jest.fn(eventObj => {
+            expect(eventObj).toEqual({
+                event: events.INSTANT_PURCHASE,
+                eventInfo: expect.any(Object),
+            });
+        });
+
+        mdl.subscribe.instantPurchase(eventHandler);
+        expect(eventHandler).not.toHaveBeenCalled();
+        mdl.publish.instantPurchase();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+        mdl.unsubscribe.instantPurchase(eventHandler);
+        mdl.publish.instantPurchase();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+    });
+
     test("page activity summary", async () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({

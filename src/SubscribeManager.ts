@@ -44,6 +44,13 @@ export default class SubscribeManager extends Base {
     }
 
     /**
+     * Subscribe to Instant Purchase event
+     */
+    instantPurchase(handler: EventHandler, options?: ListenerOptions): void {
+        this.addEventListener(events.INSTANT_PURCHASE, handler, options);
+    }
+
+    /**
      * Subscribe to Page Activity Summary event
      */
     pageActivitySummary(

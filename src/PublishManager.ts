@@ -37,6 +37,13 @@ export default class PublishManager extends Base {
     }
 
     /**
+     * Publish Instant Purchase event
+     */
+    instantPurchase(context?: CustomContext): void {
+        this.pushEvent(events.INSTANT_PURCHASE, { customContext: context });
+    }
+
+    /**
      * Publish Page Activity Summary event
      */
     pageActivitySummary(context?: CustomContext): void {
