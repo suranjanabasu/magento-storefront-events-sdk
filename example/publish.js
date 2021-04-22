@@ -4,6 +4,7 @@ setTimeout(() => {
     mse.publish.addToCart();
     mse.publish.customUrl();
     mse.publish.initiateCheckout();
+    mse.publish.instantPurchase();
     mse.publish.pageActivitySummary();
     mse.publish.pageView();
     mse.publish.placeOrder();
