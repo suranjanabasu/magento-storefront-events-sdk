@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.10.1](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.10.0...v0.10.1) (2021-04-22)
+
+
+### Features
+
+* instant purchase event ([b733e50](https://github.com/adobe/magento-storefront-events-sdk/commit/b733e503dab567599951ff66898a2ad241094303))
+
 ## [0.10.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.9.0...v0.10.0) (2021-04-20)
 
 
