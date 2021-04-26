@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.10.1...v0.11.0) (2021-04-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* The magentoJsBuild field in the MagentoJsTracker context has been removed.
+
+### Bug Fixes
+
+* remove tracker build numberr ([3df3347](https://github.com/adobe/magento-storefront-events-sdk/commit/3df33477524b11fa8777b8968de1214c409d047e))
+
 ### [0.10.1](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.10.0...v0.10.1) (2021-04-22)
 
 
