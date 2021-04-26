@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.11.1](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.11.0...v0.11.1) (2021-04-26)
+
+
+### Features
+
+* add custom context getters and setters ([e8991c2](https://github.com/adobe/magento-storefront-events-sdk/commit/e8991c2b9048104f9c2491765a79caf0aa5de8cb))
+
 ## [0.11.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.10.1...v0.11.0) (2021-04-26)
 
 
