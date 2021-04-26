@@ -5,6 +5,7 @@
 
 import mdl, { MagentoStorefrontEvents } from "../src/index";
 import {
+    generateCustomContext,
     generateCustomUrlContext,
     generateMagentoExtensionContext,
     generateOrderContext,
@@ -118,5 +119,12 @@ describe("contexts", () => {
         expect(mdl.context.getStorefrontInstance()).toBeUndefined();
         mdl.context.setStorefrontInstance(context);
         expect(mdl.context.getStorefrontInstance()).toEqual(context);
+    });
+
+    test("custom context", () => {
+        const context = generateCustomContext();
+        expect(mdl.context.getContext("custom")).toBeUndefined();
+        mdl.context.setContext("custom", context);
+        expect(mdl.context.getContext("custom")).toEqual(context);
     });
 });

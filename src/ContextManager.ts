@@ -30,6 +30,7 @@ export default class ContextManager extends Base {
 
     /**
      * Set url context
+     * @param context
      */
     setCustomUrl(context: CustomUrl): void {
         this.setContext<CustomUrl>(contexts.CUSTOM_URL_CONTEXT, context);
@@ -44,6 +45,7 @@ export default class ContextManager extends Base {
 
     /**
      * Set shopper context
+     * @param context
      **/
     setShopper(context: Shopper): void {
         this.setContext<Shopper>(contexts.SHOPPER_CONTEXT, context);
@@ -60,6 +62,7 @@ export default class ContextManager extends Base {
 
     /**
      * Set Magento extension context
+     * @param context
      */
     setMagentoExtension(context: MagentoExtension): void {
         this.setContext<MagentoExtension>(
@@ -77,6 +80,7 @@ export default class ContextManager extends Base {
 
     /**
      * Set order context
+     * @param context
      */
     setOrder(context: Order): void {
         this.setContext<Order>(contexts.ORDER_CONTEXT, context);
@@ -91,6 +95,7 @@ export default class ContextManager extends Base {
 
     /**
      * Set page offset context
+     * @param context
      */
     setPage(context: Page): void {
         this.setContext<Page>(contexts.PAGE_CONTEXT, context);
@@ -105,6 +110,7 @@ export default class ContextManager extends Base {
 
     /**
      * Set product context
+     * @param context
      */
     setProduct(context: Product): void {
         this.setContext<Product>(contexts.PRODUCT_CONTEXT, context);
@@ -121,6 +127,7 @@ export default class ContextManager extends Base {
 
     /**
      * Set recommendations context
+     * @param context
      */
     setRecommendations(context: Recommendations): void {
         this.setContext<Recommendations>(
@@ -138,6 +145,7 @@ export default class ContextManager extends Base {
 
     /**
      * Set referrer url context
+     * @param context
      */
     setReferrerUrl(context: ReferrerUrl): void {
         this.setContext<ReferrerUrl>(contexts.REFERRER_URL_CONTEXT, context);
@@ -152,6 +160,7 @@ export default class ContextManager extends Base {
 
     /**
      * Set search input context
+     * @param context
      */
     setSearchInput(context: SearchInput): void {
         this.setContext<SearchInput>(contexts.SEARCH_INPUT_CONTEXT, context);
@@ -166,6 +175,7 @@ export default class ContextManager extends Base {
 
     /**
      * Set search results context
+     * @param context
      */
     setSearchResults(context: SearchResults): void {
         this.setContext<SearchResults>(
@@ -183,6 +193,7 @@ export default class ContextManager extends Base {
 
     /**
      * Set shopping cart context
+     * @param context
      */
     setShoppingCart(context: ShoppingCart): void {
         this.setContext<ShoppingCart>(contexts.SHOPPING_CART_CONTEXT, context);
@@ -206,5 +217,22 @@ export default class ContextManager extends Base {
             contexts.STOREFRONT_INSTANCE_CONTEXT,
             context,
         );
+    }
+
+    /**
+     * Get custom context
+     * @param name
+     */
+    getContext<T>(name?: string): T {
+        return super.getContext<T>(name);
+    }
+
+    /**
+     * Set custom context
+     * @param name
+     * @param context
+     */
+    setContext<T>(name: string, context: T): void {
+        super.setContext<T>(name, context);
     }
 }
