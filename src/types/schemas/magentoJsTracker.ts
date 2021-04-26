@@ -5,5 +5,4 @@
 
 export type MagentoJsTracker = {
     magentoJsVersion: string;
-    magentoJsBuild: string;
 };
