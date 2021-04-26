@@ -17,6 +17,7 @@ import {
     ShoppingCart,
     StorefrontInstance,
 } from "../src/types/schemas/";
+import { CustomContext } from "../src/types/contexts";
 
 export const generateCustomUrlContext = (
     overrides?: Partial<CustomUrl>,
@@ -264,5 +265,13 @@ export const generateStorefrontInstanceContext = (
     storeViewName: "Test store view",
     websiteId: 12345,
     websiteName: "test website name",
+    ...overrides,
+});
+
+export const generateCustomContext = (
+    overrides?: Partial<CustomContext>,
+): CustomContext => ({
+    foo: "foo",
+    bar: "bar",
     ...overrides,
 });

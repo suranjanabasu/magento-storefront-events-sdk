@@ -8,7 +8,7 @@ import { EventName, ListenerOptions, EventHandler } from "./types/events";
 
 export abstract class Base {
     // Set a context on ACDL
-    protected setContext<T>(name: ContextName, context: T): void {
+    protected setContext<T>(name: ContextName | string, context: T): void {
         window.adobeDataLayer.push({
             [name]: null,
         });
@@ -18,7 +18,7 @@ export abstract class Base {
     }
 
     // Get a context from ACDL
-    protected getContext<T>(name?: ContextName): T {
+    protected getContext<T>(name?: ContextName | string): T {
         return window.adobeDataLayer.getState
             ? window.adobeDataLayer.getState(name)
             : ({} as T);
