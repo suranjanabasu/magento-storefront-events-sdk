@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.11.2](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.11.1...v0.11.2) (2021-04-28)
+
+
+### Features
+
+* add category context ([b72d2d8](https://github.com/adobe/magento-storefront-events-sdk/commit/b72d2d86fe5282cd34648fa4a1b62b8f502eec12))
+
 ### [0.11.1](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.11.0...v0.11.1) (2021-04-26)
 
 
