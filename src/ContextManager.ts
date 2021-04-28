@@ -6,21 +6,37 @@
 import { Base } from "./Base";
 import contexts from "./contexts";
 import {
+    Category,
+    CustomUrl,
     MagentoExtension,
+    Order,
     Page,
     Product,
     Shopper,
-    StorefrontInstance,
     ShoppingCart,
-    CustomUrl,
+    StorefrontInstance,
     Recommendations,
     ReferrerUrl,
     SearchInput,
     SearchResults,
-    Order,
 } from "./types/schemas";
 
 export default class ContextManager extends Base {
+    /**
+     * Get url context
+     */
+    getCategory(): Category {
+        return this.getContext<Category>(contexts.CATEGORY_CONTEXT);
+    }
+
+    /**
+     * Set url context
+     * @param context
+     */
+    setCategory(context: Category): void {
+        this.setContext<Category>(contexts.CATEGORY_CONTEXT, context);
+    }
+
     /**
      * Get url context
      */
