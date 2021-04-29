@@ -77,6 +77,12 @@ export const generateProductContext = (
     productId: 1153,
     sku: "VD04",
     topLevelSku: "VD04",
+    pricing: {
+        regularPrice: 19.99,
+        minimalPrice: 10.99,
+        maximalPrice: 24.99,
+        currencyCode: "USD",
+    },
     ...overrides,
 });
 
@@ -246,7 +252,32 @@ export const generateShoppingCartContext = (
     overrides?: Partial<ShoppingCart>,
 ): ShoppingCart => ({
     id: "1",
-    items: [],
+    items: [
+        {
+            canApplyMsrp: false,
+            formattedPrice: "$20.00",
+            id: "aaaaaa",
+            prices: {
+                price: {
+                    value: 20.0,
+                    currency: "USD",
+                },
+            },
+            product: {
+                productId: 111111,
+                name: "T-Shirt",
+                sku: "ts001",
+                pricing: {
+                    regularPrice: 20.0,
+                    minimalPrice: 20.0,
+                    maximalPrice: 20.0,
+                    currencyCode: "USD",
+                },
+            },
+            configurableOptions: [],
+            quantity: 1,
+        },
+    ],
     prices: {
         subtotalExcludingTax: {
             value: 19.99,
