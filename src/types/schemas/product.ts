@@ -6,7 +6,7 @@
 export type Product = {
     productId: number;
     name: string;
-    sku: string | null;
+    sku: string;
     topLevelSku?: string | null;
     specialToDate?: string | null;
     specialFromDate?: string | null;
@@ -18,12 +18,12 @@ export type Product = {
     countryOfManufacture?: string | null;
     categories?: string[] | null;
     productType?: string | null;
-    pricing?: {
+    pricing: {
         regularPrice: number;
         minimalPrice: number;
         maximalPrice: number;
-        specialPrice: number;
-        tierPricing: {
+        specialPrice?: number;
+        tierPricing?: {
             customerGroupId?: number | null;
             qty: number;
             value: number;

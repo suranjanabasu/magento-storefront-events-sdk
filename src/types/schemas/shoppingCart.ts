@@ -24,12 +24,12 @@ type ShoppingCartItem = {
     canApplyMsrp: boolean;
     formattedPrice: string;
     id: string;
-    prices?: {
+    prices: {
         price: Price;
     };
     product: Product;
     configurableOptions?: Array<ConfigurableOption>;
-    quantity?: number;
+    quantity: number;
 };
 
 type ConfigurableOption = {
