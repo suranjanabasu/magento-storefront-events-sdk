@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.12.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.11.2...v0.12.0) (2021-04-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* The product.sku and product.pricing are now required. Same with the
+shoppingCart.item.prices and the shoppingCart.item.quantity.
+
+SEARCH-1441
+
+### Bug Fixes
+
+* require more properties to match snowplow schema ([45ef6d4](https://github.com/adobe/magento-storefront-events-sdk/commit/45ef6d4fbcccbb43798feef25ecd9460b74ef57a))
+
 ### [0.11.2](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.11.1...v0.11.2) (2021-04-28)
 
 
