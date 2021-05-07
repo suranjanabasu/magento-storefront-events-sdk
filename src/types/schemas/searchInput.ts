@@ -4,6 +4,11 @@
  */
 
 type SearchInput = {
+    units: Array<SearchInputUnit>;
+};
+
+type SearchInputUnit = {
+    searchUnitId: string;
     searchRequestId: string;
     source: "search-bar" | "results-page" | "custom" | null;
     query: string;
