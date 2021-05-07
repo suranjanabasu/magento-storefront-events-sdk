@@ -9,6 +9,7 @@ import { CustomContext } from "./types/contexts";
 import {
     RecommendationUnit,
     RecommendedProduct,
+    SearchResultUnit,
     SearchResultCategory,
     SearchResultProduct,
     SearchResultSuggestion,
@@ -163,10 +164,12 @@ export default class PublishManager extends Base {
      * Publish Search Category Click event
      */
     searchCategoryClick(
+        searchUnitId: SearchResultUnit["searchUnitId"],
         name: SearchResultCategory["name"],
         context?: CustomContext,
     ): void {
         this.pushEvent(events.SEARCH_CATEGORY_CLICK, {
+            searchUnitId,
             name,
             customContext: context,
         });
@@ -176,10 +179,12 @@ export default class PublishManager extends Base {
      * Publish Search Product Click event
      */
     searchProductClick(
+        searchUnitId: SearchResultUnit["searchUnitId"],
         sku: SearchResultProduct["sku"],
         context?: CustomContext,
     ): void {
         this.pushEvent(events.SEARCH_PRODUCT_CLICK, {
+            searchUnitId,
             sku,
             customContext: context,
         });
@@ -188,15 +193,25 @@ export default class PublishManager extends Base {
     /**
      * Publish Search Request Sent event
      */
-    searchRequestSent(context?: CustomContext): void {
-        this.pushEvent(events.SEARCH_REQUEST_SENT, { customContext: context });
+    searchRequestSent(
+        searchUnitId: SearchResultUnit["searchUnitId"],
+        context?: CustomContext,
+    ): void {
+        this.pushEvent(events.SEARCH_REQUEST_SENT, {
+            searchUnitId,
+            customContext: context,
+        });
     }
 
     /**
      * Publish Search Response Received event
      */
-    searchResponseReceived(context?: CustomContext): void {
+    searchResponseReceived(
+        searchUnitId: SearchResultUnit["searchUnitId"],
+        context?: CustomContext,
+    ): void {
         this.pushEvent(events.SEARCH_RESPONSE_RECEIVED, {
+            searchUnitId,
             customContext: context,
         });
     }
@@ -204,18 +219,26 @@ export default class PublishManager extends Base {
     /**
      * Publish Search Results View event
      */
-    searchResultsView(context?: CustomContext): void {
-        this.pushEvent(events.SEARCH_RESULTS_VIEW, { customContext: context });
+    searchResultsView(
+        searchUnitId: SearchResultUnit["searchUnitId"],
+        context?: CustomContext,
+    ): void {
+        this.pushEvent(events.SEARCH_RESULTS_VIEW, {
+            searchUnitId,
+            customContext: context,
+        });
     }
 
     /**
      * Publish Search Suggestion Click event
      */
     searchSuggestionClick(
+        searchUnitId: SearchResultUnit["searchUnitId"],
         suggestion: SearchResultSuggestion["suggestion"],
         context?: CustomContext,
     ): void {
         this.pushEvent(events.SEARCH_SUGGESTION_CLICK, {
+            searchUnitId,
             suggestion,
             customContext: context,
         });
