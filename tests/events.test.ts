@@ -306,10 +306,10 @@ describe("events", () => {
 
         mdl.subscribe.searchCategoryClick(eventHandler);
         expect(eventHandler).not.toHaveBeenCalled();
-        mdl.publish.searchCategoryClick("tops");
+        mdl.publish.searchCategoryClick("search-bar", "tops");
         expect(eventHandler).toHaveBeenCalledTimes(1);
         mdl.unsubscribe.searchCategoryClick(eventHandler);
-        mdl.publish.searchCategoryClick("tops");
+        mdl.publish.searchCategoryClick("search-bar", "tops");
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
@@ -323,10 +323,10 @@ describe("events", () => {
 
         mdl.subscribe.searchProductClick(eventHandler);
         expect(eventHandler).not.toHaveBeenCalled();
-        mdl.publish.searchProductClick("abc123");
+        mdl.publish.searchProductClick("search-bar", "abc123");
         expect(eventHandler).toHaveBeenCalledTimes(1);
         mdl.unsubscribe.searchProductClick(eventHandler);
-        mdl.publish.searchProductClick("abc123");
+        mdl.publish.searchProductClick("search-bar", "abc123");
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
@@ -340,10 +340,10 @@ describe("events", () => {
 
         mdl.subscribe.searchRequestSent(eventHandler);
         expect(eventHandler).not.toHaveBeenCalled();
-        mdl.publish.searchRequestSent();
+        mdl.publish.searchRequestSent("search-bar");
         expect(eventHandler).toHaveBeenCalledTimes(1);
         mdl.unsubscribe.searchRequestSent(eventHandler);
-        mdl.publish.searchRequestSent();
+        mdl.publish.searchRequestSent("search-bar");
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
@@ -357,10 +357,10 @@ describe("events", () => {
 
         mdl.subscribe.searchResponseReceived(eventHandler);
         expect(eventHandler).not.toHaveBeenCalled();
-        mdl.publish.searchResponseReceived();
+        mdl.publish.searchResponseReceived("search-bar");
         expect(eventHandler).toHaveBeenCalledTimes(1);
         mdl.unsubscribe.searchResponseReceived(eventHandler);
-        mdl.publish.searchResponseReceived();
+        mdl.publish.searchResponseReceived("search-bar");
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
@@ -374,10 +374,10 @@ describe("events", () => {
 
         mdl.subscribe.searchResultsView(eventHandler);
         expect(eventHandler).not.toHaveBeenCalled();
-        mdl.publish.searchResultsView();
+        mdl.publish.searchResultsView("search-bar");
         expect(eventHandler).toHaveBeenCalledTimes(1);
         mdl.unsubscribe.searchResultsView(eventHandler);
-        mdl.publish.searchResultsView();
+        mdl.publish.searchResultsView("search-bar");
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
@@ -391,10 +391,10 @@ describe("events", () => {
 
         mdl.subscribe.searchSuggestionClick(eventHandler);
         expect(eventHandler).not.toHaveBeenCalled();
-        mdl.publish.searchSuggestionClick("pants");
+        mdl.publish.searchSuggestionClick("search-bar", "pants");
         expect(eventHandler).toHaveBeenCalledTimes(1);
         mdl.unsubscribe.searchSuggestionClick(eventHandler);
-        mdl.publish.searchSuggestionClick("pants");
+        mdl.publish.searchSuggestionClick("search-bar", "pants");
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 

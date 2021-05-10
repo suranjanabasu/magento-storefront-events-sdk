@@ -3,7 +3,12 @@
  * See COPYING.txt for license details.
  */
 
-type SearchInput = {
+export type SearchInput = {
+    units: Array<SearchInputUnit>;
+};
+
+export type SearchInputUnit = {
+    searchUnitId: string;
     searchRequestId: string;
     source: "search-bar" | "results-page" | "custom" | null;
     query: string;
@@ -14,7 +19,7 @@ type SearchInput = {
     sortOrder: "ascending" | "descending";
 };
 
-type SearchFilter = {
+export type SearchFilter = {
     attribute: string;
     eq?: string;
     in?: Array<string>;
@@ -23,5 +28,3 @@ type SearchFilter = {
         to?: number;
     };
 };
-
-export { SearchInput, SearchFilter };

@@ -217,30 +217,40 @@ export const generateReferrerUrlContext = (
 export const generateSearchInputContext = (
     overrides?: Partial<SearchInput>,
 ): SearchInput => ({
-    searchRequestId: "abc123",
-    source: "search-bar",
-    query: "pants",
-    page: 1,
-    perPage: 20,
-    filters: [{ attribute: "size", eq: "small" }],
-    sortType: "relevance",
-    sortOrder: "descending",
+    units: [
+        {
+            searchUnitId: "search-bar",
+            searchRequestId: "abc123",
+            source: "search-bar",
+            query: "pants",
+            page: 1,
+            perPage: 20,
+            filters: [{ attribute: "size", eq: "small" }],
+            sortType: "relevance",
+            sortOrder: "descending",
+        },
+    ],
     ...overrides,
 });
 
 export const generateSearchResultsContext = (
     overrides?: Partial<SearchResults>,
 ): SearchResults => ({
-    searchRequestId: "abc123",
-    products: [],
-    categories: [],
-    suggestions: [],
-    productCount: 0,
-    categoryCount: 0,
-    suggestionCount: 0,
-    page: 1,
-    perPage: 20,
-    facets: [],
+    units: [
+        {
+            searchUnitId: "search-bar",
+            searchRequestId: "abc123",
+            products: [],
+            categories: [],
+            suggestions: [],
+            productCount: 0,
+            categoryCount: 0,
+            suggestionCount: 0,
+            page: 1,
+            perPage: 20,
+            facets: [],
+        },
+    ],
     ...overrides,
 });
 
