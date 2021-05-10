@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.13.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.12.0...v0.13.0) (2021-05-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* The SearchInput and SearchResults contexts are now an array of units.
+
+SEARCH-1322
+
+### Features
+
+* include unit id with every search handler ([4d37aad](https://github.com/adobe/magento-storefront-events-sdk/commit/4d37aad32f7fc9b6ecfb8b00b603bb86aad5c54d))
+* support multiple search units ([a2803cb](https://github.com/adobe/magento-storefront-events-sdk/commit/a2803cba802637a20cdeb6bef87ff953921d1daa))
+
+
+### Bug Fixes
+
+* export search input types ([bde2b52](https://github.com/adobe/magento-storefront-events-sdk/commit/bde2b52d368053be70eda1084c3d6a05596094fc))
+
 ## [0.12.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.11.2...v0.12.0) (2021-04-30)
 
 
