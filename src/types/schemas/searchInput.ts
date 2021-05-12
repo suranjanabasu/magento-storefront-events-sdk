@@ -10,13 +10,12 @@ export type SearchInput = {
 export type SearchInputUnit = {
     searchUnitId: string;
     searchRequestId: string;
-    source: "search-bar" | "results-page" | "custom" | null;
-    query: string;
-    page: number;
-    perPage: number;
-    filters: Array<SearchFilter>;
-    sortType: string;
-    sortOrder: "ascending" | "descending";
+    queryTypes: Array<"products" | "suggestions" | "categories">;
+    phrase: string;
+    pageSize: number;
+    currentPage: number;
+    filter: Array<SearchFilter>;
+    sort: Array<SearchSort>;
 };
 
 export type SearchFilter = {
@@ -27,4 +26,9 @@ export type SearchFilter = {
         from?: number;
         to?: number;
     };
+};
+
+export type SearchSort = {
+    attribute: string;
+    direction: "ASC" | "DESC";
 };
