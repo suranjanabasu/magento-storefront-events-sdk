@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.14.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.13.0...v0.14.0) (2021-05-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* The sort field is now an array.
+
+### Features
+
+* support multiple sorts ([6761d36](https://github.com/adobe/magento-storefront-events-sdk/commit/6761d3645421e624677fd4521356e49afa79a6c1))
+
 ## [0.13.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.12.0...v0.13.0) (2021-05-10)
 
 
