@@ -242,12 +242,29 @@ export const generateSearchResultsContext = (
             products: [],
             categories: [],
             suggestions: [],
-            productCount: 0,
-            categoryCount: 0,
-            suggestionCount: 0,
             page: 1,
             perPage: 20,
-            facets: [],
+            facets: [
+                {
+                    attribute: "size",
+                    buckets: [
+                        {
+                            title: "S",
+                            count: 4,
+                        },
+                        {
+                            title: "M",
+                            count: 12,
+                        },
+                        {
+                            title: "L",
+                            count: 9,
+                        },
+                    ],
+                    title: "Size",
+                    type: "PINNED",
+                },
+            ],
         },
     ],
     ...overrides,

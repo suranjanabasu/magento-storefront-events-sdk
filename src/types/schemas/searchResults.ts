@@ -13,9 +13,6 @@ export type SearchResultUnit = {
     products: Array<SearchResultProduct>;
     categories: Array<SearchResultCategory>;
     suggestions: Array<SearchResultSuggestion>;
-    productCount: number;
-    categoryCount: number;
-    suggestionCount: number;
     page: number;
     perPage: number;
     facets: Array<SearchFacet> | null;
@@ -43,12 +40,27 @@ export type SearchResultSuggestion = {
 
 export type SearchFacet = {
     attribute: string;
-    dataType: string;
-    facetType: string;
     buckets: Array<SearchBucket>;
+    title: string;
+    type: "PINNED" | "INTELLIGENT" | "POPULAR";
 };
 
-export type SearchBucket = {
-    tite: string;
+export type SearchBucket = RangeBucket | ScalarBucket | StatsBucket;
+
+export type RangeBucket = {
     count: number;
+    from: number;
+    title: string;
+    to?: number;
+};
+
+export type ScalarBucket = {
+    count: number;
+    title: string;
+};
+
+export type StatsBucket = {
+    min: number;
+    max: number;
+    title: string;
 };
