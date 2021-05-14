@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.15.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.14.0...v0.15.0) (2021-05-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* The Facet types have changed. See the types directory for more information.
+
+### Features
+
+* support new search facets api ([97c11c9](https://github.com/adobe/magento-storefront-events-sdk/commit/97c11c94191e83f78a866d2f2e11b46285cb2eb2))
+
 ## [0.14.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.13.0...v0.14.0) (2021-05-12)
 
 
