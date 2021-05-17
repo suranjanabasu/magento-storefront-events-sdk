@@ -18,8 +18,7 @@
         "test": "jest --coverage",
         "test:ci": "jest --ci",
         "test:watch": "jest --watch",
-        "release": "cross-env HUSKY_SKIP_HOOKS=1 standard-version",
-        "release:next": "cross-env HUSKY_SKIP_HOOKS=1 standard-version --prerelease next"
+        "release": "cross-env HUSKY_SKIP_HOOKS=1 standard-version"
     },
     "repository": {
         "type": "git",
