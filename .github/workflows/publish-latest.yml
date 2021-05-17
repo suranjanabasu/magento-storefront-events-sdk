@@ -1,13 +1,13 @@
-name: release
+name: publish-latest
 
 on:
     push:
         tags:
-            - "v[0-9]+.[0-9]+.[0-9]+"
+            - "v*"
 
 jobs:
-    release:
-        name: release
+    publish-latest:
+        name: publish-latest
         runs-on: ubuntu-18.04
         steps:
             - name: checkout
@@ -22,15 +22,9 @@ jobs:
                   registry-url: https://registry.npmjs.org/
             - name: install
               run: npm ci
-            - name: lint
-              run: npm run lint
-            - name: format
-              run: npm run format
-            - name: test
-              run: npm test
             - name: build
               run: npm run build
-            - name: release
+            - name: publish
               run: npm publish --access public
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
