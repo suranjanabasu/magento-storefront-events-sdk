@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.15.2](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.15.1...v0.15.2) (2021-05-18)
+
+
+### Bug Fixes
+
+* make product pricing optional ([095bb10](https://github.com/adobe/magento-storefront-events-sdk/commit/095bb10a7bf2d1124666fe55d9c0e7d519accdd4))
+
 ### [0.15.1](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.15.0...v0.15.1) (2021-05-17)
 
 ## [0.15.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.14.0...v0.15.0) (2021-05-14)
