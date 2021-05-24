@@ -1,63 +1,30 @@
 # Magento Storefront Events SDK
 
-## Purpose
+[![version][version-badge]][npm]
+[![downloads][downloads-badge]][npm]
+[![size][size-badge]][bundlephobia]
+[![build][build-badge]][actions]
+[![typescript][typescript-badge]][typescript]
+[![contributing][contributing-badge]][contributing]
 
-This repository provides a strongly-typed interface for interacting with the [Adobe Client Data Layer](https://github.com/adobe/adobe-client-data-layer) or ACDL, the central event hub for applications within Data Solutions. ACDL is a very flexible library that is capable of holding context datay, processing events asynchronously, and handling many to many relationships of publishers and subscribers. ACDL relies on getters, setters, publishers, and subscribers that are indexed by strings. It also accepts/returns objects of arbitrary shape and size. These two aspects make it somewhat prone to errors like misspellings or data loss as one object with the wrong shape clobbers another.
+## overview
 
-## Architecture
+## installation
 
-The SDK takes the shape of a Typescript class that includes getters and setters for all of the contexts used in Data Solutions events, as well as publishers and subscribers for all events used in Data Solutions data collection.
+## setup
 
-Our tests provide numerous examples of usage. But by what of illustration, here is what the syntax looks like.
+## quick start
 
-```ts
-import mdl from "@adobe/magento-storefront-events-sdk";
+## api reference
 
-/**
- *  Set a context
- *  These setters abstract the string key for the context away from the
- *  user and enforces the correct shape and type of the context object
- **/
-mdl.contexts.setShopper({ shopperId: "loggedIn" });
-
-/**
- *  Get a context
- *  Getters are used frequently in event consumers as a way to gather the context data needed by the event consumer. Each event handler receives a reference to the mdl instance as its second argument.
- **/
-mdl.context.getShopper();
-
-/**
- *  Publish an event
- *  The current design is to avoid accepting arguments when an event is published.
- *  Any data that should be published with an event should be put into a context and
- *  packaged with the event prior to notifying the subscribers
- **/
-mdl.publish.addToCart();
-
-/**
- *  Subscribe to an event
- *  Currently the event only contains the name of the event that was fired
- **/
-mdl.subscribe.addToCart(event => {});
-```
-
-## Usage
-
-```sh
-# Install dependencies
-npm install
-
-# Run tests
-npm test
-npm run test:watch # Run tests in watch mode for development
-```
-
-This repo also contains a `.vscode` file that includes a launch definition to enable debugging tests. To run the tests in debug mode, go to the Run tab (`Cmd` + `Shift` + `D`) and select Debug Jest Tests from the dropdown. Click the play button and your tests will launch in watch mode with the VS Code debugger attached. Now you may set breakpoints in your tests as well as the source files run in the tests.
-
-### Contributing
-
-Contributions are welcomed! Read the [Contributing Guide](./.github/CONTRIBUTING.md) for more information.
-
-### Licensing
-
-This project is licensed under the OSL v3.0 License. See [LICENSE](LICENSE) for more information.
+[npm]: https://www.npmjs.com/package/@adobe/magento-storefront-events-sdk
+[version-badge]: https://img.shields.io/npm/v/@adobe/magento-storefront-events-sdk.svg?style=flat-square
+[downloads-badge]: https://img.shields.io/npm/dt/@adobe/magento-storefront-events-sdk?style=flat-square
+[bundlephobia]: https://bundlephobia.com/result?p=@adobe/magento-storefront-events-sdk
+[size-badge]: https://img.shields.io/bundlephobia/minzip/@adobe/magento-storefront-events-sdk?style=flat-square
+[actions]: https://github.com/adobe/magento-storefront-events-sdk/actions
+[build-badge]: https://img.shields.io/github/workflow/status/adobe/magento-storefront-events-sdk/publish-latest?style=flat-square
+[typescript]: https://www.typescriptlang.org/dt/search?search=%40adobe%2Fmagento-storefront-events-sdk
+[typescript-badge]: https://img.shields.io/npm/types/@adobe/magento-storefront-events-sdk?style=flat-square
+[contributing]: https://github.com/adobe/magento-storefront-events-sdk/blob/main/.github/CONTRIBUTING.md
+[contributing-badge]: https://img.shields.io/badge/PRs-welcome-success?style=flat-square
