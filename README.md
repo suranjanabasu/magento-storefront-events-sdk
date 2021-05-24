@@ -23,13 +23,50 @@ To load the SDK as a script, use the following snippet.
 
 To install the script as a dependency, run this command.
 
-```
+```shell
 npm install @adobe/magento-storefront-events-sdk
 ```
 
 ## Quick Start
 
+Once imported, you have access to the four main functions of the Events SDK.
+
+-   [context][context] - set context data
+-   [publish][publish] - publish events
+-   [subscribe][subscribe] - subscribe to events
+-   [unsubscribe][unsubscribe] - unsubscribe from events
+
+Below is a code example of how to get started.
+
+> _IMPORTANT: Relevant context data must be populated before publishing events that require it._
+
+```javascript
+import mse from "@adobe/magento-storefront-events-sdk";
+
+// subscribe to events
+mse.subscribe.pageView(pageViewHandler);
+
+// set context data
+mse.context.setPage(/* page context */);
+
+// publish events
+mse.publish.pageView();
+
+// unsubscribe from events
+mse.unsubscribe.pageView(pageViewHandler);
+```
+
 ## API Reference
+
+### Context
+
+### Publish
+
+### Subscribe
+
+### Unsubscribe
+
+## Support
 
 [npm]: https://npmjs.com/package/@adobe/magento-storefront-events-sdk
 [version-badge]: https://img.shields.io/npm/v/@adobe/magento-storefront-events-sdk.svg?style=flat-square
@@ -46,3 +83,7 @@ npm install @adobe/magento-storefront-events-sdk
 [collector]: https://github.com/adobe/magento-storefront-event-collector
 [unpkg]: https://unpkg.com/@adobe/magento-storefront-events-sdk/dist/index.js
 [npm]: https://npmjs.com/package/@adobe/magento-storefront-events-sdk
+[context]: #context
+[publish]: #publish
+[subscribe]: #subscribe
+[unsubscribe]: #unsubscribe
