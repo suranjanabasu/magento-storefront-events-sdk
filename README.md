@@ -68,6 +68,11 @@ mse.unsubscribe.pageView(pageViewHandler);
 
 ## Support
 
+If you have any questions or encounter any issues, please reach out at these locations.
+
+-   [GitHub][issues]
+-   [Zendesk][zendesk]
+
 [npm]: https://npmjs.com/package/@adobe/magento-storefront-events-sdk
 [version-badge]: https://img.shields.io/npm/v/@adobe/magento-storefront-events-sdk.svg?style=flat-square
 [downloads-badge]: https://img.shields.io/npm/dt/@adobe/magento-storefront-events-sdk?style=flat-square
@@ -87,3 +92,5 @@ mse.unsubscribe.pageView(pageViewHandler);
 [publish]: #publish
 [subscribe]: #subscribe
 [unsubscribe]: #unsubscribe
+[issues]: https://github.com/adobe/magento-storefront-events-sdk/issues
+[zendesk]: https://account.magento.com/zendesk/login
