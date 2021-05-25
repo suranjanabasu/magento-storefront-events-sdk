@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.16.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.15.3...v0.16.0) (2021-05-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* Placement is now required in the Recommendation context.
+
+### Features
+
+* support placement and offset ([a2ea560](https://github.com/adobe/magento-storefront-events-sdk/commit/a2ea560237e99cb1ee93b95f3f1a03a8b462217a))
+
 ### [0.15.3](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.15.2...v0.15.3) (2021-05-25)
 
 ### [0.15.2](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.15.1...v0.15.2) (2021-05-18)
