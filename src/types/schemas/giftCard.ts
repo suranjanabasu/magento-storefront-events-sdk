@@ -4,6 +4,6 @@
  */
 
 export type GiftCard = {
-    giftCardCode: string; // TODO: should limit it to max 256 chars
+    giftCardCode: string;
     giftCardValue: number;
 };
