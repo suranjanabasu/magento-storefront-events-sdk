@@ -170,7 +170,7 @@ mse.context.getStorefrontInstance();
 
 #### `mse.context.getContext`
 
-Gets a generic `Context`.
+Gets a custom `Context`.
 
 | Name   | Required | Description   |
 | ------ | -------- | ------------- |
@@ -338,12 +338,12 @@ mse.context.setStorefrontInstance(storefrontCtx);
 
 #### `mse.context.setContext`
 
-Sets a generic `Context`.
+Sets a custom `Context`.
 
-| Name      | Required | Description      |
-| --------- | -------- | ---------------- |
-| `name`    | Yes      | Context name.    |
-| `context` | Yes      | Generic context. |
+| Name      | Required | Description     |
+| --------- | -------- | --------------- |
+| `name`    | Yes      | Context name.   |
+| `context` | Yes      | Custom context. |
 
 ```javascript
 mse.context.setContext(ctx);
@@ -357,208 +357,327 @@ These functions publish events which notify all of the subscribers.
 
 Publishes the `addToCart` event.
 
+| Name      | Required | Description     |
+| --------- | -------- | --------------- |
+| `context` | No       | Custom context. |
+
 ```javascript
-mse.publish.addToCart();
+mse.publish.addToCart(ctx);
 ```
 
 #### `mse.publish.customUrl`
 
 Publishes the `customUrl` event.
 
+| Name      | Required | Description     |
+| --------- | -------- | --------------- |
+| `context` | No       | Custom context. |
+
 ```javascript
-mse.publish.customUrl();
+mse.publish.customUrl(ctx);
 ```
 
 #### `mse.publish.initiateCheckout`
 
 Publishes the `initiateCheckout` event.
 
+| Name      | Required | Description     |
+| --------- | -------- | --------------- |
+| `context` | No       | Custom context. |
+
 ```javascript
-mse.publish.initiateCheckout();
+mse.publish.initiateCheckout(ctx);
 ```
 
 #### `mse.publish.instantPurchase`
 
 Publishes the `instantPurchase` event.
 
+| Name      | Required | Description     |
+| --------- | -------- | --------------- |
+| `context` | No       | Custom context. |
+
 ```javascript
-mse.publish.instantPurchase();
+mse.publish.instantPurchase(ctx);
 ```
 
 #### `mse.publish.pageActivitySummary`
 
 Publishes the `pageActivitySummary` event.
 
+| Name      | Required | Description     |
+| --------- | -------- | --------------- |
+| `context` | No       | Custom context. |
+
 ```javascript
-mse.publish.pageActivitySummary();
+mse.publish.pageActivitySummary(ctx);
 ```
 
 #### `mse.publish.pageView`
 
 Publishes the `pageView` event.
 
+| Name      | Required | Description     |
+| --------- | -------- | --------------- |
+| `context` | No       | Custom context. |
+
 ```javascript
-mse.publish.pageView();
+mse.publish.pageView(ctx);
 ```
 
 #### `mse.publish.placeOrder`
 
 Publishes the `placeOrder` event.
 
+| Name      | Required | Description     |
+| --------- | -------- | --------------- |
+| `context` | No       | Custom context. |
+
 ```javascript
-mse.publish.placeOrder();
+mse.publish.placeOrder(ctx);
 ```
 
 #### `mse.publish.productPageView`
 
 Publishes the `productPageView` event.
 
+| Name      | Required | Description     |
+| --------- | -------- | --------------- |
+| `context` | No       | Custom context. |
+
 ```javascript
-mse.publish.productPageView();
+mse.publish.productPageView(ctx);
 ```
 
 #### `mse.publish.recsItemAddToCartClick`
 
 Publishes the `recsItemAddToCartClick` event.
 
+| Name        | Required | Description              |
+| ----------- | -------- | ------------------------ |
+| `unitId`    | Yes      | Recommendations unit id. |
+| `productId` | Yes      | Recommended product id.  |
+| `context`   | No       | Custom context.          |
+
 ```javascript
-mse.publish.recsItemAddToCartClick();
+mse.publish.recsItemAddToCartClick(unitId, productId, ctx);
 ```
 
 #### `mse.publish.recsItemClick`
 
 Publishes the `recsItemClick` event.
 
+| Name        | Required | Description              |
+| ----------- | -------- | ------------------------ |
+| `unitId`    | Yes      | Recommendations unit id. |
+| `productId` | Yes      | Recommended product id.  |
+| `context`   | No       | Custom context.          |
+
 ```javascript
-mse.publish.recsItemClick();
+mse.publish.recsItemClick(unitId, productId, ctx);
 ```
 
 #### `mse.publish.recsRequestSent`
 
 Publishes the `recsRequestSent` event.
 
+| Name      | Required | Description     |
+| --------- | -------- | --------------- |
+| `context` | No       | Custom context. |
+
 ```javascript
-mse.publish.recsRequestSent();
+mse.publish.recsRequestSent(ctx);
 ```
 
 #### `mse.publish.recsResponseReceived`
 
 Publishes the `recsResponseReceived` event.
 
+| Name      | Required | Description     |
+| --------- | -------- | --------------- |
+| `context` | No       | Custom context. |
+
 ```javascript
-mse.publish.recsResponseReceived();
+mse.publish.recsResponseReceived(ctx);
 ```
 
 #### `mse.publish.recsUnitRender`
 
 Publishes the `recsUnitRender` event.
 
+| Name      | Required | Description              |
+| --------- | -------- | ------------------------ |
+| `unitId`  | Yes      | Recommendations unit id. |
+| `context` | No       | Custom context.          |
+
 ```javascript
-mse.publish.recsUnitRender();
+mse.publish.recsUnitRender(unitId, ctx);
 ```
 
 #### `mse.publish.recsUnitView`
 
 Publishes the `recsUnitView` event.
 
+| Name      | Required | Description              |
+| --------- | -------- | ------------------------ |
+| `unitId`  | Yes      | Recommendations unit id. |
+| `context` | No       | Custom context.          |
+
 ```javascript
-mse.publish.recsUnitView();
+mse.publish.recsUnitView(unitId, ctx);
 ```
 
 #### `mse.publish.referrerUrl`
 
 Publishes the `referrerUrl` event.
 
+| Name      | Required | Description     |
+| --------- | -------- | --------------- |
+| `context` | No       | Custom context. |
+
 ```javascript
-mse.publish.referrerUrl();
+mse.publish.referrerUrl(ctx);
 ```
 
 #### `mse.publish.removeFromCart`
 
 Publishes the `removeFromCart` event.
 
+| Name      | Required | Description     |
+| --------- | -------- | --------------- |
+| `context` | No       | Custom context. |
+
 ```javascript
-mse.publish.removeFromCart();
+mse.publish.removeFromCart(ctx);
 ```
 
 #### `mse.publish.searchCategoryClick`
 
 Publishes the `searchCategoryClick` event.
 
+| Name           | Required | Description     |
+| -------------- | -------- | --------------- |
+| `searchUnitId` | Yes      | Search unit id. |
+| `name`         | Yes      | Category name.  |
+| `context`      | No       | Custom context. |
+
 ```javascript
-mse.publish.searchCategoryClick();
+mse.publish.searchCategoryClick(searchUnitId, name, ctx);
 ```
 
 #### `mse.publish.searchProductClick`
 
 Publishes the `searchProductClick` event.
 
+| Name           | Required | Description     |
+| -------------- | -------- | --------------- |
+| `searchUnitId` | Yes      | Search unit id. |
+| `sku`          | Yes      | Product sku.    |
+| `context`      | No       | Custom context. |
+
 ```javascript
-mse.publish.searchProductClick();
+mse.publish.searchProductClick(searchUnitId, sku, ctx);
 ```
 
 #### `mse.publish.searchRequestSent`
 
 Publishes the `searchRequestSent` event.
 
+| Name           | Required | Description     |
+| -------------- | -------- | --------------- |
+| `searchUnitId` | Yes      | Search unit id. |
+| `context`      | No       | Custom context. |
+
 ```javascript
-mse.publish.searchRequestSent();
+mse.publish.searchRequestSent(searchUnitId, ctx);
 ```
 
 #### `mse.publish.searchResponseReceived`
 
 Publishes the `searchResponseReceived` event.
 
+| Name           | Required | Description     |
+| -------------- | -------- | --------------- |
+| `searchUnitId` | Yes      | Search unit id. |
+| `context`      | No       | Custom context. |
+
 ```javascript
-mse.publish.searchResponseReceived();
+mse.publish.searchResponseReceived(searchUnitId, ctx);
 ```
 
 #### `mse.publish.searchResultsView`
 
 Publishes the `searchResultsView` event.
 
+| Name           | Required | Description     |
+| -------------- | -------- | --------------- |
+| `searchUnitId` | Yes      | Search unit id. |
+| `context`      | No       | Custom context. |
+
 ```javascript
-mse.publish.searchResultsView();
+mse.publish.searchResultsView(searchUnitId, ctx);
 ```
 
 #### `mse.publish.searchSuggestionClick`
 
 Publishes the `searchSuggestionClick` event.
 
+| Name           | Required | Description       |
+| -------------- | -------- | ----------------- |
+| `searchUnitId` | Yes      | Search unit id.   |
+| `suggestion`   | Yes      | Query suggestion. |
+| `context`      | No       | Custom context.   |
+
 ```javascript
-mse.publish.searchSuggestionClick();
+mse.publish.searchSuggestionClick(searchUnitId, suggestion, ctx);
 ```
 
 #### `mse.publish.shoppingCartView`
 
 Publishes the `shoppingCartView` event.
 
+| Name      | Required | Description     |
+| --------- | -------- | --------------- |
+| `context` | No       | Custom context. |
+
 ```javascript
-mse.publish.shoppingCartView();
+mse.publish.shoppingCartView(ctx);
 ```
 
 #### `mse.publish.signIn`
 
 Publishes the `signIn` event.
 
+| Name      | Required | Description     |
+| --------- | -------- | --------------- |
+| `context` | No       | Custom context. |
+
 ```javascript
-mse.publish.signIn();
+mse.publish.signIn(ctx);
 ```
 
 #### `mse.publish.signOut`
 
 Publishes the `signOut` event.
 
+| Name      | Required | Description     |
+| --------- | -------- | --------------- |
+| `context` | No       | Custom context. |
+
 ```javascript
-mse.publish.signOut();
+mse.publish.signOut(ctx);
 ```
 
 #### `mse.publish.updateCart`
 
 Publishes the `updateCart` event.
 
+| Name      | Required | Description     |
+| --------- | -------- | --------------- |
+| `context` | No       | Custom context. |
+
 ```javascript
-mse.publish.updateCart();
+mse.publish.updateCart(ctx);
 ```
 
 ### Subscribe
@@ -569,224 +688,364 @@ These functions subscribe to events.
 
 Subscribes to the `addToCart` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.addToCart();
+mse.subscribe.addToCart(handler, options);
 ```
 
 #### `mse.subscribe.customUrl`
 
 Subscribes to the `customUrl` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.customUrl();
+mse.subscribe.customUrl(handler, options);
 ```
 
 #### `mse.subscribe.dataLayerChange`
 
 Subscribes to the `dataLayerChange` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.dataLayerChange();
+mse.subscribe.dataLayerChange(handler, options);
 ```
 
 #### `mse.subscribe.dataLayerEvent`
 
 Subscribes to the `dataLayerEvent` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.dataLayerEvent();
+mse.subscribe.dataLayerEvent(handler, options);
 ```
 
 #### `mse.subscribe.initiateCheckout`
 
 Subscribes to the `initiateCheckout` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.initiateCheckout();
+mse.subscribe.initiateCheckout(handler, options);
 ```
 
 #### `mse.subscribe.instantPurchase`
 
 Subscribes to the `instantPurchase` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.instantPurchase();
+mse.subscribe.instantPurchase(handler, options);
 ```
 
 #### `mse.subscribe.pageActivitySummary`
 
 Subscribes to the `pageActivitySummary` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.pageActivitySummary();
+mse.subscribe.pageActivitySummary(handler, options);
 ```
 
 #### `mse.subscribe.pageView`
 
 Subscribes to the `pageView` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.pageView();
+mse.subscribe.pageView(handler, options);
 ```
 
 #### `mse.subscribe.placeOrder`
 
 Subscribes to the `placeOrder` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.placeOrder();
+mse.subscribe.placeOrder(handler, options);
 ```
 
 #### `mse.subscribe.productPageView`
 
 Subscribes to the `productPageView` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.productPageView();
+mse.subscribe.productPageView(handler, options);
 ```
 
 #### `mse.subscribe.recsItemAddToCartClick`
 
 Subscribes to the `recsItemAddToCartClick` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.recsItemAddToCartClick();
+mse.subscribe.recsItemAddToCartClick(handler, options);
 ```
 
 #### `mse.subscribe.recsItemClick`
 
 Subscribes to the `recsItemClick` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.recsItemClick();
+mse.subscribe.recsItemClick(handler, options);
 ```
 
 #### `mse.subscribe.recsRequestSent`
 
 Subscribes to the `recsRequestSent` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.recsRequestSent();
+mse.subscribe.recsRequestSent(handler, options);
 ```
 
 #### `mse.subscribe.recsResponseReceived`
 
 Subscribes to the `recsResponseReceived` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.recsResponseReceived();
+mse.subscribe.recsResponseReceived(handler, options);
 ```
 
 #### `mse.subscribe.recsUnitRender`
 
 Subscribes to the `recsUnitRender` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.recsUnitRender();
+mse.subscribe.recsUnitRender(handler, options);
 ```
 
 #### `mse.subscribe.recsUnitView`
 
 Subscribes to the `recsUnitView` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.recsUnitView();
+mse.subscribe.recsUnitView(handler, options);
 ```
 
 #### `mse.subscribe.referrerUrl`
 
 Subscribes to the `referrerUrl` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.referrerUrl();
+mse.subscribe.referrerUrl(handler, options);
 ```
 
 #### `mse.subscribe.removeFromCart`
 
 Subscribes to the `removeFromCart` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.removeFromCart();
+mse.subscribe.removeFromCart(handler, options);
 ```
 
 #### `mse.subscribe.searchCategoryClick`
 
 Subscribes to the `searchCategoryClick` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.searchCategoryClick();
+mse.subscribe.searchCategoryClick(handler, options);
 ```
 
 #### `mse.subscribe.searchProductClick`
 
 Subscribes to the `searchProductClick` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.searchProductClick();
+mse.subscribe.searchProductClick(handler, options);
 ```
 
 #### `mse.subscribe.searchRequestSent`
 
 Subscribes to the `searchRequestSent` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.searchRequestSent();
+mse.subscribe.searchRequestSent(handler, options);
 ```
 
 #### `mse.subscribe.searchResponseReceived`
 
 Subscribes to the `searchResponseReceived` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.searchResponseReceived();
+mse.subscribe.searchResponseReceived(handler, options);
 ```
 
 #### `mse.subscribe.searchResultsView`
 
 Subscribes to the `searchResultsView` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.searchResultsView();
+mse.subscribe.searchResultsView(handler, options);
 ```
 
 #### `mse.subscribe.searchSuggestionClick`
 
 Subscribes to the `searchSuggestionClick` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.searchSuggestionClick();
+mse.subscribe.searchSuggestionClick(handler, options);
 ```
 
 #### `mse.subscribe.shoppingCartView`
 
 Subscribes to the `shoppingCartView` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.shoppingCartView();
+mse.subscribe.shoppingCartView(handler, options);
 ```
 
 #### `mse.subscribe.signIn`
 
 Subscribes to the `signIn` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.signIn();
+mse.subscribe.signIn(handler, options);
 ```
 
 #### `mse.subscribe.signOut`
 
 Subscribes to the `signOut` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.signOut();
+mse.subscribe.signOut(handler, options);
 ```
 
 #### `mse.subscribe.updateCart`
 
 Subscribes to the `updateCart` event.
 
+| Name      | Required | Description       |
+| --------- | -------- | ----------------- |
+| `handler` | Yes      | Event handler.    |
+| `options` | No       | Listener options. |
+
 ```javascript
-mse.subscribe.updateCart();
+mse.subscribe.updateCart(handler, options);
 ```
 
 ### Unsubscribe
@@ -797,224 +1056,336 @@ These functions unsubscribe from events.
 
 Unsubscribes from the `addToCart` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.addToCart();
+mse.unsubscribe.addToCart(handler);
 ```
 
 #### `mse.unsubscribe.customUrl`
 
 Unsubscribes from the `customUrl` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.customUrl();
+mse.unsubscribe.customUrl(handler);
 ```
 
 #### `mse.unsubscribe.dataLayerChange`
 
 Unsubscribes from the `dataLayerChange` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.dataLayerChange();
+mse.unsubscribe.dataLayerChange(handler);
 ```
 
 #### `mse.unsubscribe.dataLayerEvent`
 
 Unsubscribes from the `dataLayerEvent` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.dataLayerEvent();
+mse.unsubscribe.dataLayerEvent(handler);
 ```
 
 #### `mse.unsubscribe.initiateCheckout`
 
 Unsubscribes from the `initiateCheckout` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.initiateCheckout();
+mse.unsubscribe.initiateCheckout(handler);
 ```
 
 #### `mse.unsubscribe.instantPurchase`
 
 Unsubscribes from the `instantPurchase` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.instantPurchase();
+mse.unsubscribe.instantPurchase(handler);
 ```
 
 #### `mse.unsubscribe.pageActivitySummary`
 
 Unsubscribes from the `pageActivitySummary` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.pageActivitySummary();
+mse.unsubscribe.pageActivitySummary(handler);
 ```
 
 #### `mse.unsubscribe.pageView`
 
 Unsubscribes from the `pageView` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.pageView();
+mse.unsubscribe.pageView(handler);
 ```
 
 #### `mse.unsubscribe.placeOrder`
 
 Unsubscribes from the `placeOrder` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.placeOrder();
+mse.unsubscribe.placeOrder(handler);
 ```
 
 #### `mse.unsubscribe.productPageView`
 
 Unsubscribes from the `productPageView` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.productPageView();
+mse.unsubscribe.productPageView(handler);
 ```
 
 #### `mse.unsubscribe.recsItemAddToCartClick`
 
 Unsubscribes from the `recsItemAddToCartClick` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.recsItemAddToCartClick();
+mse.unsubscribe.recsItemAddToCartClick(handler);
 ```
 
 #### `mse.unsubscribe.recsItemClick`
 
 Unsubscribes from the `recsItemClick` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.recsItemClick();
+mse.unsubscribe.recsItemClick(handler);
 ```
 
 #### `mse.unsubscribe.recsRequestSent`
 
 Unsubscribes from the `recsRequestSent` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.recsRequestSent();
+mse.unsubscribe.recsRequestSent(handler);
 ```
 
 #### `mse.unsubscribe.recsResponseReceived`
 
 Unsubscribes from the `recsResponseReceived` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.recsResponseReceived();
+mse.unsubscribe.recsResponseReceived(handler);
 ```
 
 #### `mse.unsubscribe.recsUnitRender`
 
 Unsubscribes from the `recsUnitRender` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.recsUnitRender();
+mse.unsubscribe.recsUnitRender(handler);
 ```
 
 #### `mse.unsubscribe.recsUnitView`
 
 Unsubscribes from the `recsUnitView` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.recsUnitView();
+mse.unsubscribe.recsUnitView(handler);
 ```
 
 #### `mse.unsubscribe.referrerUrl`
 
 Unsubscribes from the `referrerUrl` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.referrerUrl();
+mse.unsubscribe.referrerUrl(handler);
 ```
 
 #### `mse.unsubscribe.removeFromCart`
 
 Unsubscribes from the `removeFromCart` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.removeFromCart();
+mse.unsubscribe.removeFromCart(handler);
 ```
 
 #### `mse.unsubscribe.searchCategoryClick`
 
 Unsubscribes from the `searchCategoryClick` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.searchCategoryClick();
+mse.unsubscribe.searchCategoryClick(handler);
 ```
 
 #### `mse.unsubscribe.searchProductClick`
 
 Unsubscribes from the `searchProductClick` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.searchProductClick();
+mse.unsubscribe.searchProductClick(handler);
 ```
 
 #### `mse.unsubscribe.searchRequestSent`
 
 Unsubscribes from the `searchRequestSent` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.searchRequestSent();
+mse.unsubscribe.searchRequestSent(handler);
 ```
 
 #### `mse.unsubscribe.searchResponseReceived`
 
 Unsubscribes from the `searchResponseReceived` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.searchResponseReceived();
+mse.unsubscribe.searchResponseReceived(handler);
 ```
 
 #### `mse.unsubscribe.searchResultsView`
 
 Unsubscribes from the `searchResultsView` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.searchResultsView();
+mse.unsubscribe.searchResultsView(handler);
 ```
 
 #### `mse.unsubscribe.searchSuggestionClick`
 
 Unsubscribes from the `searchSuggestionClick` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.searchSuggestionClick();
+mse.unsubscribe.searchSuggestionClick(handler);
 ```
 
 #### `mse.unsubscribe.shoppingCartView`
 
 Unsubscribes from the `shoppingCartView` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.shoppingCartView();
+mse.unsubscribe.shoppingCartView(handler);
 ```
 
 #### `mse.unsubscribe.signIn`
 
 Unsubscribes from the `signIn` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.signIn();
+mse.unsubscribe.signIn(handler);
 ```
 
 #### `mse.unsubscribe.signOut`
 
 Unsubscribes from the `signOut` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.signOut();
+mse.unsubscribe.signOut(handler);
 ```
 
 #### `mse.unsubscribe.updateCart`
 
 Unsubscribes from the `updateCart` event.
 
+| Name      | Required | Description    |
+| --------- | -------- | -------------- |
+| `handler` | Yes      | Event handler. |
+
 ```javascript
-mse.unsubscribe.updateCart();
+mse.unsubscribe.updateCart(handler);
 ```
 
 ## Support
