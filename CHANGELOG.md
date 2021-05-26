@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.16.1](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.16.0...v0.16.1) (2021-05-26)
+
+
+### Features
+
+* support one page checkouts ([3c86046](https://github.com/adobe/magento-storefront-events-sdk/commit/3c860469bcefed0e53f5189c71c71b5fe92c6d9d))
+
 ## [0.16.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.15.3...v0.16.0) (2021-05-25)
 
 
