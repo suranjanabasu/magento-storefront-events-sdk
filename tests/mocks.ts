@@ -318,6 +318,7 @@ export const generateShoppingCartContext = (
         },
     },
     totalQuantity: 5,
+    possibleOnepageCheckout: false,
     ...overrides,
 });
 
