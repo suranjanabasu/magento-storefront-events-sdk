@@ -13,6 +13,7 @@ export type ShoppingCart = {
         subtotalIncludingTax?: Price;
     };
     totalQuantity: number;
+    possibleOnepageCheckout?: boolean;
 };
 
 type Price = {
