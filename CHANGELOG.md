@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.17.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.16.2...v0.17.0) (2021-05-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* The placement field has been renamed to pagePlacement.
+
+* change placement to pagePlacement ([46dcb9d](https://github.com/adobe/magento-storefront-events-sdk/commit/46dcb9d373db05b6aa5f1a0dda0a4ae91c7c69ac))
+
 ### [0.16.2](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.16.1...v0.16.2) (2021-05-27)
 
 
