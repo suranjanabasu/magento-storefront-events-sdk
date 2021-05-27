@@ -319,6 +319,8 @@ export const generateShoppingCartContext = (
     },
     totalQuantity: 5,
     possibleOnepageCheckout: false,
+    giftMessageSelected: false,
+    giftWrappingSelected: false,
     ...overrides,
 });
 
