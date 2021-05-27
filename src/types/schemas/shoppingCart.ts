@@ -14,6 +14,8 @@ export type ShoppingCart = {
     };
     totalQuantity: number;
     possibleOnepageCheckout?: boolean;
+    giftMessageSelected?: boolean;
+    giftWrappingSelected?: boolean;
 };
 
 type Price = {
