@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.17.1](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.17.0...v0.17.1) (2021-06-05)
+
+
+### Features
+
+* add sourcemaps in dev and qa. broadcast message when available ([368de43](https://github.com/adobe/magento-storefront-events-sdk/commit/368de43217762609456968977426cab2f00e710d))
+
 ## [0.17.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.16.2...v0.17.0) (2021-05-27)
 
 
