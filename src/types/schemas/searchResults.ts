@@ -23,7 +23,7 @@ export type SearchResultProduct = {
     sku: string;
     url: string;
     imageUrl: string;
-    price: number;
+    price?: number;
     rank: number;
 };
 
