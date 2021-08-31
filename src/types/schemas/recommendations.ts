@@ -33,13 +33,13 @@ export type RecommendedProduct = {
     categories: Array<string>;
     weight: number;
     weightType?: string | null;
-    currency: string;
+    currency?: string;
     image?: Image | null;
     smallImage?: Image | null;
     thumbnailImage?: Image | null;
     swatchImage?: string | null;
     url: string;
-    prices: Prices;
+    prices?: Prices;
     queryType: string;
 };
 
