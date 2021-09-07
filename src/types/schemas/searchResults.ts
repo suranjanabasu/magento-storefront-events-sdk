@@ -10,6 +10,7 @@ export type SearchResults = {
 export type SearchResultUnit = {
     searchUnitId: string;
     searchRequestId: string;
+    executionTime?: number;
     products: Array<SearchResultProduct>;
     categories: Array<SearchResultCategory>;
     suggestions: Array<SearchResultSuggestion>;
