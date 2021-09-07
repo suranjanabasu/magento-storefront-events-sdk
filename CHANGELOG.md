@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/adobe/magento-storefront-events-sdk/compare/v1.0.1...v1.0.2) (2021-09-07)
+
+
+### Bug Fixes
+
+* make price optional to support b2b ([8847ca0](https://github.com/adobe/magento-storefront-events-sdk/commit/8847ca0eaf71aef75ecdb5fdebc5debf0ff3b162))
+
 ### [1.0.1](https://github.com/adobe/magento-storefront-events-sdk/compare/v1.0.0...v1.0.1) (2021-06-17)
 
 ## [1.0.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.17.1...v1.0.0) (2021-06-07)
