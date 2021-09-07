@@ -242,6 +242,7 @@ export const generateSearchResultsContext = (
         {
             searchUnitId: "search-bar",
             searchRequestId: "abc123",
+            executionTime: 476.27,
             products: [],
             categories: [],
             suggestions: [],
