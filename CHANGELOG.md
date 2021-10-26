@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/adobe/magento-storefront-events-sdk/compare/v1.0.1...v1.0.2) (2021-10-26)
+
+
+### Bug Fixes
+
+* **src/types/schemas/recommendations.ts:** added `typeId: string` as field to RecommendationUnit ([292067c](https://github.com/adobe/magento-storefront-events-sdk/commit/292067cfbc4534ef312e829b204a82e7734eb5dc))
+
 ### [1.0.1](https://github.com/adobe/magento-storefront-events-sdk/compare/v1.0.0...v1.0.1) (2021-06-17)
 
 ## [1.0.0](https://github.com/adobe/magento-storefront-events-sdk/compare/v0.17.1...v1.0.0) (2021-06-07)
