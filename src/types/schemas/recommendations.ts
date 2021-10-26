@@ -17,6 +17,7 @@ export type RecommendationUnit = {
     backupProducts: number;
     products: Array<RecommendedProduct>;
     pagePlacement: string | null;
+    typeId: string;
     yOffsetTop?: number | null;
     yOffsetBottom?: number | null;
 };
