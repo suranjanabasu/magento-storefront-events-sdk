@@ -93,6 +93,7 @@ export const generateRecommendationsContext = (
         {
             unitId: "abc123",
             unitName: "most-viewed",
+            typeId: "most-viewed",
             unitType: "primary",
             searchTime: 2,
             totalProducts: 2,
