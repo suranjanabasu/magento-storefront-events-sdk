@@ -5,7 +5,9 @@
 
 import { CustomUrl } from "../src/types/schemas/customUrl";
 import {
+    AEP,
     Category,
+    EventForwarding,
     MagentoExtension,
     Order,
     Page,
@@ -20,6 +22,14 @@ import {
 } from "../src/types/schemas/";
 import { CustomContext } from "../src/types/contexts";
 
+export const generateAEPContext = (
+    overrides?: Partial<AEP>,
+): AEP => ({
+    imsOrgId: "1234@AdobeOrg",
+    datastreamId: "1234:dev",
+    ...overrides,
+});
+
 export const generateCategoryContext = (
     overrides?: Partial<Category>,
 ): Category => ({
@@ -33,6 +43,14 @@ export const generateCustomUrlContext = (
     overrides?: Partial<CustomUrl>,
 ): CustomUrl => ({
     customUrl: "https://www.test.org",
+    ...overrides,
+});
+
+export const generateEventForwardingContext = (
+    overrides?: Partial<EventForwarding>,
+): EventForwarding => ({
+    aep: false,
+    snowplow: true,
     ...overrides,
 });
 

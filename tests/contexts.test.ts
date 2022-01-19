@@ -5,9 +5,11 @@
 
 import mdl, { MagentoStorefrontEvents } from "../src/index";
 import {
+    generateAEPContext,
     generateCategoryContext,
     generateCustomContext,
     generateCustomUrlContext,
+    generateEventForwardingContext,
     generateMagentoExtensionContext,
     generateOrderContext,
     generatePageContext,
@@ -38,6 +40,13 @@ test("data layer should exist", () => {
 });
 
 describe("contexts", () => {
+    test("aep context", () => {
+        const context = generateAEPContext();
+        expect(mdl.context.getAEP()).toBeUndefined();
+        mdl.context.setAEP(context);
+        expect(mdl.context.getAEP()).toEqual(context);
+    });
+
     test("category context", () => {
         const context = generateCategoryContext();
         expect(mdl.context.getCategory()).toBeUndefined();
@@ -50,6 +59,13 @@ describe("contexts", () => {
         expect(mdl.context.getCustomUrl()).toBeUndefined();
         mdl.context.setCustomUrl(context);
         expect(mdl.context.getCustomUrl()).toEqual(context);
+    });
+
+    test("event forwarding context", () => {
+        const context = generateEventForwardingContext();
+        expect(mdl.context.getEventForwarding()).toBeUndefined();
+        mdl.context.setEventForwarding(context);
+        expect(mdl.context.getEventForwarding()).toEqual(context);
     });
 
     test("magento extension context", () => {

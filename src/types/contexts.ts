@@ -5,8 +5,10 @@
 
 import contexts from "../contexts";
 import {
+    AEP,
     Category,
     CustomUrl,
+    EventForwarding,
     MagentoExtension,
     Order,
     Page,
@@ -21,8 +23,10 @@ import {
 } from "./schemas";
 
 export type ContextName =
+    | typeof contexts.AEP_CONTEXT
     | typeof contexts.CATEGORY_CONTEXT
     | typeof contexts.CUSTOM_URL_CONTEXT
+    | typeof contexts.EVENT_FORWARDING_CONTEXT
     | typeof contexts.MAGENTO_EXTENSION_CONTEXT
     | typeof contexts.ORDER_CONTEXT
     | typeof contexts.PAGE_CONTEXT
@@ -36,8 +40,10 @@ export type ContextName =
     | typeof contexts.STOREFRONT_INSTANCE_CONTEXT;
 
 export type Context = {
+    [contexts.AEP_CONTEXT]: AEP;
     [contexts.CATEGORY_CONTEXT]: Category;
     [contexts.CUSTOM_URL_CONTEXT]: CustomUrl;
+    [contexts.EVENT_FORWARDING_CONTEXT]: EventForwarding;
     [contexts.MAGENTO_EXTENSION_CONTEXT]: MagentoExtension;
     [contexts.ORDER_CONTEXT]: Order;
     [contexts.PAGE_CONTEXT]: Page;
