@@ -58,15 +58,20 @@ export default class ContextManager extends Base {
      * Get event forwarding context
      */
     getEventForwarding(): EventForwarding {
-        return this.getContext<EventForwarding>(contexts.EVENT_FORWARDING_CONTEXT);
+        return this.getContext<EventForwarding>(
+            contexts.EVENT_FORWARDING_CONTEXT,
+        );
     }
 
     /**
      * Set Adobe Experience Platform context
      * @param context
      */
-     setEventForwarding(context: EventForwarding): void {
-        this.setContext<EventForwarding>(contexts.EVENT_FORWARDING_CONTEXT, context);
+    setEventForwarding(context: EventForwarding): void {
+        this.setContext<EventForwarding>(
+            contexts.EVENT_FORWARDING_CONTEXT,
+            context,
+        );
     }
 
     /**

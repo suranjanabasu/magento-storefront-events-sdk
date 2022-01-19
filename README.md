@@ -200,8 +200,8 @@ mse.context.getContext(name);
 
 Sets the `AEP` (Adobe Experience Platform) context.
 
-| Name      | Required | Description         |
-| --------- | :------: | ------------------- |
+| Name      | Required | Description    |
+| --------- | :------: | -------------- |
 | `context` |   Yes    | `AEP` context. |
 
 ```javascript
@@ -236,14 +236,13 @@ mse.context.setCustomUrl(customUrlCtx);
 
 Sets the `EventForwarding` context.
 
-| Name      | Required | Description         |
-| --------- | :------: | ------------------- |
+| Name      | Required | Description                |
+| --------- | :------: | -------------------------- |
 | `context` |   Yes    | `EventForwarding` context. |
 
 ```javascript
 mse.context.setEventForwarding(eventForwardingCtx);
 ```
-
 
 #### `mse.context.setMagentoExtension`
 

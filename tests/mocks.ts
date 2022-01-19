@@ -22,9 +22,7 @@ import {
 } from "../src/types/schemas/";
 import { CustomContext } from "../src/types/contexts";
 
-export const generateAEPContext = (
-    overrides?: Partial<AEP>,
-): AEP => ({
+export const generateAEPContext = (overrides?: Partial<AEP>): AEP => ({
     imsOrgId: "1234@AdobeOrg",
     datastreamId: "1234:dev",
     ...overrides,
