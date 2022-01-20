@@ -66,7 +66,7 @@ These functions get and set context data.
 
 #### `mse.context.getAEP`
 
-Gets the `AEP` (Adobe Experience Platform) context.
+Gets the `AEP` ([Adobe Experience Platform](https://business.adobe.com/products/experience-platform/adobe-experience-platform.html)) context.
 
 ```javascript
 mse.context.getAEP();
