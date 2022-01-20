@@ -4,8 +4,10 @@
  */
 
 const contexts = {
+    AEP_CONTEXT: "aepContext",
     CATEGORY_CONTEXT: "categoryContext",
     CUSTOM_URL_CONTEXT: "customUrlContext",
+    EVENT_FORWARDING_CONTEXT: "eventForwardingContext",
     MAGENTO_EXTENSION_CONTEXT: "magentoExtensionContext",
     ORDER_CONTEXT: "orderContext",
     PAGE_CONTEXT: "pageContext",

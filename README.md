@@ -64,6 +64,14 @@ The SDK API is broken down into four major parts: [Context][context], [Publish][
 
 These functions get and set context data.
 
+#### `mse.context.getAEP`
+
+Gets the `AEP` ([Adobe Experience Platform](https://business.adobe.com/products/experience-platform/adobe-experience-platform.html)) context.
+
+```javascript
+mse.context.getAEP();
+```
+
 #### `mse.context.getCategory`
 
 Gets the `Category` context.
@@ -78,6 +86,14 @@ Gets the `CustomUrl` context.
 
 ```javascript
 mse.context.getCustomUrl();
+```
+
+#### `mse.context.getEventForwarding`
+
+Gets the `EventForwarding` context.
+
+```javascript
+mse.context.getEventForwarding();
 ```
 
 #### `mse.context.getMagentoExtension`
@@ -180,6 +196,18 @@ Gets a custom `Context`.
 mse.context.getContext(name);
 ```
 
+#### `mse.context.setAEP`
+
+Sets the `AEP` (Adobe Experience Platform) context.
+
+| Name      | Required | Description    |
+| --------- | :------: | -------------- |
+| `context` |   Yes    | `AEP` context. |
+
+```javascript
+mse.context.setAEP(aepCtx);
+```
+
 #### `mse.context.setCategory`
 
 Sets the `Category` context.
@@ -202,6 +230,18 @@ Sets the `CustomUrl` context.
 
 ```javascript
 mse.context.setCustomUrl(customUrlCtx);
+```
+
+#### `mse.context.setEventForwarding`
+
+Sets the `EventForwarding` context.
+
+| Name      | Required | Description                |
+| --------- | :------: | -------------------------- |
+| `context` |   Yes    | `EventForwarding` context. |
+
+```javascript
+mse.context.setEventForwarding(eventForwardingCtx);
 ```
 
 #### `mse.context.setMagentoExtension`

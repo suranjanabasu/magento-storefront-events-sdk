@@ -6,8 +6,10 @@
 import { Base } from "./Base";
 import contexts from "./contexts";
 import {
+    AEP,
     Category,
     CustomUrl,
+    EventForwarding,
     MagentoExtension,
     Order,
     Page,
@@ -23,18 +25,53 @@ import {
 
 export default class ContextManager extends Base {
     /**
-     * Get url context
+     * Get Adobe Experience Platform context
+     */
+    getAEP(): AEP {
+        return this.getContext<AEP>(contexts.AEP_CONTEXT);
+    }
+
+    /**
+     * Set Adobe Experience Platform context
+     * @param context
+     */
+    setAEP(context: AEP): void {
+        this.setContext<AEP>(contexts.AEP_CONTEXT, context);
+    }
+
+    /**
+     * Get category context
      */
     getCategory(): Category {
         return this.getContext<Category>(contexts.CATEGORY_CONTEXT);
     }
 
     /**
-     * Set url context
+     * Set category context
      * @param context
      */
     setCategory(context: Category): void {
         this.setContext<Category>(contexts.CATEGORY_CONTEXT, context);
+    }
+
+    /**
+     * Get event forwarding context
+     */
+    getEventForwarding(): EventForwarding {
+        return this.getContext<EventForwarding>(
+            contexts.EVENT_FORWARDING_CONTEXT,
+        );
+    }
+
+    /**
+     * Set Adobe Experience Platform context
+     * @param context
+     */
+    setEventForwarding(context: EventForwarding): void {
+        this.setContext<EventForwarding>(
+            contexts.EVENT_FORWARDING_CONTEXT,
+            context,
+        );
     }
 
     /**
