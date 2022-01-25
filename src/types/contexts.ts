@@ -40,10 +40,10 @@ export type ContextName =
     | typeof contexts.STOREFRONT_INSTANCE_CONTEXT;
 
 export type Context = {
-    [contexts.AEP_CONTEXT]: AEP;
+    [contexts.AEP_CONTEXT]?: AEP;
     [contexts.CATEGORY_CONTEXT]: Category;
     [contexts.CUSTOM_URL_CONTEXT]: CustomUrl;
-    [contexts.EVENT_FORWARDING_CONTEXT]: EventForwarding;
+    [contexts.EVENT_FORWARDING_CONTEXT]?: EventForwarding;
     [contexts.MAGENTO_EXTENSION_CONTEXT]: MagentoExtension;
     [contexts.ORDER_CONTEXT]: Order;
     [contexts.PAGE_CONTEXT]: Page;
