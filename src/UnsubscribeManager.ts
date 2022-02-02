@@ -1,8 +1,3 @@
-/*
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
 import { Base } from "./Base";
 import events from "./events";
 import { EventHandler } from "./types/events";

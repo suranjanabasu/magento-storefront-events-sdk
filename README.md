@@ -9,7 +9,16 @@
 
 ## Overview
 
-This package serves as the foundation for eventing on a [Magento][magento] storefront. It provides access to a common data layer, and an event publishing and subscription service. Handling these events is up to you, but we provide the [Magento Storefront Event Collector][collector] package that can listen for events and send them to Magento for processing.
+This package serves as the foundation for eventing on an [Adobe Commerce][magento] storefront. It provides access to a common data layer, and an event publishing and subscription service.
+
+You can handle the events in a custom implementation, or use the [Magento Storefront Event Collector][collector] package that listens for events and sends them to Adobe Commerce edges for processing.
+
+**Note:** When an event is published through the SDK, all subscribers to that event get notified. Defining a custom listener shouldn't preclude you from also running the Magento Storefront Event Collector.
+
+Our context schemas are designed to simplify forwarding to two edges:
+
+-   Adobe Commerce Data Services (maintained by Adobe Engineering and used to power merchant performance dashboards)
+-   [Adobe Experience Platform](https://business.adobe.com/products/experience-platform/adobe-experience-platform.html) (requires a subscription and additional merchant [setup](https://experienceleague.adobe.com/docs/experience-platform/edge/fundamentals/datastreams.html?lang=en); data can be used by merchants inside the Adobe Experience Platform for detailed analytics, targeted merchandising, real time customer data profiles, and more)
 
 ## Installation
 
@@ -42,18 +51,38 @@ Below is a code example of how to get started.
 
 ```javascript
 import mse from "@adobe/magento-storefront-events-sdk";
-
+// handler - can go in a different module
+function addToCartHandler(event) {
+    // do something with the event
+}
 // subscribe to events
-mse.subscribe.pageView(pageViewHandler);
+mse.subscribe.addToCart(addToCartHandler);
 
 // set context data
-mse.context.setPage(/* page context */);
+const shoppingCartContext = {
+    id: "1",
+    items: [
+        {
+            id: "shoppingCart",
+            product: {
+                productId: 111111,
+                sku: "ts001",
+                pricing: {
+                    regularPrice: 20.0,
+                    currencyCode: "USD",
+                },
+            },
+            quantity: 1,
+        },
+    ],
+};
+mse.context.setShoppingCart(shoppingCartContext);
 
 // publish events
-mse.publish.pageView();
+mse.publish.addToCart();
 
 // unsubscribe from events
-mse.unsubscribe.pageView(pageViewHandler);
+mse.unsubscribe.addToCart(addToCartHandler);
 ```
 
 ## API Reference
@@ -62,659 +91,321 @@ The SDK API is broken down into four major parts: [Context][context], [Publish][
 
 ### Context
 
-These functions get and set context data.
+These setters can be used to specify context in the `mse`:
 
-#### `mse.context.getAEP`
-
-Gets the `AEP` ([Adobe Experience Platform](https://business.adobe.com/products/experience-platform/adobe-experience-platform.html)) context.
-
-```javascript
-mse.context.getAEP();
-```
-
-#### `mse.context.getCategory`
-
-Gets the `Category` context.
-
-```javascript
-mse.context.getCategory();
-```
-
-#### `mse.context.getCustomUrl`
-
-Gets the `CustomUrl` context.
-
-```javascript
-mse.context.getCustomUrl();
-```
-
-#### `mse.context.getEventForwarding`
-
-Gets the `EventForwarding` context.
-
-```javascript
-mse.context.getEventForwarding();
-```
-
-#### `mse.context.getMagentoExtension`
-
-Gets the `MagentoExtension` context.
-
-```javascript
-mse.context.getMagentoExtension();
-```
-
-#### `mse.context.getOrder`
-
-Gets the `Order` context.
-
-```javascript
-mse.context.getOrder();
-```
-
-#### `mse.context.getPage`
-
-Gets the `Page` context.
-
-```javascript
-mse.context.getPage();
-```
-
-#### `mse.context.getProduct`
-
-Gets the `Product` context.
-
-```javascript
-mse.context.getProduct();
-```
-
-#### `mse.context.getRecommendations`
-
-Gets the `Recommendations` context.
-
-```javascript
-mse.context.getRecommendations();
-```
-
-#### `mse.context.getReferrerUrl`
-
-Gets the `ReferrerUrl` context.
-
-```javascript
-mse.context.getReferrerUrl();
-```
-
-#### `mse.context.getSearchInput`
-
-Gets the `SearchInput` context.
-
-```javascript
-mse.context.getSearchInput();
-```
-
-#### `mse.context.getSearchResults`
-
-Gets the `SearchResults` context.
-
-```javascript
-mse.context.getSearchResults();
-```
-
-#### `mse.context.getShopper`
-
-Gets the `Shopper` context.
-
-```javascript
-mse.context.getShopper();
-```
-
-#### `mse.context.getShoppingCart`
-
-Gets the `ShoppingCart` context.
-
-```javascript
-mse.context.getShoppingCart();
-```
-
-#### `mse.context.getStorefrontInstance`
-
-Gets the `StorefrontInstance` context.
-
-```javascript
-mse.context.getStorefrontInstance();
-```
-
-#### `mse.context.getContext`
-
-Gets a custom `Context`.
-
-| Name   | Required | Description   |
-| ------ | :------: | ------------- |
-| `name` |   Yes    | Context name. |
-
-```javascript
-mse.context.getContext(name);
-```
-
-#### `mse.context.setAEP`
-
-Sets the `AEP` (Adobe Experience Platform) context.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `context` |   Yes    | `AEP` context. |
+#### `setAEP`
 
 ```javascript
 mse.context.setAEP(aepCtx);
 ```
 
-#### `mse.context.setCategory`
+Sets the `AEP` which can be used by event handlers to forward events to the Adobe Experience Platform. A client must have an AEP subscription and provide a valid [IMS Org Id and Datastream Id](https://experienceleague.adobe.com/docs/experience-platform/edge/fundamentals/datastreams.html?lang=en).
 
-Sets the `Category` context.
+-   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/aep.ts)
+-   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L25)
 
-| Name      | Required | Description         |
-| --------- | :------: | ------------------- |
-| `context` |   Yes    | `Category` context. |
+#### `setCategory`
 
 ```javascript
 mse.context.setCategory(categoryCtx);
 ```
 
-#### `mse.context.setCustomUrl`
+Sets the `Category` context.
 
-Sets the `CustomUrl` context.
+-   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/category.ts)
+-   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L31)
 
-| Name      | Required | Description          |
-| --------- | :------: | -------------------- |
-| `context` |   Yes    | `CustomUrl` context. |
+#### `setCustomUrl`
 
 ```javascript
 mse.context.setCustomUrl(customUrlCtx);
 ```
 
-#### `mse.context.setEventForwarding`
+Sets the `CustomUrl` context.
 
-Sets the `EventForwarding` context.
+-   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/customUrl.ts)
+-   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L40)
 
-| Name      | Required | Description                |
-| --------- | :------: | -------------------------- |
-| `context` |   Yes    | `EventForwarding` context. |
+#### `setEventForwarding`
 
 ```javascript
 mse.context.setEventForwarding(eventForwardingCtx);
 ```
 
-#### `mse.context.setMagentoExtension`
+Sets the `EventForwarding` context. Tells a handler if it should forward events to Adobe Commerce DataSolutions (`snowplow: true`), Adobe Experience Platform (`aep: true`), or both.
 
-Sets the `MagentoExtension` context.
+-   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/eventForwarding.ts)
+-   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L47)
 
-| Name      | Required | Description                 |
-| --------- | :------: | --------------------------- |
-| `context` |   Yes    | `MagentoExtension` context. |
+#### `setMagentoExtension`
 
 ```javascript
 mse.context.setMagentoExtension(magentoExtensionCtx);
 ```
 
-#### `mse.context.setOrder`
+Sets the `MagentoExtension` context. Includes Magento instance version.
 
-Sets the `Order` context.
+-   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/magentoExtension.ts)
+-   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L55)
 
-| Name      | Required | Description      |
-| --------- | :------: | ---------------- |
-| `context` |   Yes    | `Order` context. |
+#### `setOrder`
 
 ```javascript
 mse.context.setOrder(orderCtx);
 ```
 
-#### `mse.context.setPage`
+Sets the `Order` context.
 
-Sets the `Page` context.
+-   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/order.ts)
+-   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L62)
 
-| Name      | Required | Description     |
-| --------- | :------: | --------------- |
-| `context` |   Yes    | `Page` context. |
+#### `setPage`
 
 ```javascript
 mse.context.setPage(pageCtx);
 ```
 
-#### `mse.context.setProduct`
+Sets the `Page` context.
 
-Sets the `Product` context.
+-   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/page.ts)
+-   [context example](<(https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L76)>)
 
-| Name      | Required | Description        |
-| --------- | :------: | ------------------ |
-| `context` |   Yes    | `Product` context. |
+#### `setProduct`
 
 ```javascript
 mse.context.setProduct(productCtx);
 ```
 
-#### `mse.context.setRecommendations`
+Sets the `Product` context.
 
-Sets the `Recommendations` context.
+-   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/product.ts)
+-   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L88)
 
-| Name      | Required | Description                |
-| --------- | :------: | -------------------------- |
-| `context` |   Yes    | `Recommendations` context. |
+#### `setRecommendations`
 
 ```javascript
 mse.context.setRecommendations(recommendationsCtx);
 ```
 
-#### `mse.context.setReferrerUrl`
+Sets the `Recommendations` context.
 
-Sets the `ReferrerUrl` context.
+-   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/recommendations.ts)
+-   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L105)
 
-| Name      | Required | Description            |
-| --------- | :------: | ---------------------- |
-| `context` |   Yes    | `ReferrerUrl` context. |
+#### `setReferrerUrl`
 
 ```javascript
 mse.context.setReferrerUrl(referrerUrlCtx);
 ```
 
-#### `mse.context.setSearchInput`
+Sets the `ReferrerUrl` context.
 
-Sets the `SearchInput` context.
+-   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/referrerUrl.ts)
+-   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L230)
 
-| Name      | Required | Description            |
-| --------- | :------: | ---------------------- |
-| `context` |   Yes    | `SearchInput` context. |
+#### `setSearchInput`
 
 ```javascript
 mse.context.setSearchInput(searchInputCtx);
 ```
 
-#### `mse.context.setSearchResults`
+Sets the `SearchInput` context.
 
-Sets the `SearchResults` context.
+-   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/searchInput.ts)
+-   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L237)
 
-| Name      | Required | Description              |
-| --------- | :------: | ------------------------ |
-| `context` |   Yes    | `SearchResults` context. |
+#### `setSearchResults`
 
 ```javascript
 mse.context.setSearchResults(searchResultsCtx);
 ```
 
-#### `mse.context.setShopper`
+Sets the `SearchResults` context.
 
-Sets the `Shopper` context.
+-   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/searchResults.ts)
+-   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L255)
 
-| Name      | Required | Description        |
-| --------- | :------: | ------------------ |
-| `context` |   Yes    | `Shopper` context. |
+#### `setShopper`
 
 ```javascript
 mse.context.setShopper(shopperCtx);
 ```
 
-#### `mse.context.setShoppingCart`
+Sets the `Shopper` context.
 
-Sets the `ShoppingCart` context.
+-   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/shopper.ts)
+-   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L294)
 
-| Name      | Required | Description             |
-| --------- | :------: | ----------------------- |
-| `context` |   Yes    | `ShoppingCart` context. |
+#### `setShoppingCart`
 
 ```javascript
 mse.context.setShoppingCart(shoppingCartCtx);
 ```
 
-#### `mse.context.setStorefrontInstance`
+Sets the `ShoppingCart` context.
 
-Sets the `StorefrontInstance` context.
+-   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/shoppingCart.ts)
+-   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L298)
 
-| Name      | Required | Description                   |
-| --------- | :------: | ----------------------------- |
-| `context` |   Yes    | `StorefrontInstance` context. |
+#### `setStorefrontInstance`
 
 ```javascript
 mse.context.setStorefrontInstance(storefrontCtx);
 ```
 
-#### `mse.context.setContext`
+Sets the `StorefrontInstance` context. This context is used when forwarding data to Adobe Commerce Data Services to identify the Adobe Commerce instance associated with the data.
+
+-   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/storefrontInstance.ts)
+-   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L345)
+
+#### `setContext`
+
+```javascript
+mse.context.setContext(name, ctx);
+```
 
 Sets a custom `Context`.
 
-| Name      | Required | Description     |
-| --------- | :------: | --------------- |
-| `name`    |   Yes    | Context name.   |
-| `context` |   Yes    | Custom context. |
+These getters are available for accessing context data:
 
 ```javascript
-mse.context.setContext(ctx);
+mse.context.getAEP();
+mse.context.getCategory();
+mse.context.getContext(name);
+mse.context.getCustomUrl();
+mse.context.getEventForwarding();
+mse.context.getMagentoExtension();
+mse.context.getOrder();
+mse.context.getPage();
+mse.context.getProduct();
+mse.context.getRecommendations();
+mse.context.getReferrerUrl();
+mse.context.getProduct();
+mse.context.getRecommendations();
+mse.context.getSearchInput();
+mse.context.getSearchResults();
+mse.context.getShopper();
+mse.context.getShoppingCart();
 ```
 
 ### Publish
 
-These functions publish events which notify all of the subscribers.
-
-#### `mse.publish.addToCart`
-
-Publishes the `addToCart` event.
-
-| Name      | Required | Description     |
-| --------- | :------: | --------------- |
-| `context` |    No    | Custom context. |
+These functions publish events which notify all subscribers:
 
 ```javascript
-mse.publish.addToCart(ctx);
+// requires shoppingCart ctx to be set
+mse.publish.addToCart();
 ```
-
-#### `mse.publish.customUrl`
-
-Publishes the `customUrl` event.
-
-| Name      | Required | Description     |
-| --------- | :------: | --------------- |
-| `context` |    No    | Custom context. |
 
 ```javascript
 mse.publish.customUrl(ctx);
 ```
 
-#### `mse.publish.initiateCheckout`
-
-Publishes the `initiateCheckout` event.
-
-| Name      | Required | Description     |
-| --------- | :------: | --------------- |
-| `context` |    No    | Custom context. |
-
 ```javascript
 mse.publish.initiateCheckout(ctx);
 ```
 
-#### `mse.publish.instantPurchase`
-
-Publishes the `instantPurchase` event.
-
-| Name      | Required | Description     |
-| --------- | :------: | --------------- |
-| `context` |    No    | Custom context. |
-
 ```javascript
+// requires shoppingCart ctx and productCtx to be set
 mse.publish.instantPurchase(ctx);
 ```
-
-#### `mse.publish.pageActivitySummary`
-
-Publishes the `pageActivitySummary` event.
-
-| Name      | Required | Description     |
-| --------- | :------: | --------------- |
-| `context` |    No    | Custom context. |
 
 ```javascript
 mse.publish.pageActivitySummary(ctx);
 ```
 
-#### `mse.publish.pageView`
-
-Publishes the `pageView` event.
-
-| Name      | Required | Description     |
-| --------- | :------: | --------------- |
-| `context` |    No    | Custom context. |
-
 ```javascript
 mse.publish.pageView(ctx);
 ```
 
-#### `mse.publish.placeOrder`
-
-Publishes the `placeOrder` event.
-
-| Name      | Required | Description     |
-| --------- | :------: | --------------- |
-| `context` |    No    | Custom context. |
-
 ```javascript
+// requires shoppingCart ctx and orderContext to be set
 mse.publish.placeOrder(ctx);
 ```
 
-#### `mse.publish.productPageView`
-
-Publishes the `productPageView` event.
-
-| Name      | Required | Description     |
-| --------- | :------: | --------------- |
-| `context` |    No    | Custom context. |
-
 ```javascript
+// requires shoppingCart ctx and productCtx to be set
 mse.publish.productPageView(ctx);
 ```
 
-#### `mse.publish.recsItemAddToCartClick`
-
-Publishes the `recsItemAddToCartClick` event.
-
-| Name        | Required | Description              |
-| ----------- | :------: | ------------------------ |
-| `unitId`    |   Yes    | Recommendations unit id. |
-| `productId` |   Yes    | Recommended product id.  |
-| `context`   |    No    | Custom context.          |
-
 ```javascript
+// requires recommendationsContext to be set
 mse.publish.recsItemAddToCartClick(unitId, productId, ctx);
 ```
 
-#### `mse.publish.recsItemClick`
-
-Publishes the `recsItemClick` event.
-
-| Name        | Required | Description              |
-| ----------- | :------: | ------------------------ |
-| `unitId`    |   Yes    | Recommendations unit id. |
-| `productId` |   Yes    | Recommended product id.  |
-| `context`   |    No    | Custom context.          |
-
 ```javascript
+// requires recommendationsContext to be set
 mse.publish.recsItemClick(unitId, productId, ctx);
 ```
-
-#### `mse.publish.recsRequestSent`
-
-Publishes the `recsRequestSent` event.
-
-| Name      | Required | Description     |
-| --------- | :------: | --------------- |
-| `context` |    No    | Custom context. |
 
 ```javascript
 mse.publish.recsRequestSent(ctx);
 ```
 
-#### `mse.publish.recsResponseReceived`
-
-Publishes the `recsResponseReceived` event.
-
-| Name      | Required | Description     |
-| --------- | :------: | --------------- |
-| `context` |    No    | Custom context. |
-
 ```javascript
 mse.publish.recsResponseReceived(ctx);
 ```
 
-#### `mse.publish.recsUnitRender`
-
-Publishes the `recsUnitRender` event.
-
-| Name      | Required | Description              |
-| --------- | :------: | ------------------------ |
-| `unitId`  |   Yes    | Recommendations unit id. |
-| `context` |    No    | Custom context.          |
-
 ```javascript
+// requires recommendationsContext to be set
 mse.publish.recsUnitRender(unitId, ctx);
 ```
 
-#### `mse.publish.recsUnitView`
-
-Publishes the `recsUnitView` event.
-
-| Name      | Required | Description              |
-| --------- | :------: | ------------------------ |
-| `unitId`  |   Yes    | Recommendations unit id. |
-| `context` |    No    | Custom context.          |
-
 ```javascript
+// requires recommendationsContext to be set
 mse.publish.recsUnitView(unitId, ctx);
 ```
-
-#### `mse.publish.referrerUrl`
-
-Publishes the `referrerUrl` event.
-
-| Name      | Required | Description     |
-| --------- | :------: | --------------- |
-| `context` |    No    | Custom context. |
 
 ```javascript
 mse.publish.referrerUrl(ctx);
 ```
 
-#### `mse.publish.removeFromCart`
-
-Publishes the `removeFromCart` event.
-
-| Name      | Required | Description     |
-| --------- | :------: | --------------- |
-| `context` |    No    | Custom context. |
-
 ```javascript
 mse.publish.removeFromCart(ctx);
 ```
 
-#### `mse.publish.searchCategoryClick`
-
-Publishes the `searchCategoryClick` event.
-
-| Name           | Required | Description     |
-| -------------- | :------: | --------------- |
-| `searchUnitId` |   Yes    | Search unit id. |
-| `name`         |   Yes    | Category name.  |
-| `context`      |    No    | Custom context. |
-
 ```javascript
+// requires searchResultsContext to be set
 mse.publish.searchCategoryClick(searchUnitId, name, ctx);
 ```
 
-#### `mse.publish.searchProductClick`
-
-Publishes the `searchProductClick` event.
-
-| Name           | Required | Description     |
-| -------------- | :------: | --------------- |
-| `searchUnitId` |   Yes    | Search unit id. |
-| `sku`          |   Yes    | Product sku.    |
-| `context`      |    No    | Custom context. |
-
 ```javascript
+// requires searchResultsContext to be set
 mse.publish.searchProductClick(searchUnitId, sku, ctx);
 ```
 
-#### `mse.publish.searchRequestSent`
-
-Publishes the `searchRequestSent` event.
-
-| Name           | Required | Description     |
-| -------------- | :------: | --------------- |
-| `searchUnitId` |   Yes    | Search unit id. |
-| `context`      |    No    | Custom context. |
-
 ```javascript
+// requires searchInputContext to be set
 mse.publish.searchRequestSent(searchUnitId, ctx);
 ```
 
-#### `mse.publish.searchResponseReceived`
-
-Publishes the `searchResponseReceived` event.
-
-| Name           | Required | Description     |
-| -------------- | :------: | --------------- |
-| `searchUnitId` |   Yes    | Search unit id. |
-| `context`      |    No    | Custom context. |
-
 ```javascript
+// requires searchResultsContext to be set
 mse.publish.searchResponseReceived(searchUnitId, ctx);
 ```
 
-#### `mse.publish.searchResultsView`
-
-Publishes the `searchResultsView` event.
-
-| Name           | Required | Description     |
-| -------------- | :------: | --------------- |
-| `searchUnitId` |   Yes    | Search unit id. |
-| `context`      |    No    | Custom context. |
-
 ```javascript
+// requires searchResultsContext to be set
 mse.publish.searchResultsView(searchUnitId, ctx);
 ```
 
-#### `mse.publish.searchSuggestionClick`
-
-Publishes the `searchSuggestionClick` event.
-
-| Name           | Required | Description       |
-| -------------- | :------: | ----------------- |
-| `searchUnitId` |   Yes    | Search unit id.   |
-| `suggestion`   |   Yes    | Query suggestion. |
-| `context`      |    No    | Custom context.   |
-
 ```javascript
+// requires searchResultsContext to be set
 mse.publish.searchSuggestionClick(searchUnitId, suggestion, ctx);
 ```
 
-#### `mse.publish.shoppingCartView`
-
-Publishes the `shoppingCartView` event.
-
-| Name      | Required | Description     |
-| --------- | :------: | --------------- |
-| `context` |    No    | Custom context. |
-
 ```javascript
+// requires shoppingCartContext to be set
 mse.publish.shoppingCartView(ctx);
 ```
-
-#### `mse.publish.signIn`
-
-Publishes the `signIn` event.
-
-| Name      | Required | Description     |
-| --------- | :------: | --------------- |
-| `context` |    No    | Custom context. |
 
 ```javascript
 mse.publish.signIn(ctx);
 ```
 
-#### `mse.publish.signOut`
-
-Publishes the `signOut` event.
-
-| Name      | Required | Description     |
-| --------- | :------: | --------------- |
-| `context` |    No    | Custom context. |
-
 ```javascript
 mse.publish.signOut(ctx);
 ```
-
-#### `mse.publish.updateCart`
-
-Publishes the `updateCart` event.
-
-| Name      | Required | Description     |
-| --------- | :------: | --------------- |
-| `context` |    No    | Custom context. |
 
 ```javascript
 mse.publish.updateCart(ctx);
@@ -722,718 +413,77 @@ mse.publish.updateCart(ctx);
 
 ### Subscribe
 
-These functions subscribe to events.
-
-#### `mse.subscribe.addToCart`
-
-Subscribes to the `addToCart` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
+These functions subscribe to events:
 
 ```javascript
 mse.subscribe.addToCart(handler, options);
-```
-
-#### `mse.subscribe.customUrl`
-
-Subscribes to the `customUrl` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.customUrl(handler, options);
-```
-
-#### `mse.subscribe.dataLayerChange`
-
-Subscribes to the `dataLayerChange` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.dataLayerChange(handler, options);
-```
-
-#### `mse.subscribe.dataLayerEvent`
-
-Subscribes to the `dataLayerEvent` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.dataLayerEvent(handler, options);
-```
-
-#### `mse.subscribe.initiateCheckout`
-
-Subscribes to the `initiateCheckout` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.initiateCheckout(handler, options);
-```
-
-#### `mse.subscribe.instantPurchase`
-
-Subscribes to the `instantPurchase` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.instantPurchase(handler, options);
-```
-
-#### `mse.subscribe.pageActivitySummary`
-
-Subscribes to the `pageActivitySummary` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.pageActivitySummary(handler, options);
-```
-
-#### `mse.subscribe.pageView`
-
-Subscribes to the `pageView` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.pageView(handler, options);
-```
-
-#### `mse.subscribe.placeOrder`
-
-Subscribes to the `placeOrder` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.placeOrder(handler, options);
-```
-
-#### `mse.subscribe.productPageView`
-
-Subscribes to the `productPageView` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.productPageView(handler, options);
-```
-
-#### `mse.subscribe.recsItemAddToCartClick`
-
-Subscribes to the `recsItemAddToCartClick` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.recsItemAddToCartClick(handler, options);
-```
-
-#### `mse.subscribe.recsItemClick`
-
-Subscribes to the `recsItemClick` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.recsItemClick(handler, options);
-```
-
-#### `mse.subscribe.recsRequestSent`
-
-Subscribes to the `recsRequestSent` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.recsRequestSent(handler, options);
-```
-
-#### `mse.subscribe.recsResponseReceived`
-
-Subscribes to the `recsResponseReceived` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.recsResponseReceived(handler, options);
-```
-
-#### `mse.subscribe.recsUnitRender`
-
-Subscribes to the `recsUnitRender` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.recsUnitRender(handler, options);
-```
-
-#### `mse.subscribe.recsUnitView`
-
-Subscribes to the `recsUnitView` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.recsUnitView(handler, options);
-```
-
-#### `mse.subscribe.referrerUrl`
-
-Subscribes to the `referrerUrl` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.referrerUrl(handler, options);
-```
-
-#### `mse.subscribe.removeFromCart`
-
-Subscribes to the `removeFromCart` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.removeFromCart(handler, options);
-```
-
-#### `mse.subscribe.searchCategoryClick`
-
-Subscribes to the `searchCategoryClick` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.searchCategoryClick(handler, options);
-```
-
-#### `mse.subscribe.searchProductClick`
-
-Subscribes to the `searchProductClick` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.searchProductClick(handler, options);
-```
-
-#### `mse.subscribe.searchRequestSent`
-
-Subscribes to the `searchRequestSent` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.searchRequestSent(handler, options);
-```
-
-#### `mse.subscribe.searchResponseReceived`
-
-Subscribes to the `searchResponseReceived` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.searchResponseReceived(handler, options);
-```
-
-#### `mse.subscribe.searchResultsView`
-
-Subscribes to the `searchResultsView` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.searchResultsView(handler, options);
-```
-
-#### `mse.subscribe.searchSuggestionClick`
-
-Subscribes to the `searchSuggestionClick` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.searchSuggestionClick(handler, options);
-```
-
-#### `mse.subscribe.shoppingCartView`
-
-Subscribes to the `shoppingCartView` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.shoppingCartView(handler, options);
-```
-
-#### `mse.subscribe.signIn`
-
-Subscribes to the `signIn` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.signIn(handler, options);
-```
-
-#### `mse.subscribe.signOut`
-
-Subscribes to the `signOut` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.signOut(handler, options);
-```
-
-#### `mse.subscribe.updateCart`
-
-Subscribes to the `updateCart` event.
-
-| Name      | Required | Description       |
-| --------- | :------: | ----------------- |
-| `handler` |   Yes    | Event handler.    |
-| `options` |    No    | Listener options. |
-
-```javascript
 mse.subscribe.updateCart(handler, options);
 ```
 
 ### Unsubscribe
 
-These functions unsubscribe from events.
-
-#### `mse.unsubscribe.addToCart`
-
-Unsubscribes from the `addToCart` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
+These functions unsubscribe from events:
 
 ```javascript
 mse.unsubscribe.addToCart(handler);
-```
-
-#### `mse.unsubscribe.customUrl`
-
-Unsubscribes from the `customUrl` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.customUrl(handler);
-```
-
-#### `mse.unsubscribe.dataLayerChange`
-
-Unsubscribes from the `dataLayerChange` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.dataLayerChange(handler);
-```
-
-#### `mse.unsubscribe.dataLayerEvent`
-
-Unsubscribes from the `dataLayerEvent` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.dataLayerEvent(handler);
-```
-
-#### `mse.unsubscribe.initiateCheckout`
-
-Unsubscribes from the `initiateCheckout` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.initiateCheckout(handler);
-```
-
-#### `mse.unsubscribe.instantPurchase`
-
-Unsubscribes from the `instantPurchase` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.instantPurchase(handler);
-```
-
-#### `mse.unsubscribe.pageActivitySummary`
-
-Unsubscribes from the `pageActivitySummary` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.pageActivitySummary(handler);
-```
-
-#### `mse.unsubscribe.pageView`
-
-Unsubscribes from the `pageView` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.pageView(handler);
-```
-
-#### `mse.unsubscribe.placeOrder`
-
-Unsubscribes from the `placeOrder` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.placeOrder(handler);
-```
-
-#### `mse.unsubscribe.productPageView`
-
-Unsubscribes from the `productPageView` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.productPageView(handler);
-```
-
-#### `mse.unsubscribe.recsItemAddToCartClick`
-
-Unsubscribes from the `recsItemAddToCartClick` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.recsItemAddToCartClick(handler);
-```
-
-#### `mse.unsubscribe.recsItemClick`
-
-Unsubscribes from the `recsItemClick` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.recsItemClick(handler);
-```
-
-#### `mse.unsubscribe.recsRequestSent`
-
-Unsubscribes from the `recsRequestSent` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.recsRequestSent(handler);
-```
-
-#### `mse.unsubscribe.recsResponseReceived`
-
-Unsubscribes from the `recsResponseReceived` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.recsResponseReceived(handler);
-```
-
-#### `mse.unsubscribe.recsUnitRender`
-
-Unsubscribes from the `recsUnitRender` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.recsUnitRender(handler);
-```
-
-#### `mse.unsubscribe.recsUnitView`
-
-Unsubscribes from the `recsUnitView` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.recsUnitView(handler);
-```
-
-#### `mse.unsubscribe.referrerUrl`
-
-Unsubscribes from the `referrerUrl` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.referrerUrl(handler);
-```
-
-#### `mse.unsubscribe.removeFromCart`
-
-Unsubscribes from the `removeFromCart` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.removeFromCart(handler);
-```
-
-#### `mse.unsubscribe.searchCategoryClick`
-
-Unsubscribes from the `searchCategoryClick` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.searchCategoryClick(handler);
-```
-
-#### `mse.unsubscribe.searchProductClick`
-
-Unsubscribes from the `searchProductClick` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.searchProductClick(handler);
-```
-
-#### `mse.unsubscribe.searchRequestSent`
-
-Unsubscribes from the `searchRequestSent` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.searchRequestSent(handler);
-```
-
-#### `mse.unsubscribe.searchResponseReceived`
-
-Unsubscribes from the `searchResponseReceived` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.searchResponseReceived(handler);
-```
-
-#### `mse.unsubscribe.searchResultsView`
-
-Unsubscribes from the `searchResultsView` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.searchResultsView(handler);
-```
-
-#### `mse.unsubscribe.searchSuggestionClick`
-
-Unsubscribes from the `searchSuggestionClick` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.searchSuggestionClick(handler);
-```
-
-#### `mse.unsubscribe.shoppingCartView`
-
-Unsubscribes from the `shoppingCartView` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.shoppingCartView(handler);
-```
-
-#### `mse.unsubscribe.signIn`
-
-Unsubscribes from the `signIn` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.signIn(handler);
-```
-
-#### `mse.unsubscribe.signOut`
-
-Unsubscribes from the `signOut` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.signOut(handler);
-```
-
-#### `mse.unsubscribe.updateCart`
-
-Unsubscribes from the `updateCart` event.
-
-| Name      | Required | Description    |
-| --------- | :------: | -------------- |
-| `handler` |   Yes    | Event handler. |
-
-```javascript
 mse.unsubscribe.updateCart(handler);
 ```
 
 ## Support
 
-If you have any questions or encounter any issues, please reach out at these locations.
-
--   [GitHub][issues]
--   [Zendesk][zendesk]
+If you have any questions or encounter any issues, please reach out on [GitHub][issues].
 
 [npm]: https://npmjs.com/package/@adobe/magento-storefront-events-sdk
 [version-badge]: https://img.shields.io/npm/v/@adobe/magento-storefront-events-sdk.svg?style=flat-square

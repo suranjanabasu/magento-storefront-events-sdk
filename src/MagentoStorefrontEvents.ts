@@ -1,8 +1,3 @@
-/*
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
 import ContextManager from "./ContextManager";
 import PublishManager from "./PublishManager";
 import SubscribeManager from "./SubscribeManager";

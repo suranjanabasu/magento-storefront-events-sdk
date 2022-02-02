@@ -1,8 +1,3 @@
-/*
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
 import mdl, { MagentoStorefrontEvents } from "../src/index";
 import { waitFor } from "@testing-library/dom";
 

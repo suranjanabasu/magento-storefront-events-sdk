@@ -1,8 +1,3 @@
-/*
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
 import { CustomContext, Context } from "./contexts";
 import events from "../events";
 

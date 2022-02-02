@@ -1,8 +1,3 @@
-/*
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
 import events from "../src/events";
 import mdl, { MagentoStorefrontEvents } from "../src/index";
 import { Event } from "../src/types/events";
