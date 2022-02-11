@@ -9,6 +9,9 @@ import {
     Product,
     Recommendations,
     ReferrerUrl,
+    SearchExtension,
+    RecommendationsExtension,
+    DataServicesExtension,
     SearchInput,
     SearchResults,
     Shopper,
@@ -359,5 +362,26 @@ export const generateCustomContext = (
 ): CustomContext => ({
     foo: "foo",
     bar: "bar",
+    ...overrides,
+});
+
+export const generateSearchExtensionContext = (
+    overrides?: Partial<SearchExtension>,
+): SearchExtension => ({
+    version: "1.0.0",
+    ...overrides,
+});
+
+export const generateRecommendationsExtensionContext = (
+    overrides?: Partial<RecommendationsExtension>,
+): RecommendationsExtension => ({
+    version: "1.0.0",
+    ...overrides,
+});
+
+export const generateDataServicesExtensionContext = (
+    overrides?: Partial<DataServicesExtension>,
+): DataServicesExtension => ({
+    version: "1.0.0",
     ...overrides,
 });

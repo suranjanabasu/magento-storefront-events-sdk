@@ -137,16 +137,28 @@ Sets the `EventForwarding` context. Tells a handler if it should forward events 
 -   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/eventForwarding.ts)
 -   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L47)
 
-#### `setMagentoExtension`
+#### `setMagentoExtension` @deprecated
 
 ```javascript
 mse.context.setMagentoExtension(magentoExtensionCtx);
 ```
 
-Sets the `MagentoExtension` context. Includes Magento instance version.
+Sets the `MagentoExtension` context. Includes Data Services extension version.
+
+This field is deprecated. `setDataServicesExtension` should be used instead.
 
 -   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/magentoExtension.ts)
 -   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L55)
+
+#### `setDataServicesExtension`
+
+```javascript
+mse.context.setDataServicesExtension(dataServicesExtensionCtx);
+```
+
+Sets the `DataServicesExtension` context. Includes Data Services extension version.
+
+-   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/dataServicesExtension.ts)
 
 #### `setOrder`
 
@@ -192,6 +204,16 @@ Sets the `Recommendations` context.
 -   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/recommendations.ts)
 -   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L105)
 
+#### `setRecommendationsExtension`
+
+```javascript
+mse.context.setRecommendationsExtension(recommendationsExtensionCtx);
+```
+
+Sets the `RecommendationsExtension` context. Includes Recommendations extension version.
+
+-   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/recommendationsExtension.ts)
+
 #### `setReferrerUrl`
 
 ```javascript
@@ -202,6 +224,16 @@ Sets the `ReferrerUrl` context.
 
 -   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/referrerUrl.ts)
 -   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L230)
+
+#### `setSearchExtension`
+
+```javascript
+mse.context.setSearchExtension(searchExtensionCtx);
+```
+
+Sets the `SearchExtension` context. Includes Live Search extension version.
+
+-   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/searchExtension.ts)
 
 #### `setSearchInput`
 
@@ -275,6 +307,7 @@ mse.context.getContext(name);
 mse.context.getCustomUrl();
 mse.context.getEventForwarding();
 mse.context.getMagentoExtension();
+mse.context.getDataServicesExtension();
 mse.context.getOrder();
 mse.context.getPage();
 mse.context.getProduct();
@@ -282,6 +315,8 @@ mse.context.getRecommendations();
 mse.context.getReferrerUrl();
 mse.context.getProduct();
 mse.context.getRecommendations();
+mse.context.getRecommendationsExtension();
+mse.context.getSearchExtension();
 mse.context.getSearchInput();
 mse.context.getSearchResults();
 mse.context.getShopper();
