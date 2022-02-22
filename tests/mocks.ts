@@ -306,6 +306,7 @@ export const generateShoppingCartContext = (
                 price: {
                     value: 20.0,
                     currency: "USD",
+                    regularPrice: 20.0,
                 },
             },
             product: {

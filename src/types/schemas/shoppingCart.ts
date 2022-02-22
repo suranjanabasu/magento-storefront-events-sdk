@@ -16,6 +16,7 @@ export type ShoppingCart = {
 type Price = {
     value: number;
     currency?: string;
+    regularPrice?: number;
 };
 
 type ShoppingCartItem = {
