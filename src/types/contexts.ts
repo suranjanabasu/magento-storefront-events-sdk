@@ -44,13 +44,13 @@ export type Context = {
     [contexts.AEP_CONTEXT]?: AEP;
     [contexts.CATEGORY_CONTEXT]: Category;
     [contexts.CUSTOM_URL_CONTEXT]: CustomUrl;
-    [contexts.DATA_SERVICES_EXTENSION_CONTEXT]: DataServicesExtension;
+    [contexts.DATA_SERVICES_EXTENSION_CONTEXT]?: DataServicesExtension;
     [contexts.EVENT_FORWARDING_CONTEXT]?: EventForwarding;
-    [contexts.MAGENTO_EXTENSION_CONTEXT]: MagentoExtension;
+    [contexts.MAGENTO_EXTENSION_CONTEXT]?: MagentoExtension;
     [contexts.ORDER_CONTEXT]: Order;
     [contexts.PAGE_CONTEXT]: Page;
     [contexts.PRODUCT_CONTEXT]: Product;
-    [contexts.RECOMMENDATIONS_EXTENSION_CONTEXT]: RecommendationsExtension;
+    [contexts.RECOMMENDATIONS_EXTENSION_CONTEXT]?: RecommendationsExtension;
     [contexts.RECOMMENDATIONS_CONTEXT]: Recommendations;
     [contexts.REFERRER_URL_CONTEXT]: ReferrerUrl;
     [contexts.SEARCH_EXTENSION_CONTEXT]: SearchExtension;
