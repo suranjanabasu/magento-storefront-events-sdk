@@ -54,6 +54,23 @@ describe("events", () => {
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
+    test("create account", async () => {
+        const eventHandler = jest.fn(eventObj => {
+            expect(eventObj).toEqual({
+                event: events.CREATE_ACCOUNT,
+                eventInfo: expect.any(Object),
+            });
+        });
+
+        mdl.subscribe.createAccount(eventHandler);
+        expect(eventHandler).not.toHaveBeenCalled();
+        mdl.publish.createAccount();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+        mdl.unsubscribe.createAccount(eventHandler);
+        mdl.publish.createAccount();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+    });
+
     test("custom url", async () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({
@@ -68,6 +85,23 @@ describe("events", () => {
         expect(eventHandler).toHaveBeenCalledTimes(1);
         mdl.unsubscribe.customUrl(eventHandler);
         mdl.publish.customUrl();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+    });
+
+    test("edit account", async () => {
+        const eventHandler = jest.fn(eventObj => {
+            expect(eventObj).toEqual({
+                event: events.EDIT_ACCOUNT,
+                eventInfo: expect.any(Object),
+            });
+        });
+
+        mdl.subscribe.editAccount(eventHandler);
+        expect(eventHandler).not.toHaveBeenCalled();
+        mdl.publish.editAccount();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+        mdl.unsubscribe.editAccount(eventHandler);
+        mdl.publish.editAccount();
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 

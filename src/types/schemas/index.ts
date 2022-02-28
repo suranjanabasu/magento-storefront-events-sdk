@@ -1,5 +1,6 @@
+export * from "./account";
 export * from "./aep";
-export * from "./billingAddress";
+export * from "./address";
 export * from "./category";
 export * from "./customUrl";
 export * from "./eventForwarding";

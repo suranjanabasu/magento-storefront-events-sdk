@@ -1,9 +1,11 @@
 const events = {
     ADD_TO_CART: "add-to-cart",
     ABANDON_CART: "abandon-cart",
+    CREATE_ACCOUNT: "create-account",
     CUSTOM_URL: "custom-url",
     DATA_LAYER_CHANGE: "adobeDataLayer:change",
     DATA_LAYER_EVENT: "adobeDataLayer:event",
+    EDIT_ACCOUNT: "edit-account",
     INITIATE_CHECKOUT: "initiate-checkout",
     INSTANT_PURCHASE: "instant-purchase",
     PAGE_ACTIVITY_SUMMARY: "page-activity-summary",

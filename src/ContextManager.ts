@@ -1,6 +1,7 @@
 import { Base } from "./Base";
 import contexts from "./contexts";
 import {
+    Account,
     AEP,
     Category,
     CustomUrl,
@@ -28,6 +29,14 @@ export default class ContextManager extends Base {
 
     setAEP(context: AEP): void {
         this.setContext<AEP>(contexts.AEP_CONTEXT, context);
+    }
+
+    getAccount(): Account {
+        return this.getContext<Account>(contexts.ACCOUNT_CONTEXT);
+    }
+
+    setAccount(context: Account): void {
+        this.setContext<Account>(contexts.ACCOUNT_CONTEXT, context);
     }
 
     getCategory(): Category {

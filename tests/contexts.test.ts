@@ -1,5 +1,6 @@
 import mdl, { MagentoStorefrontEvents } from "../src/index";
 import {
+    generateAccountContext,
     generateAEPContext,
     generateCategoryContext,
     generateCustomContext,
@@ -35,6 +36,13 @@ test("data layer should exist", () => {
 });
 
 describe("contexts", () => {
+    test("account context", () => {
+        const context = generateAccountContext();
+        expect(mdl.context.getAccount()).toBeUndefined();
+        mdl.context.setAccount(context);
+        expect(mdl.context.getAccount()).toEqual(context);
+    });
+
     test("aep context", () => {
         const context = generateAEPContext();
         expect(mdl.context.getAEP()).toBeUndefined();

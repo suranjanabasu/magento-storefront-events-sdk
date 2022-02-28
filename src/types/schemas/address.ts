@@ -1,4 +1,4 @@
-export type BillingAddress = {
+export type Address = {
     postalCode: string;
     countryCode: string;
     region?: string;

@@ -1,5 +1,6 @@
 import contexts from "../contexts";
 import {
+    Account,
     AEP,
     Category,
     CustomUrl,
@@ -41,6 +42,7 @@ export type ContextName =
     | typeof contexts.STOREFRONT_INSTANCE_CONTEXT;
 
 export type Context = {
+    [contexts.ACCOUNT_CONTEXT]?: Account;
     [contexts.AEP_CONTEXT]?: AEP;
     [contexts.CATEGORY_CONTEXT]: Category;
     [contexts.CUSTOM_URL_CONTEXT]: CustomUrl;

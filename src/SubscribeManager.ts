@@ -11,8 +11,16 @@ export default class SubscribeManager extends Base {
         this.addEventListener(events.ABANDON_CART, handler, options);
     }
 
+    createAccount(handler: EventHandler, options?: ListenerOptions): void {
+        this.addEventListener(events.CREATE_ACCOUNT, handler, options);
+    }
+
     customUrl(handler: EventHandler, options?: ListenerOptions): void {
         this.addEventListener(events.CUSTOM_URL, handler, options);
+    }
+
+    editAccount(handler: EventHandler, options?: ListenerOptions): void {
+        this.addEventListener(events.EDIT_ACCOUNT, handler, options);
     }
 
     dataLayerChange(handler: EventHandler, options?: ListenerOptions): void {

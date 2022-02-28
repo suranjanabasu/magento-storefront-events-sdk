@@ -115,6 +115,14 @@ Sets the `Category` context.
 -   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/category.ts)
 -   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L31)
 
+#### `setAccount`
+
+```javascript
+mse.context.setAccount(accountCtx);
+```
+
+Sets the `Account` context.
+
 #### `setCustomUrl`
 
 ```javascript
@@ -338,7 +346,15 @@ mse.publish.abandonCart();
 ```
 
 ```javascript
+mse.publish.createAccount(ctx);
+```
+
+```javascript
 mse.publish.customUrl(ctx);
+```
+
+```javascript
+mse.publish.editAccount(ctx);
 ```
 
 ```javascript
@@ -458,7 +474,9 @@ These functions subscribe to events:
 ```javascript
 mse.subscribe.addToCart(handler, options);
 mse.subscribe.abandonCart(handler, options);
+mse.subscribe.createAccount(handler, options);
 mse.subscribe.customUrl(handler, options);
+mse.subscribe.editAccount(handler, options);
 mse.subscribe.dataLayerChange(handler, options);
 mse.subscribe.dataLayerEvent(handler, options);
 mse.subscribe.initiateCheckout(handler, options);
@@ -494,7 +512,9 @@ These functions unsubscribe from events:
 ```javascript
 mse.unsubscribe.addToCart(handler);
 mse.unsubscribe.abandonCart(handler);
+mse.unsubscribe.createAccount(handler);
 mse.unsubscribe.customUrl(handler);
+mse.unsubscribe.editAccount(handler);
 mse.unsubscribe.dataLayerChange(handler);
 mse.unsubscribe.dataLayerEvent(handler);
 mse.unsubscribe.initiateCheckout(handler);

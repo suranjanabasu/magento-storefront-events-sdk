@@ -17,8 +17,17 @@ import {
     Shopper,
     ShoppingCart,
     StorefrontInstance,
+    Account,
 } from "../src/types/schemas/";
 import { CustomContext } from "../src/types/contexts";
+
+export const generateAccountContext = (
+    overrides?: Partial<Account>,
+): Account => ({
+    firstName: "firstName",
+    lastName: "lastName",
+    ...overrides,
+});
 
 export const generateAEPContext = (overrides?: Partial<AEP>): AEP => ({
     imsOrgId: "1234@AdobeOrg",
