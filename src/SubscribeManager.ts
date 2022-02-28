@@ -11,6 +11,13 @@ export default class SubscribeManager extends Base {
     }
 
     /**
+     * Subscribe to Add to Cart event
+     */
+    abandonCart(handler: EventHandler, options?: ListenerOptions): void {
+        this.addEventListener(events.ABANDON_CART, handler, options);
+    }
+
+    /**
      * Subscribe to Custom Url event
      */
     customUrl(handler: EventHandler, options?: ListenerOptions): void {

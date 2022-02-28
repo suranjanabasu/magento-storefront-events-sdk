@@ -1,5 +1,6 @@
 const events = {
     ADD_TO_CART: "add-to-cart",
+    ABANDON_CART: "abandon-cart",
     CUSTOM_URL: "custom-url",
     DATA_LAYER_CHANGE: "adobeDataLayer:change",
     DATA_LAYER_EVENT: "adobeDataLayer:event",

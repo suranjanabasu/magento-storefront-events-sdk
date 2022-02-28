@@ -333,6 +333,11 @@ mse.publish.addToCart();
 ```
 
 ```javascript
+// requires shoppingCart ctx to be set
+mse.publish.abandonCart();
+```
+
+```javascript
 mse.publish.customUrl(ctx);
 ```
 
@@ -452,6 +457,7 @@ These functions subscribe to events:
 
 ```javascript
 mse.subscribe.addToCart(handler, options);
+mse.subscribe.abandonCart(handler, options);
 mse.subscribe.customUrl(handler, options);
 mse.subscribe.dataLayerChange(handler, options);
 mse.subscribe.dataLayerEvent(handler, options);
@@ -487,6 +493,7 @@ These functions unsubscribe from events:
 
 ```javascript
 mse.unsubscribe.addToCart(handler);
+mse.unsubscribe.abandonCart(handler);
 mse.unsubscribe.customUrl(handler);
 mse.unsubscribe.dataLayerChange(handler);
 mse.unsubscribe.dataLayerEvent(handler);

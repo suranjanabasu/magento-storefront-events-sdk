@@ -11,6 +11,13 @@ export default class UnsubscribeManager extends Base {
     }
 
     /**
+     *  Unsubscribe from Add to Cart event
+     */
+    abandonCart(handler: EventHandler): void {
+        this.removeEventListener(events.ABANDON_CART, handler);
+    }
+
+    /**
      * Unsubscribe from Custom Url event
      */
     customUrl(handler: EventHandler): void {

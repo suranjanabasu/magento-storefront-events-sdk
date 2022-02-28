@@ -19,6 +19,13 @@ export default class PublishManager extends Base {
     }
 
     /**
+     * Publish Abandon Cart event
+     */
+    abandonCart(context?: CustomContext): void {
+        this.pushEvent(events.ABANDON_CART, { customContext: context });
+    }
+
+    /**
      * Publish Custom Url event
      */
     customUrl(context?: CustomContext): void {

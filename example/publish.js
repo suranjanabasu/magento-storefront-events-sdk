@@ -2,6 +2,7 @@ const mse = window.magentoStorefrontEvents;
 
 setTimeout(() => {
     mse.publish.addToCart();
+    mse.publish.abandonCart();
     mse.publish.customUrl();
     mse.publish.initiateCheckout();
     mse.publish.instantPurchase();
