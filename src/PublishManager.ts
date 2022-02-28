@@ -11,74 +11,44 @@ import {
 } from "./types/schemas";
 
 export default class PublishManager extends Base {
-    /**
-     * Publish Add to Cart event
-     */
     addToCart(context?: CustomContext): void {
         this.pushEvent(events.ADD_TO_CART, { customContext: context });
     }
 
-    /**
-     * Publish Abandon Cart event
-     */
     abandonCart(context?: CustomContext): void {
         this.pushEvent(events.ABANDON_CART, { customContext: context });
     }
 
-    /**
-     * Publish Custom Url event
-     */
     customUrl(context?: CustomContext): void {
         this.pushEvent(events.CUSTOM_URL, { customContext: context });
     }
 
-    /**
-     * Publish Initiate Checkout event
-     */
     initiateCheckout(context?: CustomContext): void {
         this.pushEvent(events.INITIATE_CHECKOUT, { customContext: context });
     }
 
-    /**
-     * Publish Instant Purchase event
-     */
     instantPurchase(context?: CustomContext): void {
         this.pushEvent(events.INSTANT_PURCHASE, { customContext: context });
     }
 
-    /**
-     * Publish Page Activity Summary event
-     */
     pageActivitySummary(context?: CustomContext): void {
         this.pushEvent(events.PAGE_ACTIVITY_SUMMARY, {
             customContext: context,
         });
     }
 
-    /**
-     * Publish Page View event
-     */
     pageView(context?: CustomContext): void {
         this.pushEvent(events.PAGE_VIEW, { customContext: context });
     }
 
-    /**
-     * Publish Place Order event
-     */
     placeOrder(context?: CustomContext): void {
         this.pushEvent(events.PLACE_ORDER, { customContext: context });
     }
 
-    /**
-     * Publish Product Page View event
-     */
     productPageView(context?: CustomContext): void {
         this.pushEvent(events.PRODUCT_PAGE_VIEW, { customContext: context });
     }
 
-    /**
-     * Publish Recommended Item Add to Cart Click event
-     */
     recsItemAddToCartClick(
         unitId: RecommendationUnit["unitId"],
         productId: RecommendedProduct["productId"],
@@ -91,9 +61,6 @@ export default class PublishManager extends Base {
         });
     }
 
-    /**
-     * Publish Recommended Item Click event
-     */
     recsItemClick(
         unitId: RecommendationUnit["unitId"],
         productId: RecommendedProduct["productId"],
@@ -106,25 +73,16 @@ export default class PublishManager extends Base {
         });
     }
 
-    /**
-     * Publish Recommendations API Request event
-     */
     recsRequestSent(context?: CustomContext): void {
         this.pushEvent(events.RECS_REQUEST_SENT, { customContext: context });
     }
 
-    /**
-     * Publish Recommendations Response Received event
-     */
     recsResponseReceived(context?: CustomContext): void {
         this.pushEvent(events.RECS_RESPONSE_RECEIVED, {
             customContext: context,
         });
     }
 
-    /**
-     * Publish Recommended Unit Render Event
-     */
     recsUnitRender(
         unitId: RecommendationUnit["unitId"],
         context?: CustomContext,
@@ -135,9 +93,6 @@ export default class PublishManager extends Base {
         });
     }
 
-    /**
-     * Publish Recommended Unit View event
-     */
     recsUnitView(
         unitId: RecommendationUnit["unitId"],
         context?: CustomContext,
@@ -148,23 +103,14 @@ export default class PublishManager extends Base {
         });
     }
 
-    /**
-     * Publish Referrer Url event
-     */
     referrerUrl(context?: CustomContext): void {
         this.pushEvent(events.REFERRER_URL, { customContext: context });
     }
 
-    /**
-     * Publish Remove from Cart event
-     */
     removeFromCart(context?: CustomContext): void {
         this.pushEvent(events.REMOVE_FROM_CART, { customContext: context });
     }
 
-    /**
-     * Publish Search Category Click event
-     */
     searchCategoryClick(
         searchUnitId: SearchResultUnit["searchUnitId"],
         name: SearchResultCategory["name"],
@@ -177,9 +123,6 @@ export default class PublishManager extends Base {
         });
     }
 
-    /**
-     * Publish Search Product Click event
-     */
     searchProductClick(
         searchUnitId: SearchResultUnit["searchUnitId"],
         sku: SearchResultProduct["sku"],
@@ -192,9 +135,6 @@ export default class PublishManager extends Base {
         });
     }
 
-    /**
-     * Publish Search Request Sent event
-     */
     searchRequestSent(
         searchUnitId: SearchResultUnit["searchUnitId"],
         context?: CustomContext,
@@ -205,9 +145,6 @@ export default class PublishManager extends Base {
         });
     }
 
-    /**
-     * Publish Search Response Received event
-     */
     searchResponseReceived(
         searchUnitId: SearchResultUnit["searchUnitId"],
         context?: CustomContext,
@@ -218,9 +155,6 @@ export default class PublishManager extends Base {
         });
     }
 
-    /**
-     * Publish Search Results View event
-     */
     searchResultsView(
         searchUnitId: SearchResultUnit["searchUnitId"],
         context?: CustomContext,
@@ -231,9 +165,6 @@ export default class PublishManager extends Base {
         });
     }
 
-    /**
-     * Publish Search Suggestion Click event
-     */
     searchSuggestionClick(
         searchUnitId: SearchResultUnit["searchUnitId"],
         suggestion: SearchResultSuggestion["suggestion"],
@@ -246,30 +177,18 @@ export default class PublishManager extends Base {
         });
     }
 
-    /**
-     * Publish Shopping Cart View event
-     */
     shoppingCartView(context?: CustomContext): void {
         this.pushEvent(events.SHOPPING_CART_VIEW, { customContext: context });
     }
 
-    /**
-     * Publish Sign In event
-     */
     signIn(context?: CustomContext): void {
         this.pushEvent(events.SIGN_IN, { customContext: context });
     }
 
-    /**
-     * Publish Sign Out event
-     */
     signOut(context?: CustomContext): void {
         this.pushEvent(events.SIGN_OUT, { customContext: context });
     }
 
-    /**
-     * Publish Cart Update events
-     */
     updateCart(context?: CustomContext): void {
         this.pushEvent(events.UPDATE_CART, { customContext: context });
     }
