@@ -1,7 +1,8 @@
+// Magento store specific info
 export type StorefrontInstance = {
     environmentId: string;
     instanceId?: string;
-    environment: string;
+    environment: string; // "prod" or "non-prod"
     storeUrl: string;
     websiteId: number;
     websiteCode?: string;

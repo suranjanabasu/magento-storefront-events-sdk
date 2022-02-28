@@ -3,8 +3,8 @@ export type SearchInput = {
 };
 
 export type SearchInputUnit = {
-    searchUnitId: string;
-    searchRequestId: string;
+    searchUnitId: string; // "productPage" or "searchPopover"
+    searchRequestId: string; // uuid
     queryTypes: Array<"products" | "suggestions" | "categories">;
     phrase: string;
     pageSize: number;

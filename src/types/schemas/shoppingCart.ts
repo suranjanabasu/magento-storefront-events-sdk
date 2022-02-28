@@ -11,6 +11,7 @@ export type ShoppingCart = {
     possibleOnepageCheckout?: boolean;
     giftMessageSelected?: boolean;
     giftWrappingSelected?: boolean;
+    source?: string; // ui component or page that the customer used to add a product to cart
 };
 
 type Price = {
