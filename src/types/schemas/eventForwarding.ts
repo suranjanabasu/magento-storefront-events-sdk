@@ -1,4 +1,4 @@
 export type EventForwarding = {
-    snowplow?: boolean;
+    commerce?: boolean;
     aep?: boolean;
 };

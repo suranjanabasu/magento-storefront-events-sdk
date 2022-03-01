@@ -140,7 +140,7 @@ Sets the `CustomUrl` context.
 mse.context.setEventForwarding(eventForwardingCtx);
 ```
 
-Sets the `EventForwarding` context. Tells a handler if it should forward events to Adobe Commerce DataSolutions (`snowplow: true`), Adobe Experience Platform (`aep: true`), or both.
+Sets the `EventForwarding` context. Tells a handler if it should forward events to Adobe Commerce DataSolutions (`commerce: true`), Adobe Experience Platform (`aep: true`), or both.
 
 -   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/eventForwarding.ts)
 -   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L47)

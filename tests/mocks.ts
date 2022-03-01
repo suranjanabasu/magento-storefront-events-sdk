@@ -55,7 +55,7 @@ export const generateEventForwardingContext = (
     overrides?: Partial<EventForwarding>,
 ): EventForwarding => ({
     aep: false,
-    snowplow: true,
+    commerce: true,
     ...overrides,
 });
 
