@@ -8,6 +8,7 @@ export type Order = {
     paymentMethodName: string; // deprecated - use payments instead
     payments?: Payment[];
     salesTax: number;
+    shipping?: Shipping;
     subtotalExcludingTax: number;
     subtotalIncludingTax: number;
 };
@@ -15,4 +16,9 @@ export type Order = {
 export type Payment = {
     paymentMethodCode: string;
     paymentMethodName: string;
+};
+
+export type Shipping = {
+    shippingMethod?: string;
+    shippingAmount?: string;
 };
