@@ -1,4 +1,4 @@
-// Magento store specific info
+// php store specific info
 export type StorefrontInstance = {
     environmentId: string;
     instanceId?: string;
