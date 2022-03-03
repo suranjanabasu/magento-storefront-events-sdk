@@ -2,6 +2,7 @@ import { CustomUrl } from "../src/types/schemas/customUrl";
 import {
     AEP,
     Category,
+    Debug,
     EventForwarding,
     MagentoExtension,
     Order,
@@ -26,6 +27,11 @@ export const generateAccountContext = (
 ): Account => ({
     firstName: "firstName",
     lastName: "lastName",
+    ...overrides,
+});
+
+export const generateDebugContext = (overrides?: Partial<Debug>): Debug => ({
+    eventId: "abcdefg12345",
     ...overrides,
 });
 

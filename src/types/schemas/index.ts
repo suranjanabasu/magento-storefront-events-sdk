@@ -3,6 +3,7 @@ export * from "./aep";
 export * from "./address";
 export * from "./category";
 export * from "./customUrl";
+export * from "./debug";
 export * from "./eventForwarding";
 export * from "./magentoExtension";
 export * from "./dataServicesExtension";

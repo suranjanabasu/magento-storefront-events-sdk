@@ -5,6 +5,7 @@ import {
     AEP,
     Category,
     CustomUrl,
+    Debug,
     EventForwarding,
     MagentoExtension,
     Order,
@@ -45,6 +46,14 @@ export default class ContextManager extends Base {
 
     setCategory(context: Category): void {
         this.setContext<Category>(contexts.CATEGORY_CONTEXT, context);
+    }
+
+    getDebug(): Debug {
+        return this.getContext<Debug>(contexts.DEBUG_CONTEXT);
+    }
+
+    setDebug(context: Debug): void {
+        this.setContext<Debug>(contexts.DEBUG_CONTEXT, context);
     }
 
     getEventForwarding(): EventForwarding {

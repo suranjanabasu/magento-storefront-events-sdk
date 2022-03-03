@@ -5,6 +5,7 @@ import {
     generateCategoryContext,
     generateCustomContext,
     generateCustomUrlContext,
+    generateDebugContext,
     generateEventForwardingContext,
     generateMagentoExtensionContext,
     generateOrderContext,
@@ -62,6 +63,13 @@ describe("contexts", () => {
         expect(mdl.context.getCustomUrl()).toBeUndefined();
         mdl.context.setCustomUrl(context);
         expect(mdl.context.getCustomUrl()).toEqual(context);
+    });
+
+    test("debug context", () => {
+        const context = generateDebugContext();
+        expect(mdl.context.getDebug()).toBeUndefined();
+        mdl.context.setDebug(context);
+        expect(mdl.context.getDebug()).toEqual(context);
     });
 
     test("event forwarding context", () => {

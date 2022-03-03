@@ -5,6 +5,7 @@ import {
     Category,
     CustomUrl,
     DataServicesExtension,
+    Debug,
     EventForwarding,
     MagentoExtension,
     Order,
@@ -26,6 +27,7 @@ export type ContextName =
     | typeof contexts.CATEGORY_CONTEXT
     | typeof contexts.CUSTOM_URL_CONTEXT
     | typeof contexts.DATA_SERVICES_EXTENSION_CONTEXT
+    | typeof contexts.DEBUG_CONTEXT
     | typeof contexts.EVENT_FORWARDING_CONTEXT
     | typeof contexts.MAGENTO_EXTENSION_CONTEXT
     | typeof contexts.ORDER_CONTEXT
@@ -47,6 +49,7 @@ export type Context = {
     [contexts.CATEGORY_CONTEXT]: Category;
     [contexts.CUSTOM_URL_CONTEXT]: CustomUrl;
     [contexts.DATA_SERVICES_EXTENSION_CONTEXT]?: DataServicesExtension;
+    [contexts.DEBUG_CONTEXT]?: Debug;
     [contexts.EVENT_FORWARDING_CONTEXT]?: EventForwarding;
     [contexts.MAGENTO_EXTENSION_CONTEXT]: MagentoExtension;
     [contexts.ORDER_CONTEXT]: Order;
