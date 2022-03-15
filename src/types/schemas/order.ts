@@ -4,8 +4,10 @@ export type Order = {
     grandTotal: number;
     orderId: number;
     otherTax: number;
-    paymentMethodCode: string; // deprecated - use payments instead
-    paymentMethodName: string; // deprecated - use payments instead
+    /** @deprecated - use payments instead */
+    paymentMethodCode: string;
+    /** @deprecated - use payments instead */
+    paymentMethodName: string;
     payments?: Payment[];
     salesTax: number;
     shipping?: Shipping;
