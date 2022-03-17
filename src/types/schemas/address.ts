@@ -1,6 +1,6 @@
 export type Address = {
-    postalCode: string;
-    countryCode: string;
+    postalCode?: string;
+    country?: string;
     region?: string;
     firstName?: string;
     lastName?: string;

@@ -22,5 +22,5 @@ export type Payment = {
 
 export type Shipping = {
     shippingMethod?: string;
-    shippingAmount?: string;
+    shippingAmount?: number;
 };

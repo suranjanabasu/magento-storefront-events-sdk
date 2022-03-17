@@ -10,7 +10,9 @@ export type Account = {
     shippingAddress?: Address;
     emailAddress?: string;
     phoneNumber?: string;
+    countryCode?: string; // phone number country code
+    accountId?: string;
+    accountType?: string;
     company?: string;
-    userType?: string;
     customerGroup?: string;
 };
