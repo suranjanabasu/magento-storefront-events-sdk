@@ -15,8 +15,8 @@ export type Product = {
     productType?: string | null;
     pricing?: {
         regularPrice: number;
-        minimalPrice: number;
-        maximalPrice: number;
+        minimalPrice?: number;
+        maximalPrice?: number;
         specialPrice?: number;
         tierPricing?: {
             customerGroupId?: number | null;
