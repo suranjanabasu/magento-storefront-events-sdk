@@ -18,6 +18,7 @@ export type Order = {
 export type Payment = {
     paymentMethodCode: string;
     paymentMethodName: string;
+    total: number;
 };
 
 export type Shipping = {
