@@ -36,7 +36,7 @@ To install the script as a dependency, run this command.
 npm install @adobe/magento-storefront-events-sdk
 ```
 
-## Quick Start
+## Quick start
 
 Once imported, you have access to the four main functions of the Events SDK.
 
@@ -85,9 +85,15 @@ mse.publish.addToCart();
 mse.unsubscribe.addToCart(addToCartHandler);
 ```
 
-## API Reference
+## Schemas and supported events
 
-The SDK API is broken down into four major parts: [Context][context], [Publish][publish], [Subscribe][subscribe], [Unsubscribe][unsubscribe].
+The below methods allow you to set specific contexts based on the SDK schema and to publish a set of events supported by this API.
+
+Addiontally, you can publish custom events or add a custom context to a supported event.
+
+## API reference
+
+The SDK is broken down into four major parts: [Context][context], [Publish][publish], [Subscribe][subscribe], [Unsubscribe][unsubscribe].
 
 ### Context
 
@@ -99,7 +105,7 @@ These setters can be used to specify context in the `mse`:
 mse.context.setAEP(aepCtx);
 ```
 
-Sets the `AEP` which can be used by event handlers to forward events to the Adobe Experience Platform. A client must have an AEP subscription and provide a valid [IMS Org Id and Datastream Id](https://experienceleague.adobe.com/docs/experience-platform/edge/fundamentals/datastreams.html?lang=en).
+Sets the `AEP` context which can be used by event handlers to forward events to the Adobe Experience Platform. A client must have an AEP subscription and provide a valid [IMS Org Id and Datastream Id](https://experienceleague.adobe.com/docs/experience-platform/edge/fundamentals/datastreams.html?lang=en).
 
 -   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/aep.ts)
 -   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L25)
@@ -336,17 +342,23 @@ mse.context.getShoppingCart();
 These functions publish events which notify all subscribers:
 
 ```javascript
-// requires shoppingCart ctx to be set
 mse.publish.addToCart();
 ```
 
 ```javascript
-// requires shoppingCart ctx to be set
 mse.publish.abandonCart();
 ```
 
 ```javascript
 mse.publish.createAccount(ctx);
+```
+
+```javascript
+// write a `commerce-custom` event to the adobeDataLayer
+// any object passed in will be set under `customContext` for this event
+mse.publish.custom({
+    /*...*/
+});
 ```
 
 ```javascript
@@ -362,7 +374,6 @@ mse.publish.initiateCheckout(ctx);
 ```
 
 ```javascript
-// requires shoppingCart ctx and productCtx to be set
 mse.publish.instantPurchase(ctx);
 ```
 
@@ -375,22 +386,18 @@ mse.publish.pageView(ctx);
 ```
 
 ```javascript
-// requires shoppingCart ctx and orderContext to be set
 mse.publish.placeOrder(ctx);
 ```
 
 ```javascript
-// requires shoppingCart ctx and productCtx to be set
 mse.publish.productPageView(ctx);
 ```
 
 ```javascript
-// requires recommendationsContext to be set
 mse.publish.recsItemAddToCartClick(unitId, productId, ctx);
 ```
 
 ```javascript
-// requires recommendationsContext to be set
 mse.publish.recsItemClick(unitId, productId, ctx);
 ```
 
@@ -475,6 +482,7 @@ These functions subscribe to events:
 mse.subscribe.addToCart(handler, options);
 mse.subscribe.abandonCart(handler, options);
 mse.subscribe.createAccount(handler, options);
+mse.subscribe.custom(handler, options);
 mse.subscribe.customUrl(handler, options);
 mse.subscribe.editAccount(handler, options);
 mse.subscribe.dataLayerChange(handler, options);
@@ -513,6 +521,7 @@ These functions unsubscribe from events:
 mse.unsubscribe.addToCart(handler);
 mse.unsubscribe.abandonCart(handler);
 mse.unsubscribe.createAccount(handler);
+mse.unsubscribe.custom(handler);
 mse.unsubscribe.customUrl(handler);
 mse.unsubscribe.editAccount(handler);
 mse.unsubscribe.dataLayerChange(handler);
@@ -567,4 +576,3 @@ If you have any questions or encounter any issues, please reach out on [GitHub][
 [subscribe]: #subscribe
 [unsubscribe]: #unsubscribe
 [issues]: https://github.com/adobe/magento-storefront-events-sdk/issues
-[zendesk]: https://account.magento.com/zendesk/login

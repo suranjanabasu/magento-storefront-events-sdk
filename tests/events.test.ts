@@ -71,6 +71,23 @@ describe("events", () => {
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
+    test("custom", async () => {
+        const eventHandler = jest.fn(eventObj => {
+            expect(eventObj).toEqual({
+                event: events.CUSTOM,
+                eventInfo: expect.any(Object),
+            });
+        });
+
+        mdl.subscribe.custom(eventHandler);
+        expect(eventHandler).not.toHaveBeenCalled();
+        mdl.publish.custom();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+        mdl.unsubscribe.custom(eventHandler);
+        mdl.publish.custom();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+    });
+
     test("custom url", async () => {
         const eventHandler = jest.fn(eventObj => {
             expect(eventObj).toEqual({

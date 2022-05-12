@@ -15,6 +15,10 @@ export default class SubscribeManager extends Base {
         this.addEventListener(events.CREATE_ACCOUNT, handler, options);
     }
 
+    custom(handler: EventHandler, options?: ListenerOptions): void {
+        this.addEventListener(events.CUSTOM, handler, options);
+    }
+
     customUrl(handler: EventHandler, options?: ListenerOptions): void {
         this.addEventListener(events.CUSTOM_URL, handler, options);
     }

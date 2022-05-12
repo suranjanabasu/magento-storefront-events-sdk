@@ -15,6 +15,10 @@ export default class UnsubscribeManager extends Base {
         this.removeEventListener(events.CREATE_ACCOUNT, handler);
     }
 
+    custom(handler: EventHandler): void {
+        this.removeEventListener(events.CUSTOM, handler);
+    }
+
     customUrl(handler: EventHandler): void {
         this.removeEventListener(events.CUSTOM_URL, handler);
     }
