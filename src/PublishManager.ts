@@ -35,10 +35,6 @@ export default class PublishManager extends Base {
         this.pushEvent(events.INITIATE_CHECKOUT, { customContext: context });
     }
 
-    instantPurchase(context?: CustomContext): void {
-        this.pushEvent(events.INSTANT_PURCHASE, { customContext: context });
-    }
-
     pageActivitySummary(context?: CustomContext): void {
         this.pushEvent(events.PAGE_ACTIVITY_SUMMARY, {
             customContext: context,

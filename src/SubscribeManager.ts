@@ -35,10 +35,6 @@ export default class SubscribeManager extends Base {
         this.addEventListener(events.INITIATE_CHECKOUT, handler, options);
     }
 
-    instantPurchase(handler: EventHandler, options?: ListenerOptions): void {
-        this.addEventListener(events.INSTANT_PURCHASE, handler, options);
-    }
-
     pageActivitySummary(
         handler: EventHandler,
         options?: ListenerOptions,

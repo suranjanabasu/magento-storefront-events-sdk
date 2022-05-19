@@ -3,6 +3,7 @@ export type Order = {
     email: string;
     grandTotal: number;
     orderId: number;
+    orderType?: "checkout" | "instant_purchase";
     otherTax: number;
     /** @deprecated - use payments instead */
     paymentMethodCode: string;

@@ -35,10 +35,6 @@ export default class UnsubscribeManager extends Base {
         this.removeEventListener(events.INITIATE_CHECKOUT, handler);
     }
 
-    instantPurchase(handler: EventHandler): void {
-        this.removeEventListener(events.INSTANT_PURCHASE, handler);
-    }
-
     pageActivitySummary(handler: EventHandler): void {
         this.removeEventListener(events.PAGE_ACTIVITY_SUMMARY, handler);
     }
