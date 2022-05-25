@@ -362,11 +362,6 @@ mse.publish.initiateCheckout(ctx);
 ```
 
 ```javascript
-// requires shoppingCart ctx and productCtx to be set
-mse.publish.instantPurchase(ctx);
-```
-
-```javascript
 mse.publish.pageActivitySummary(ctx);
 ```
 
@@ -480,7 +475,6 @@ mse.subscribe.editAccount(handler, options);
 mse.subscribe.dataLayerChange(handler, options);
 mse.subscribe.dataLayerEvent(handler, options);
 mse.subscribe.initiateCheckout(handler, options);
-mse.subscribe.instantPurchase(handler, options);
 mse.subscribe.pageActivitySummary(handler, options);
 mse.subscribe.pageView(handler, options);
 mse.subscribe.placeOrder(handler, options);
@@ -518,7 +512,6 @@ mse.unsubscribe.editAccount(handler);
 mse.unsubscribe.dataLayerChange(handler);
 mse.unsubscribe.dataLayerEvent(handler);
 mse.unsubscribe.initiateCheckout(handler);
-mse.unsubscribe.instantPurchase(handler);
 mse.unsubscribe.pageActivitySummary(handler);
 mse.unsubscribe.pageView(handler);
 mse.unsubscribe.placeOrder(handler);

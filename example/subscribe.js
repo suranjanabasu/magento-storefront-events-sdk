@@ -5,7 +5,6 @@ mse.subscribe.addToCart(args => console.log(args));
 mse.subscribe.abandonCart(args => console.log(args));
 mse.subscribe.customUrl(args => console.log(args));
 mse.subscribe.initiateCheckout(args => console.log(args));
-mse.subscribe.instantPurchase(args => console.log(args));
 mse.subscribe.pageActivitySummary(args => console.log(args));
 mse.subscribe.pageView(args => console.log(args));
 mse.subscribe.placeOrder(args => console.log(args));
